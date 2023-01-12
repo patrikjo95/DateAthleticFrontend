@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="../CSS/form.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../javaScript/form.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>GÅ MED</h1>
+<p>Det går snabbt och enkelt</p>
+
+    <input type="text" placeholder="ANVÄNDARNAMN"><input>
+    <input type="email" placeholder="EMAIL"><input>
+<br>
+    <input type="password" placeholder="LÖSENORD"><input>
+    <input type="password" placeholder="BEKRÄFTA LÖSENORD"><input>
+<br>
+    <input type="text" placeholder="STAD"><input>
+    <input type="text" placeholder="ADRESS"><input>
+<br>
+    <form class = "container">
+        <label > FÖDELSEDATUM : <span>*</span></label>
+        <SELECT id ="år" name = "yyyy" onchange="change_year(this)"></SELECT>
+        <SELECT  id ="månad" name = "mm" onchange="change_month(this)"></SELECT>
+        <SELECT id ="dag" name = "dd" ></SELECT>
+    </form>
+
+
+
+</body>
+</html>
