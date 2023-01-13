@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 
         let thisIdPlusCheck = thisID + "check";
-        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5,5" className="slider">'
+        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" className="slider">'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
