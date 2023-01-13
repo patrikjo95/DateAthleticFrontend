@@ -1,7 +1,7 @@
-const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];// index => month [0-11]
+const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
+const printArray = [];
 
-console.log("Hej")
 $(document).ready(function(){
     let i;
     let option = '<option value="dag">dag</option>';
@@ -86,3 +86,63 @@ function change_month(select) {
     }
     $(dag).val(val);
 }
+
+$(document).ready(function() {
+    $('input[type="radio"]').click(function() {
+        if($(this).attr('id') == 'anpassat') {
+            $('#pronomen').show();
+        }
+        else {
+            $('#pronomen').hide();
+        }
+    });
+});
+
+    function printCheckedSport(thisID) {
+
+        let checkBox = document.getElementById(thisID);
+
+        thisID = thisID.charAt(0).toUpperCase() + thisID.slice(1);
+
+
+
+        let thisIdPlusCheck = thisID + "check";
+        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5,5" className="slider">'
+        let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
+
+        if (checkBox.checked === true) {
+
+
+            printArray.push(removeAndCompressArray)
+
+            let arrayRes;
+            for (let i = 0; i < printArray.length; i++) {
+                if (printArray[i].length >= 1) {
+                    if (arrayRes === undefined) {
+                        arrayRes = printArray[i];
+                    } else
+                        arrayRes += printArray[i];
+                } else {
+                    break;
+                }
+            }
+
+            document.getElementById("slidecontainer").innerHTML = arrayRes;
+
+        } else {
+            document.getElementById(thisIdPlusCheck).remove();
+
+            let int = printArray.indexOf(removeAndCompressArray, 0)
+
+            printArray.splice(int,1)
+
+
+
+
+        }
+
+    }
+
+
+
+
