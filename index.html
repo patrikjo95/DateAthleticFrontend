@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/startsida.css">
-    
+    <script src="src/javaScript/form.js"></script>
+
 
     <title>Date | Athletic</title>
 </head>
@@ -20,8 +21,15 @@
             <div class="showcase-content">
                     <h1 class="page-title">Hitta en träningspartner</h1>
                 <p class="page-p">På Date Athletic kan du hitta en träningspartner nära dig!</p>
-              <a href="src/html/form.html"><button class="skapaKonto">Bli Medlem</button></a>
+              <button onclick="toggleLoginButton()" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
             </div>
+        </div>
+        <div id="modal-body"  style="visibility:hidden;">
+            <div id="close-container" >
+                <div class="leftright"></div>
+                <div class="rightleft"></div>
+                <label class="close">close</label>
+            </div><iframe src="src/html/form.html"></iframe>
         </div>
     </div>
 
