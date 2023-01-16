@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="../CSS/form.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../javaScript/form.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>BLI MEDLEM</h1>
+<p>Det går snabbt och enkelt</p>
+
+    <input type="text" placeholder="Förnamn" required>
+    <input type="email" placeholder="Efternamn">
+<br>
+    <input type="text" placeholder="Användarnamn">
+    <input type="email" placeholder="Email">
+<br>
+    <input type="password" placeholder="Lösenord">
+    <input type="password" placeholder="Bekräfta lösenord">
+<br>
+    <input type="text" placeholder="Stad">
+<br>
+<br>
+    <form class = "container">
+        <label > FÖDELSEDATUM : <span>*</span></label>
+        <SELECT id ="år" name = "yyyy" onchange="change_year(this)"></SELECT>
+        <SELECT  id ="månad" name = "mm" onchange="change_month(this)"></SELECT>
+        <SELECT id ="dag" name = "dd" ></SELECT>
+    </form>
+
+
+<div>
+    <p>Skriv en beskrivning av dig själv</p>
+    <p><small>Här kan du berätta lite mer om dina intressen och om dig själv som person</small></p>
+    <textarea id="textArea">
+    </textarea>
+</div>
+
+</body>
+</html>
