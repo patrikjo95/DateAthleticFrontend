@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 
         let thisIdPlusCheck = thisID + "check";
-        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5,5" className="slider">'
+        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" className="slider">'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
@@ -134,15 +134,30 @@ $(document).ready(function() {
 
             let int = printArray.indexOf(removeAndCompressArray, 0)
 
-            printArray.splice(int,1)
-
-
-
-
+            printArray.splice(int, 1)
         }
-
     }
 
+function toggleLoginButton() {
+    document.getElementById('modal-body').style.visibility = 'visible';
+}
+
+function nextStep(n) {
+
+        if(n===1){
+            document.getElementById('stegTvå').style.visibility = 'visible';
+            document.getElementById('stegEtt').style.visibility = 'hidden';
+        }
+        if(n===2){
+            document.getElementById('stegTre').style.visibility = 'visible';
+            document.getElementById('stegTvå').style.visibility = 'hidden';
+        }
+
+}
+
+function close() {
+    document.getElementById('modal-body').style.visibility = 'hidden';
+}
 
 
-
+document.getElementById('close-container').addEventListener('click', close);

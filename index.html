@@ -5,30 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/startsida.css">
-    
-
+    <script src="src/javaScript/form.js"></script>
     <title>Date | Athletic</title>
 </head>
 <body>
+<!--Hej hej-->
 <header>
-    
-   
+
+
     <div id="showcase">
         <div class="logo">Date<span class="text"><span class="tecken">|</span>
              Athletic</span></div>
-        <div class="container">
-            <div class="showcase-content">
-                    <h1 class="page-title">Hitta en träningspartner</h1>
-                <p class="page-p">På Date Athletic kan du hitta en träningspartner nära dig!</p>
-              <a href="src/html/form.html"><button class="skapaKonto">Bli Medlem</button></a>
-            </div>
+
+        <div class="showcase-content">
+            <h1 class="page-title">Hitta en träningspartner</h1>
+            <p class="page-p">På Date Athletic kan du hitta en träningspartner nära dig!</p>
+            <button onclick="toggleLoginButton()" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
+        </div>
+        <div id="modal-body"  style="visibility:hidden;">
+            <div id="close-container" >
+                <div class="leftright"></div>
+                <div class="rightleft"></div>
+                <label class="close">close</label>
+            </div><iframe src="src/html/form.html"></iframe>
         </div>
     </div>
 
 
- <input type="checkbox" id="menu-toggle">
+
+
+    <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
-   
+
     <div class="slideOutMenu">
         <ul>
             <li>Startsida</li>
@@ -36,44 +44,255 @@
             <li>Om oss</li>
         </ul>
     </div>
- <div>
-    <a href="#"><button class="login">Logga In</button></a>
+    <div>
+        <a href="#"><button class="login">Logga In</button></a>
     </div>
 </header>
 
-<section class="what">
-    <div class="section-container">
-        <h2 class="m-heading"></h2>
+<section id="what" class="bg-light py-1">
 
+    <div class="container1">
+        <h2 class="m-heading text-center">Varför<span class="text-primary"> just</span> Date Athletic</h2>
         <div class="items">
-        <div class="item"></div>
-        <div class="item"></div>
+            <div class="item">
+                <i class="fa-solid fa-user-shield fa-2x"></i>
+                <h3>rubrik</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quidem iure explicabo aspernatur expedita eveniet fuga totam similique eius cumque.</p>
+            </div>
+            <div class="item">
+                <i class="fa-solid fa-user-shield fa-2x"></i>
+                <h3>rubrik</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus natus commodi laborum quam nulla, nisi omnis excepturi dolor tenetur laudantium!</p>
+            </div>
+            <div class="item">
+                <i class="fa-solid fa-dumbbell fa-2x"></i>
+                <h3>rubrik</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptate praesentium soluta architecto neque iure pariatur officia dolores, exercitationem explicabo.</p>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- edwin-->
+    <!-- hej -->
+
+
+
+
+
+</section>
+
+
+
+<section id="cards">
+    <h2 class="m-heading">Våra medlemmar berättar</h2>
+    <div class="card">
+        <div class="card-image"></div>
+        <div class="card-text">
+            <span class="date">Medlem</span>
+            <h2>Patrik Johansson</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="card-stats">
+
+            <div class="stat">
+                <div class="value"><i class="fa-solid fa-football"></i></div>
+            </div>
+
+
+            <div class="stat border">
+                <div class="value"><i class="fa-solid fa-person-swimming"></i></div>
+            </div>
+
+
+            <div class="stat">
+                <div class="value"><i class="fa-sharp fa-solid fa-bicycle"></i></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-image1"></div>
+        <div class="card-text">
+            <span class="date">Medlem</span>
+            <h2>Edwin Chaiderson</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="card-stats">
+
+            <div class="stat">
+                <div class="value"><i class="fa-solid fa-football"></i></div>
+            </div>
+
+
+            <div class="stat border">
+                <div class="value"><i class="fa-solid fa-person-swimming"></i></div>
+            </div>
+
+
+            <div class="stat">
+                <div class="value"><i class="fa-sharp fa-solid fa-bicycle"></i></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="card">
+        <div class="card-image2"></div>
+        <div class="card-text">
+            <span class="date">Medlem</span>
+            <h2>Killian Walsh</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="card-stats">
+
+            <div class="stat">
+                <div class="value"><i class="fa-solid fa-football"></i></div>
+            </div>
+
+
+            <div class="stat border">
+                <div class="value"><i class="fa-solid fa-person-swimming"></i></div>
+            </div>
+
+
+            <div class="stat">
+                <div class="value"><i class="fa-sharp fa-solid fa-bicycle"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image3"></div>
+        <div class="card-text">
+            <span class="date">Medlem</span>
+            <h2>Erkan Cicek</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="card-stats">
+
+            <div class="stat">
+                <div class="value"><i class="fa-solid fa-football"></i></div>
+            </div>
+
+
+            <div class="stat border">
+                <div class="value"><i class="fa-solid fa-person-swimming"></i></div>
+            </div>
+
+
+            <div class="stat">
+                <div class="value"><i class="fa-sharp fa-solid fa-bicycle"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="images">
+    <h2 class="knapp">Människor nära dig!</h2>
+    <p>Maximera Date Athletic upplevelsen!<br> Vi visar dig andra medlemmar nära dig.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, libero!
+    </p>
+    <div class="container2">
+        <div class="icon">
+            <div class="images active" style="--i:1">
+                <img src="./img/person1.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:2">
+                <img src="./img/person11.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:3">
+                <img src="./img/person12.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:4">
+                <img src="./img/person10.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:5">
+                <img src="./img/person1.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:6">
+                <img src="./img/person5.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:7">
+                <img src="./img/person6.jpg" alt="">
+            </div>
+
+            <div class="images" style="--i:8">
+                <img src="./img/person8.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="animation">
+            <div class="icon-inside"><i class="fa-solid fa-magnifying-glass-location fa-8x"></i></div>
+        </div>
+
+
+
+    </div>
 </section>
 
 
 
 
 
-    <footer>
-        <div class="footer-content">
-            <h3>Date | Athletic</h3>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-            <ul class="socials">
 
-                <li><a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a></li> 
-                <li><a href="#" class="social"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#" class="social"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#" class="social"><i class="fa-brands fa-google"></i></a></li>
-            </ul>
-        </div>
-        <div class="footer-bottom">
-            <p> copyright &copy;2023 Vilhelm Moberg</p>
-        </div>
-    </footer>
-  
 
-    <script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer-content">
+        <h3>Date | Athletic</h3>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <ul class="socials">
+
+            <li><a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="#" class="social"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#" class="social"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#" class="social"><i class="fa-brands fa-google"></i></a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p> copyright &copy;2023 Vilhelm Moberg</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
