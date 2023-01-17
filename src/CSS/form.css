@@ -8,11 +8,13 @@ SELECT{
 *{
     align-items: center;
     text-align: center;
-    background: white;
+    background-color: white;
+
 }
 
 #textArea{
     text-align: left;
+    
 }
 
 button{
