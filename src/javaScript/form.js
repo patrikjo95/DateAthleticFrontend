@@ -30,6 +30,13 @@ $(document).ready(function(){
     }
     $('#år').append(option);
     $('#år').val(selectedYear);
+
+    $("form").submit(function(){
+        if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
+            alert("Please select at least one sport.");
+            return false;
+        }
+    });
 });
 function isLeapYear(år) {
     år = parseInt(år);
@@ -196,7 +203,4 @@ function validateForm(event) {
         alert("Lösenorden matchar ej!");
         return false;
     }
-
 }
-
-
