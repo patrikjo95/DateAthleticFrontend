@@ -63,12 +63,13 @@
     </form>
 </div>
 
-
+<form id="formTvå">
 <div id="stegTvå">
     <div id="sporter">
         <p>Vilka sporter är du intresserad av?</p>
         <p><small>Du kan välja hut många sporter du vill</small></p>
         <br>
+        <fieldset id ="sportCheckboxes">
         <input type="checkbox" id="gym" class="sport" onchange="printCheckedSport(this.id)">
         <label for="gym">Gym</label>
         <input type="checkbox" id="crossfit" class="sport" onchange="printCheckedSport(this.id)">
@@ -113,6 +114,7 @@
         <label for="fiske">Fiske</label>
         <input type="checkbox" id="vandring" class="sport" onchange="printCheckedSport(this.id)">
         <label for="vandring">Vandring</label>
+        </fieldset>
     </div>
 <div id="slidecontainer"></div>
 <br>
@@ -124,8 +126,10 @@
         <input type="checkbox" id="valKvinnor">
         <label for="valKvinnor">Kvinnor</label>
     </div>
-    <button type="button" class="nextStep" onclick="nextStep(2)" >NÄSTA STEG</button>
+    <button type="submit" onclick=nextStep(2) class="nextStep" >NÄSTA STEG</button>
 </div>
+</form>
+
 <div id="stegTre" style="visibility:hidden" >
 <div>
     <p>Skriv en beskrivning av dig själv</p>
