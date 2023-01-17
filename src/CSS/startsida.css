@@ -6,8 +6,6 @@
 }
 
 
-
-
 .page-title{
  
     text-align: center;
@@ -88,6 +86,7 @@ ul{
         top:55;
         left: 22%;
         font-size: 14px;
+
 }
     button{
         border: none;
@@ -209,15 +208,6 @@ ul{
 
 
 
-
-
-
-
-
-
-
-
-
     #cards{
         width: 100vw;
         height: 100vh;
@@ -229,7 +219,7 @@ ul{
     }
     #cards  .m-heading{
         position: absolute;
-        top:1120px;
+        top:1050px;
 
         font-size: 2rem;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -237,8 +227,7 @@ ul{
       
         
     }
-  
-
+    
     .card{
         display: grid;
         margin: 25px;
