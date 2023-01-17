@@ -1,0 +1,99 @@
+
+.logo{
+    margin-left:10px;
+    font-size: 18px;
+}
+.login{
+    margin-right: -80px;
+    padding: 10px 10px;
+}
+.page-title{
+    margin:60px;
+    font-weight: 100;
+}
+.page-p{
+    margin:60px;
+   
+}
+
+.skapaKonto{
+    margin-right: 200px;
+}
+#cards .m-heading{
+    top: 1220px;
+
+}
+#what .items{
+    display: block;
+    padding: 1.5rem;
+}
+#what .items .item{
+    display: flex;
+   
+}
+#what .items .item i{
+    margin-right: 1.3rem;
+    align-self: center;
+    margin-bottom: 0;
+}
+#what .items .item p{
+    padding: 2rem;
+    margin-left: 60px;
+    position:absolute;
+   
+    
+}
+#cards .card{
+    display: grid;
+    grid-template-rows: 240px 180px 80px;
+    
+   
+}
+.container2{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+   
+    
+    margin-top: 70%;
+    margin-left: 27%;
+}
+.container2 .icon{
+    position: relative;
+    left:-50%;
+    width: 60%;
+    height: 60%;
+    display: flex;
+}
+.container2 .icon .images{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    margin-top: 60%;
+    margin-left: 50%;
+    transform: rotate(calc(360deg/5 * var(--i)));
+    transform-origin: 200px;  
+    z-index: 100;
+    overflow: hidden;
+}
+.container2 .icon .images img{
+    transform: rotate(calc(-360deg/5* var(--i)));
+
+    
+}
+.animation .icon-inside i{
+    margin-left: 0%;
+    padding: 135px;
+    font-size: 30px;
+
+  }
+#images .knapp{
+    display: flex;
+    position:absolute;
+    margin-top: 1750px;
+    margin-left: -200px;
+}
+#images p{
+    top:150px;
+    left:20%
+}

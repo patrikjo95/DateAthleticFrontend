@@ -11,59 +11,60 @@
 </head>
 <body>
 
-<div id="stegEtt">
+<div id="stegEtt" style="visibility: hidden">
 <h1>BLI MEDLEM</h1>
 <p>Det går snabbt och enkelt</p>
 
-    <input type="text" placeholder="Förnamn" required>
-    <input type="email" placeholder="Efternamn">
+    <form id="formEtt" onsubmit="validateForm(event)">
+    <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
+    <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
 <br>
-    <input type="text" placeholder="Användarnamn">
-    <input type="email" placeholder="Email">
+    <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
+    <input type="email" name="email" placeholder="Email" class="first" required>
 <br>
-    <input type="password" placeholder="Lösenord">
-    <input type="password" placeholder="Bekräfta lösenord">
+    <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required>
+    <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
 <br>
-    <input type="text" placeholder="Stad">
+    <input type="text" name="stad" placeholder="Stad" class="first" required>
 <br>
-<br>
-    <form class = "container">
-        <label > FÖDELSEDATUM : <span>*</span></label>
-        <SELECT id ="år" name = "yyyy" onchange="change_year(this)"></SELECT>
-        <SELECT  id ="månad" name = "mm" onchange="change_month(this)"></SELECT>
-        <SELECT id ="dag" name = "dd" ></SELECT>
-    </form>
 
+<br>
+
+        <label > FÖDELSEDATUM : <span></span></label>
+        <SELECT required="" type="number" id ="år" name = "yyyy"  onchange="change_year(this)" class="first"></SELECT>
+        <SELECT required="" type="number" id ="månad" name = "mm" onchange="change_month(this)" class="first"></SELECT>
+        <SELECT required="" type="number" id = "dag" name = "dd" class="first" ></SELECT>
 <br>
 
     <div id="identifiera">
     <p id="textIdentifiera">Hur vill du identifiera dig?</p>
-    <input type="radio" id="man" name="kön" value="MAN" class="kön">
+    <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
     <label for="man" class="textKön">Man</label>
-    <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön">
+    <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön" class="first">
     <label for="man" class="textKön">Kvinna</label>
-    <input type="radio" id="anpassat" name="kön" value="ANPASSAT" class="kön">
+    <input type="radio" id="anpassat" name="kön" value="ANPASSAT" class="kön" class="first">
     <label for="man" class="textKön">Anpassat</label>
         <br>
         <br>
     <div id="pronomen" hidden>
-        <SELECT name = "pronomen">
-            <option selected>Välj ditt pronomen i listan</option>
+        <SELECT name = "pronomen" class="first">
+            <option selected>Annat</option>
             <option>Hon: "Vill du träna med henne?"</option>
             <option>Han: "Vill du träna med honom?"</option>
             <option>Hen: "Vill du träna med hen?"</option>
             <option>Den/Det: "Vill du träna med den/det?"</option>
         </SELECT>
         <br>
-        <input type="text" placeholder="Kön (Valfritt)">
+        <input type="text" placeholder="Kön (Valfritt)" class="first">
     </div>
     </div>
     <br>
-    <button type="button" class="nextStep" onclick="nextStep(1)" >NÄSTA STEG</button>
+    <button type="submit" class="nextStep">NÄSTA STEG</button>
+    </form>
 </div>
 
 
-<div id="stegTvå" style="visibility: hidden">
+<div id="stegTvå">
     <div id="sporter">
         <p>Vilka sporter är du intresserad av?</p>
         <p><small>Du kan välja hut många sporter du vill</small></p>
@@ -125,7 +126,7 @@
     </div>
     <button type="button" class="nextStep" onclick="nextStep(2)" >NÄSTA STEG</button>
 </div>
-<div id="stegTre" style="visibility:hidden">
+<div id="stegTre" style="visibility:hidden" >
 <div>
     <p>Skriv en beskrivning av dig själv</p>
     <p><small>Här kan du berätta lite mer om dina intressen och om dig själv som person</small></p>
@@ -133,7 +134,9 @@
     </textarea>
 </div>
 <br>
-<button type="button">KLAR</button>
+<button id="klar" onclick="buttonHiVi(2)">KLAR</button>
+
+
 </div>
 
 </body>
