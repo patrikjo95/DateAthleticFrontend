@@ -1,18 +1,20 @@
 const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
-const printArray = [];
+const printArray = ['<div id="nivå">Betygsätt din nivå</div>'];
+
+
 
 $(document).ready(function(){
     let i;
-    let option = '<option value="dag">dag</option>';
+    let option = '<option selected value="dag">dag</option>';
     const selectedDay = "dag";
     for (i = 1; i <= Dagar[0]; i++){ //add option days
-        option += '<option value="'+ i + '">' + i + '</option>';
+        option += '<option selected value="'+ i + '">' + i + '</option>';
     }
     $('#dag').append(option);
     $('#dag').val(selectedDay);
 
-    option = '<option value="månad">månad</option>';
+    option = '<option selected value="månad">månad</option>';
     let selectedMon = "månad";
     for (i = 1; i <= 12; i++){
         option += '<option value="'+ i + '">' + i + '</option>';
@@ -21,7 +23,7 @@ $(document).ready(function(){
     $('#månad').val(selectedMon);
 
     let d = new Date();
-    option = '<option value="år">år</option>';
+    option = '<option selected value="år">år</option>';
     selectedYear ="år";
     for (i = 1930; i <= d.getFullYear(); i++){// years start i
         option += '<option value="'+ i + '">' + i + '</option>';
@@ -57,7 +59,7 @@ function change_year(select)
         const dag = $('#dag');
         let val = $(dag).val();
         $(dag).empty();
-        let option = '<option value="dag">dag</option>';
+        let option = '<option selected value="dag">dag</option>';
         for (let i=1; i <= Dagar[1]; i++){ //add option days
             option += '<option value="'+ i + '">' + i + '</option>';
         }
@@ -74,7 +76,7 @@ function change_month(select) {
     let dag = $('#dag');
     let val = $(dag).val();
     $(dag).empty();
-    let option = '<option value="dag">dag</option>';
+    let option = '<option selected="dag value="dag">dag</option>';
     let månad = parseInt( $(select).val() ) - 1;
     for (let i=1;i <= Dagar[ månad ];i++){ //add option days
         option += '<option value="'+ i + '">' + i + '</option>';
@@ -135,29 +137,66 @@ $(document).ready(function() {
             let int = printArray.indexOf(removeAndCompressArray, 0)
 
             printArray.splice(int, 1)
+
+            if (printArray.length <= 1){
+                document.getElementById("nivå").remove();
+            }
         }
     }
 
-function toggleLoginButton() {
-    document.getElementById('modal-body').style.visibility = 'visible';
+function buttonHiVi(n) {
+    console.log(n)
+        if (n===1){
+            document.getElementById('modal-body').style.visibility = 'visible';
+        }
+        else {
+           document.getElementById('modal-body').style.visibility= 'hidden';
+        }
 }
 
 function nextStep(n) {
-
-        if(n===1){
+        if (n === 1) {
             document.getElementById('stegTvå').style.visibility = 'visible';
             document.getElementById('stegEtt').style.visibility = 'hidden';
         }
-        if(n===2){
+        if (n === 2) {
             document.getElementById('stegTre').style.visibility = 'visible';
             document.getElementById('stegTvå').style.visibility = 'hidden';
         }
 
 }
 
-function close() {
-    document.getElementById('modal-body').style.visibility = 'hidden';
+function kontrolleraLösenord() {
+    let password1 = document.getElementById("lösenord1").value;
+    let password2 = document.getElementById("lösenord2").value;
+
+
+
+    if (password1 === password2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateForm(event) {
+        event.preventDefault();
+    let year = document.getElementById("år").value;
+    let month = document.getElementById("månad").value;
+    let day = document.getElementById("dag").value;
+    if(year === "år" || month === "månad" || day === "dag"){
+        alert("Please select a valid date");
+        return false;
+    }
+
+    if (kontrolleraLösenord() === true){
+        nextStep(1)
+    }
+    else{
+        alert("Lösenorden matchar ej!");
+        return false;
+    }
+
 }
 
 
-document.getElementById('close-container').addEventListener('click', close);
