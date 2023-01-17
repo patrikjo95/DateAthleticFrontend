@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/startsida.css">
-    <script src="src/javaScript/form.js"></script>
+    <link rel="stylesheet" href="../CSS/startsida.css">
+    <script src="../javaScript/form.js"></script>
     <title>Date | Athletic</title>
 </head>
 <body>
@@ -20,15 +20,15 @@
         <div class="showcase-content">
             <h1 class="page-title">Hitta en träningspartner</h1>
             <p class="page-p">På Date Athletic kan du hitta en träningspartner nära dig!</p>
-            <button onclick="toggleLoginButton()" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
+            <button onclick="buttonHiVi(1)" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
         </div>
-        <div id="modal-body"  style="visibility:hidden;">
-            <div id="close-container" >
-                <div class="leftright"></div>
-                <div class="rightleft"></div>
-                <label class="close">close</label>
-            </div><iframe src="src/html/form.html"></iframe>
-        </div>
+
+
+    </div>
+    <div id="modal-body" style="visibility: hidden;">
+        <button onclick="buttonHiVi(2)" id="close-button" >
+        </button>
+        <iframe src="form.html" ></iframe>
     </div>
 
 
@@ -45,6 +45,7 @@
         </ul>
     </div>
     <div>
+
         <a href="#"><button class="login">Logga In</button></a>
     </div>
 </header>
@@ -71,13 +72,6 @@
             </div>
         </div>
     </div>
-
-    <!-- edwin-->
-    <!-- hej -->
-
-
-
-
 
 </section>
 
@@ -198,35 +192,35 @@
     <div class="container2">
         <div class="icon">
             <div class="images active" style="--i:1">
-                <img src="./img/person1.jpg" alt="">
+                <img src="../../img/person1.jpg" alt="">
             </div>
 
             <div class="images" style="--i:2">
-                <img src="./img/person11.jpg" alt="">
+                <img src="../../img/person11.jpg" alt="">
             </div>
 
             <div class="images" style="--i:3">
-                <img src="./img/person12.jpg" alt="">
+                <img src="../../img/person12.jpg" alt="">
             </div>
 
             <div class="images" style="--i:4">
-                <img src="./img/person10.jpg" alt="">
+                <img src="../../img/person10.jpg" alt="">
             </div>
 
             <div class="images" style="--i:5">
-                <img src="./img/person1.jpg" alt="">
+                <img src="../../img/person1.jpg" alt="">
             </div>
 
             <div class="images" style="--i:6">
-                <img src="./img/person5.jpg" alt="">
+                <img src="../../img/person5.jpg" alt="">
             </div>
 
             <div class="images" style="--i:7">
-                <img src="./img/person6.jpg" alt="">
+                <img src="../../img/person6.jpg" alt="">
             </div>
 
             <div class="images" style="--i:8">
-                <img src="./img/person8.jpg" alt="">
+                <img src="../../img/person8.jpg" alt="">
             </div>
         </div>
 
