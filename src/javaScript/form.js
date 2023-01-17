@@ -1,6 +1,6 @@
 const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
-const printArray = [];
+const printArray = ['<div id="nivå">Betygsätt din nivå</div>'];
 
 
 
@@ -137,6 +137,10 @@ $(document).ready(function() {
             let int = printArray.indexOf(removeAndCompressArray, 0)
 
             printArray.splice(int, 1)
+
+            if (printArray.length <= 1){
+                document.getElementById("nivå").remove();
+            }
         }
     }
 
@@ -161,4 +165,38 @@ function nextStep(n) {
         }
 
 }
+
+function kontrolleraLösenord() {
+    let password1 = document.getElementById("lösenord1").value;
+    let password2 = document.getElementById("lösenord2").value;
+
+
+
+    if (password1 === password2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateForm(event) {
+        event.preventDefault();
+    let year = document.getElementById("år").value;
+    let month = document.getElementById("månad").value;
+    let day = document.getElementById("dag").value;
+    if(year === "år" || month === "månad" || day === "dag"){
+        alert("Please select a valid date");
+        return false;
+    }
+
+    if (kontrolleraLösenord() === true){
+        nextStep(1)
+    }
+    else{
+        alert("Lösenorden matchar ej!");
+        return false;
+    }
+
+}
+
 
