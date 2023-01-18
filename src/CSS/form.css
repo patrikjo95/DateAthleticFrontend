@@ -8,7 +8,8 @@ SELECT{
 *{
     align-items: center;
     text-align: center;
-    background-color: white;
+ 
+   
 
 }
 
@@ -61,25 +62,30 @@ button:hover::after{
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 #stegTvå{
     align-items: center;
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 #stegTre{
     align-items: center;
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .nextStep{
     position: relative;
-    bottom: 0;
-    height: 70px;
-    width: 200px;
+    bottom: -100px;
+    border: 3px;
     font-size: 20px;
 }
 
@@ -97,10 +103,39 @@ textarea{
     height: 300px;
 }
 
-.bir[type="text"]:invalid{
-    border: 2px solid red;
+
+fieldset {
+    border: 0;
 }
 
+.checkbox input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
+.checkbox {
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    accent-color: #d25f0d;
+}
 
+.checkbox input:checked {
+    accent-color: #d25f0d;
+}
+
+.back{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 20%;
+}
+
+input[type = "range"]{
+    margin-top: 15px;
+    accent-color: #d25f0d;
+}
 
