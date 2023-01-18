@@ -11,139 +11,155 @@
     <title>Title</title>
 </head>
 <body>
+<!--STEG ETT-->
+<div id="stegEtt" >
+    <h1>BLI MEDLEM</h1>
+    <p>Det går snabbt och enkelt</p>
+    <h2>Steg 1: Vem är du?</h2>
 
-<div id="stegEtt" style="visibility: hidden">
-<h1>BLI MEDLEM</h1>
-<p>Det går snabbt och enkelt</p>
-
-    <form id="formEtt" onsubmit="validateForm(event)">
-    <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
-    <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
-<br>
-    <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
-    <input type="email" name="email" placeholder="Email" class="first" required>
-<br>
-    <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required>
-    <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
-<br>
-    <input type="text" name="stad" placeholder="Stad" class="first" required>
-<br>
-
-<br>
-
+    <form id="formEtt" onsubmit="validateForm(event, 1)">
+        <div id="info">
+            <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
+            <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
+            <br>
+            <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
+            <input type="email" name="email" placeholder="Email" class="first" required>
+             <br>
+            <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required>
+            <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
+            <br>
+            <input type="text" name="stad" placeholder="Stad" class="first" required>
+            <br>
+        </div>
+    <br>
         <label > FÖDELSEDATUM : <span></span></label>
         <SELECT required="" type="number" id ="år" name = "yyyy"  onchange="change_year(this)" class="first"></SELECT>
         <SELECT required="" type="number" id ="månad" name = "mm" onchange="change_month(this)" class="first"></SELECT>
         <SELECT required="" type="number" id = "dag" name = "dd" class="first" ></SELECT>
-<br>
+    <br>
 
     <div id="identifiera">
-    <p id="textIdentifiera">Hur vill du identifiera dig?</p>
-    <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
-    <label for="man" class="textKön">Man</label>
-    <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön" class="first">
-    <label for="man" class="textKön">Kvinna</label>
-    <input type="radio" id="anpassat" name="kön" value="ANPASSAT" class="kön" class="first">
-    <label for="man" class="textKön">Anpassat</label>
+        <p id="textIdentifiera">Hur vill du identifiera dig?</p>
+        <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
+        <label for="man" class="textKön">Man</label>
+        <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön" class="first">
+        <label for="man" class="textKön">Kvinna</label>
+        <input type="radio" id="anpassat" name="kön" value="ANPASSAT" class="kön" class="first">
+        <label for="man" class="textKön">Anpassat</label>
         <br>
-        <br>
-    <div id="pronomen" hidden>
-        <SELECT name = "pronomen" class="first">
-            <option selected>Annat</option>
-            <option>Hon: "Vill du träna med henne?"</option>
-            <option>Han: "Vill du träna med honom?"</option>
-            <option>Hen: "Vill du träna med hen?"</option>
-            <option>Den/Det: "Vill du träna med den/det?"</option>
-        </SELECT>
-        <br>
+        <div id="pronomen" hidden>
+            <SELECT name = "pronomen" class="first">
+                <option selected>Annat</option>
+                <option>Hon: "Vill du träna med henne?"</option>
+                <option>Han: "Vill du träna med honom?"</option>
+                <option>Hen: "Vill du träna med hen?"</option>
+                <option>Den/Det: "Vill du träna med den/det?"</option>
+            </SELECT>
+            <br>
         <input type="text" placeholder="Kön (Valfritt)" class="first">
+        </div>
     </div>
-    </div>
-    <br>
     <button type="submit" class="nextStep">NÄSTA STEG</button>
     </form>
 </div>
 
-<form id="formTvå">
-<div id="stegTvå">
-    <div id="sporter">
-        <p>Vilka sporter är du intresserad av?</p>
-        <p><small>Du kan välja hut många sporter du vill</small></p>
+
+
+<!--STEG TVÅ-->
+    <div id="stegTvå" style="visibility:hidden" >
+        <h2>Steg 2: SPORT</h2>
+        <button class="back" onclick="nextStep(3)">Back</button>
+        <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
+        <div id="sporter">
+            <p>Vilka sporter är du intresserad av?</p>
+            <p><small>Du kan välja hur många sporter du vill</small></p>
+            <br>
+            <fieldset id ="sportCheckboxes">
+                <div>
+                <input type="checkbox" id="gym" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="gym">Gym</label>
+                <input type="checkbox" id="crossfit" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="crossfit">Crossfit</label>
+                <input type="checkbox" id="padel"class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="padel">Padel</label>
+                <input type="checkbox" id="löpning" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="löpning">Löpning</label>
+                <input type="checkbox" id="kampsort" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="kampsort">Kampsport</label>
+                <input type="checkbox" id="esport" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="esport">Esport</label>
+                <input type="checkbox" id="klättring" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="klättring">Klättring</label>
+                <input type="checkbox" id="tennis" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="tennis">Tennis</label>
+                <input type="checkbox" id="basket" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="basket">Basket</label>
+                <input type="checkbox" id="golf" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="golf">Golf</label>
+                <input type="checkbox" id="fotboll" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="fotboll">Fotboll</label>
+                </div>
+                <div>
+                <input type="checkbox" id="dans" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="dans">Dans</label>
+                <input type="checkbox" id="badminton" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="badminton">Badminton</label>
+                <input type="checkbox" id="pingis" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="pingis">Pingis</label>
+                <input type="checkbox" id="volleyboll" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="volleyboll">Volleyboll</label>
+                <input type="checkbox" id="hockey" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="hockey">Hockey</label>
+                <input type="checkbox" id="simning" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="simning">Simning</label>
+                <input type="checkbox" id="cyklning" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="cyklning">Cykling</label>
+                <input type="checkbox" id="biljard" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="biljard">Biljard</label>
+                <input type="checkbox" id="skidåkning" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="skidåkning">Skidåkning</label>
+                <input type="checkbox" id="fiske" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="fiske">Fiske</label>
+                <input type="checkbox" id="vandring" class="checkbox" onchange="printCheckedSport(this.id)">
+                <label for="vandring">Vandring</label>
+                </div>
+            </fieldset>
+        </div>
+        <div id="slidecontainer"></div>
         <br>
-        <fieldset id ="sportCheckboxes">
-        <input type="checkbox" id="gym" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="gym">Gym</label>
-        <input type="checkbox" id="crossfit" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="crossfit">Crossfit</label>
-        <input type="checkbox" id="padel"class="sport" onchange="printCheckedSport(this.id)">
-        <label for="padel">Padel</label>
-        <input type="checkbox" id="löpning" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="löpning">Löpning</label>
-        <input type="checkbox" id="kampsort" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="kampsort">Kampsport</label>
-        <input type="checkbox" id="esport" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="esport">Esport</label>
-        <input type="checkbox" id="klättring" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="klättring">Klättring</label>
-        <input type="checkbox" id="tennis" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="tennis">Tennis</label>
-        <input type="checkbox" id="basket" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="basket">Basket</label>
-        <input type="checkbox" id="golf" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="golf">Golf</label>
-        <input type="checkbox" id="fotboll" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="fotboll">Fotboll</label>
-        <input type="checkbox" id="dans" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="dans">Dans</label>
-        <input type="checkbox" id="badminton" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="badminton">Badminton</label>
-        <input type="checkbox" id="pingis" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="pingis">Pingis</label>
-        <input type="checkbox" id="volleyboll" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="volleyboll">Volleyboll</label>
-        <input type="checkbox" id="hockey" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="hockey">Hockey</label>
-        <input type="checkbox" id="simning" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="simning">Simning</label>
-        <input type="checkbox" id="cyklning" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="cyklning">Cykling</label>
-        <input type="checkbox" id="biljard" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="biljard">Biljard</label>
-        <input type="checkbox" id="skidåkning" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="skidåkning">Skidåkning</label>
-        <input type="checkbox" id="fiske" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="fiske">Fiske</label>
-        <input type="checkbox" id="vandring" class="sport" onchange="printCheckedSport(this.id)">
-        <label for="vandring">Vandring</label>
-        </fieldset>
+        <div>
+            <p>Vilka vill du träna med?</p>
+            <p><small>Det går givetvis bra att välja samtliga</small></p>
+            <input type="checkbox" id="valMän" class="checkbox">
+            <label for="valMän">Män</label>
+            <input type="checkbox" id="valKvinnor" class="checkbox">
+            <label for="valKvinnor">Kvinnor</label>
+            <input type="checkbox" id="valÖvrigt" class="checkbox">
+            <label for="valÖvrigt">Övrigt</label>
+        </div>
+        <button type="submit"  class="nextStep" >NÄSTA STEG</button>
+        </form>
     </div>
-<div id="slidecontainer"></div>
-<br>
-    <div>
-        <p>Vill du träffa män eller kvinnor?</p>
-        <p><small>Det går givetvis bra att välja båda</small></p>
-        <input type="checkbox" id="valMän">
-        <label for="valMän">Män</label>
-        <input type="checkbox" id="valKvinnor">
-        <label for="valKvinnor">Kvinnor</label>
-    </div>
-    <button type="submit" onclick=nextStep(2) class="nextStep" >NÄSTA STEG</button>
-</div>
-</form>
 
+
+
+
+<!--STEG TRE-->
 <div id="stegTre" style="visibility:hidden" >
-<div>
-    <p>Skriv en beskrivning av dig själv</p>
-    <p><small>Här kan du berätta lite mer om dina intressen och om dig själv som person</small></p>
-    <textarea id="textArea">
-    </textarea>
+    <h2>Steg 3: BIO</h2>
+    <button class="back" onclick="nextStep(4)">Back</button>
+    <form id="formTre">
+    <div>
+        <p>Skriv en beskrivning av dig själv</p>
+        <p><small>Här kan du berätta lite mer om dina intressen och om dig själv som person</small></p>
+        <textarea id="textArea"></textarea>
+    </div>
+        <label for="img">Välj bild:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+    <br>
+    <button type="submit" id="klar"  onclick="buttonHiVi(2)">KLAR</button>
+    </form>
 </div>
-<br>
-<button id="klar" onclick="buttonHiVi(2)">KLAR</button>
-
-
-</div>
-
 </body>
 </html>
 
@@ -159,3 +175,5 @@
 <button onclick="toggleLoginButton()" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
 
 <script src="src/javaScript/form.js"></script>
+
+onclick=nextStep(2)

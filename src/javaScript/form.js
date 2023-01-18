@@ -1,6 +1,6 @@
 const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
-const printArray = ['<div id="nivå">Betygsätt din nivå</div>'];
+const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
 
 
 
@@ -170,7 +170,14 @@ function nextStep(n) {
             document.getElementById('stegTre').style.visibility = 'visible';
             document.getElementById('stegTvå').style.visibility = 'hidden';
         }
-
+        if (n===3){
+            document.getElementById('stegTvå').style.visibility = 'hidden';
+            document.getElementById('stegEtt').style.visibility = 'visible';
+        }
+        if (n===4){
+            document.getElementById('stegTre').style.visibility = 'hidden';
+            document.getElementById('stegTvå').style.visibility = 'visible';
+        }
 }
 
 function kontrolleraLösenord() {
@@ -186,7 +193,7 @@ function kontrolleraLösenord() {
     }
 }
 
-function validateForm(event) {
+function validateForm(event, n) {
         event.preventDefault();
     let year = document.getElementById("år").value;
     let month = document.getElementById("månad").value;
@@ -197,10 +204,39 @@ function validateForm(event) {
     }
 
     if (kontrolleraLösenord() === true){
-        nextStep(1)
+        nextStep(n)
     }
     else{
         alert("Lösenorden matchar ej!");
         return false;
     }
 }
+
+function validateCheckBoxes(event, n){
+    event.preventDefault();
+        let boolean = checkIfCheckboxes();
+    if (boolean === true){
+        nextStep(n)
+        console.log("HÄR ÄR N " + n)
+    }
+    else{
+        console.log(3)
+        alert("Please select at least one sport.");
+
+        return false;
+    }
+
+    }
+
+
+    function checkIfCheckboxes(){
+        if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
+            console.log("HEJ")
+            return false
+        }else
+            console.log("DÅ")
+            return true
+
+    }
+
+
