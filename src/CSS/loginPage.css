@@ -119,6 +119,7 @@ label {
     position: relative;
 }
 
+
  .material-symbols-outlined {
      font-variation-settings:
              'FILL' 0,
@@ -126,6 +127,7 @@ label {
              'GRAD' 0,
              'opsz' 24
  }
+
 
 .input-container{
     display: flex;

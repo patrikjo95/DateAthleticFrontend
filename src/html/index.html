@@ -7,27 +7,31 @@
 
     <link rel="stylesheet" href="../CSS/startsida.css">
     <link rel="stylesheet" media="screen and (max-width:768px)"  href="../CSS/mobile.css">
+
     <script src="../javaScript/form.js" defer></script>
 
     <title>Date | Athletic</title>
 </head>
 
-<body>
+<body >
 <header>
     <div id="showcase">
+
         <div class="logo">Date<span class="text"><span class="tecken">|</span>
              Athletic</span></div>
-
         <div class="showcase-content">
             <h1 class="page-title">Hitta en träningspartner</h1>
             <p class="page-p">På Date Athletic kan du hitta en träningspartner nära dig!</p>
             <button onclick="buttonHiVi(1)" class="skapaKonto" id="bliMedlem" >Bli Medlem</button>
         </div>
 
+        <div id="modalBodyBackdrop" onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'" style="visibility: hidden;">
     <div id="modal-body"  style="visibility: hidden;">
-        <button onclick="buttonHiVi(2)" id="close-button">Stäng</button>
+        <button onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'" id="close-button" class="close-button">X</button>
         <iframe src="form.html" ></iframe>
+
     </div>
+        </div>
  </div>
 
 

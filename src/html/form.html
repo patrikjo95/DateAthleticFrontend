@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../CSS/form.css">
 <link rel="stylesheet" href="../CSS/mobile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../javaScript/form.js"></script>
 
@@ -13,7 +14,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" style="visibility:hidden" >
+<div id="stegEtt" >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -40,7 +41,7 @@
     <br>
 
     <div id="identifiera">
-        <p id="textIdentifiera">Hur vill du identifiera dig?</p>
+        <h2 id="textIdentifiera">Hur vill du identifiera dig?</h2>
         <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
         <label for="man" class="textKön">Man</label>
         <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön" class="first">
@@ -76,53 +77,112 @@
             <p><small>Du kan välja hur många sporter du vill</small></p>
             <br>
             <fieldset id ="sportCheckboxes">
-                <div>
+                <div class="grid-container">
+                    <div class="grid-item">
                 <input type="checkbox" id="gym" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="gym">Gym</label>
+                    <span class="material-symbols-outlined">fitness_center</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="crossfit" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="crossfit">Crossfit</label>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="padel"class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="padel">Padel</label>
+                    <span class="material-symbols-outlined">sports_cricket</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="löpning" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="löpning">Löpning</label>
+                    <span class="material-symbols-outlined">sprint</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="kampsort" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="kampsort">Kampsport</label>
+                    <span class="material-symbols-outlined">sports_martial_arts</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="esport" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="esport">Esport</label>
+                    <span class="material-symbols-outlined">sports_esports</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="klättring" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="klättring">Klättring</label>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="tennis" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="tennis">Tennis</label>
+                    <span class="material-symbols-outlined">sports_tennis</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="basket" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="basket">Basket</label>
+                    <span class="material-symbols-outlined">sports_basketball</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="golf" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="golf">Golf</label>
+                    <span class="material-symbols-outlined">golf_course</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="fotboll" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="fotboll">Fotboll</label>
-                </div>
-                <div>
+                    <span class="material-symbols-outlined">sports_soccer</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="dans" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="dans">Dans</label>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="badminton" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="badminton">Badminton</label>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="pingis" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="pingis">Pingis</label>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="volleyboll" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="volleyboll">Volleyboll</label>
+                    <span class="material-symbols-outlined">sports_volleyball</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="hockey" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="hockey">Hockey</label>
+                    <span class="material-symbols-outlined">sports_hockey</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="simning" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="simning">Simning</label>
+                    <span class="material-symbols-outlined">pool</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="cyklning" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="cyklning">Cykling</label>
+                    <span class="material-symbols-outlined">directions_bike</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="biljard" class="checkbox" onchange="printCheckedSport(this.id)">
-                <label for="biljard">Biljard</label>
+                <label for="biljard">Biljard </label>
+                    <span class="material-symbols-outlined">sports_bar</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="skidåkning" class="checkbox" onchange="printCheckedSport(this.id)">
-                <label for="skidåkning">Skidåkning</label>
+                <label for="skidåkning">Skidåkning </label>
+                    <span class="material-symbols-outlined">downhill_skiing</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="fiske" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="fiske">Fiske</label>
+                    <span class="material-symbols-outlined">phishing</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="vandring" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="vandring">Vandring</label>
+                    <span class="material-symbols-outlined">hiking</span>
+                    </div>
                 </div>
             </fieldset>
         </div>
@@ -146,7 +206,7 @@
 
 
 <!--STEG TRE-->
-<div id="stegTre"  >
+<div id="stegTre" style="visibility:hidden" >
     <h2>Steg 3: BIO</h2>
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">

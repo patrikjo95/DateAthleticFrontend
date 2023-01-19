@@ -94,8 +94,9 @@ SELECT{
     height: 30px;
     width: 30px;
 }
-.textKön ,[id=textIdentifiera],[id=pronomen]{
-    font-size: 40px;
+.textKön [id=pronomen]{
+    font-size: 25px;
+
 }
 
 textarea{
@@ -129,14 +130,61 @@ fieldset {
 
 .back{
     position: absolute;
-    top: 10px;
+    top: 30px;
     left: 10px;
-    border-radius: 20%;
+    font-size: 10px;
+
 }
 
 input[type = "range"]{
     margin-top: 15px;
     accent-color: #d25f0d;
+}
+
+input:focus {
+    background-color: lightblue;
+}
+
+.kön{
+    accent-color: #D25F0D;
+    vertical-align: middle;
+}
+
+.textKön{
+    font-size:18px;
+    vertical-align: middle;
+}
+
+
+.first{
+    padding: 10px;
+    margin: 5px;
+}
+
+.nextStep{
+    top: 20px
+}
+
+.checkbox{
+    vertical-align: middle;
+    border: 1px solid black;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    grid-template-rows: auto; /* rows with same height as content */
+    grid-gap: 20px; /* 20px gap between grid items */
+}
+.grid-item {
+    border: 1px solid black; /* add a border around grid item */
+    padding: 10px; /* add padding inside the grid item */
+    box-sizing: border-box; /* include padding and border in total width and height */
 }
 
 #continerBild {
