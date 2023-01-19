@@ -155,6 +155,7 @@ function buttonHiVi(n) {
     console.log(n)
         if (n===1){
             document.getElementById('modal-body').style.visibility = 'visible';
+            document.getElementById('modalBodyBackdrop').style.visibility = 'visible';
         }
         else {
            document.getElementById('modal-body').style.visibility= 'hidden';
