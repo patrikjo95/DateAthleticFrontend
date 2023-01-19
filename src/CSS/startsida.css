@@ -2,12 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
+}
+
+body{
+    overflow-x: hidden
 }
 
 
 .page-title{
- 
     text-align: center;
     border-bottom: 1px solid #d25f0d;
     float: left;
@@ -133,18 +136,18 @@ ul{
 
     }
     #showcase .showcase-content{
-        
         color: #fff;
         text-align: center;
         padding-top: 170px;
         position: absolute;
+
     }
    
 
     #showcase .showcase-content h1{
         font-size: 40px;
         line-height: 1.2em;
-       
+
     }
     #showcase .showcase-content p{
        padding-bottom: 20px;
@@ -602,6 +605,17 @@ ul{
     font-weight: 200;
 }
 
+#modalBodyBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+}
 
 iframe {
     display: block;
@@ -611,22 +625,25 @@ iframe {
     border-radius: 10%;
     border: 6mm inset #d25f0d;
     background: whitesmoke;
-    
-    
-    
-  
-}
 
+}
 
 #modal-body{
     width: 1000px;
-    height: 600px;
+    height: 700px;
     margin-top: 80px;
-    margin-left: 250px; 
-    
-    
+    margin-left: 250px;
+
 }
 
-#close-button{
-    margin-left: 800px;
+.close-button{
+    font-size: 10px;
+    position: relative;
+    left: 890px;
+    top: 80px;
+    z-index: 1;
 }
+
+
+
+
