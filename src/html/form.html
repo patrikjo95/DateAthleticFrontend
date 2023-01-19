@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href="../CSS/form.css">
 <link rel="stylesheet" href="../CSS/mobile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../javaScript/form.js"></script>
 
@@ -12,7 +13,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" >
+<div id="stegEtt" style="visibility:hidden" >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -59,7 +60,7 @@
         <input type="text" placeholder="Kön (Valfritt)" class="first">
         </div>
     </div>
-    <button type="submit" class="nextStep">NÄSTA STEG</button>
+    <button type="submit" class="nextStep button" >NÄSTA STEG</button>
     </form>
 </div>
 
@@ -68,7 +69,7 @@
 <!--STEG TVÅ-->
     <div id="stegTvå" style="visibility:hidden" >
         <h2>Steg 2: SPORT</h2>
-        <button class="back" onclick="nextStep(3)">Back</button>
+        <button class="back button" onclick="nextStep(3)">Back</button>
         <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
         <div id="sporter">
             <p>Vilka sporter är du intresserad av?</p>
@@ -137,7 +138,7 @@
             <input type="checkbox" id="valÖvrigt" class="checkbox">
             <label for="valÖvrigt">Övrigt</label>
         </div>
-        <button type="submit"  class="nextStep" >NÄSTA STEG</button>
+        <button type="submit"  class="nextStep button" >NÄSTA STEG</button>
         </form>
     </div>
 
@@ -145,19 +146,25 @@
 
 
 <!--STEG TRE-->
-<div id="stegTre" style="visibility:hidden" >
+<div id="stegTre"  >
     <h2>Steg 3: BIO</h2>
-    <button class="back" onclick="nextStep(4)">Back</button>
+    <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
+        <div id="continerBild">
+            <div class="foto" id="ett"><button type="button" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
+            <div class="foto" id="två"><button type="button" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
+            <div class="foto" id="tre"><button type="button" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
+            <div class="foto" id="fyra"><button type="button" id="knappTillFoto4" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload4" class="file-upload"><input  onchange="displayImage(4,'fyra')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload4">Välj fil</label></div>
+            <div class="foto" id="fem"><button type="button" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
+            <div class="foto" id="sex"><button type="button" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
+        </div>
     <div>
-        <p>Skriv en beskrivning av dig själv</p>
+        <!--<p>Skriv en beskrivning av dig själv</p>
         <p><small>Här kan du berätta lite mer om dina intressen och om dig själv som person</small></p>
-        <textarea id="textArea"></textarea>
+        <textarea id="textArea"></textarea>-->
     </div>
-        <label for="img">Välj bild:</label>
-        <input type="file" id="img" name="img" accept="image/*">
     <br>
-    <button type="submit" id="klar"  onclick="buttonHiVi(2)">KLAR</button>
+    <button type="submit" id="klar"  class="button" onclick="buttonHiVi(2)">KLAR</button>
     </form>
 </div>
 </body>
