@@ -240,4 +240,30 @@ function validateCheckBoxes(event, n){
 
     }
 
+function displayImage(n, har){
+
+        let fileToUpload = "fileToUpload" + n;
+    let knappTillFoto = "knappTillFoto" + n;
+    let upload = "file-upload" + n;
+
+        let input = document.getElementById(fileToUpload)
+    let imagecontiner = document.getElementById(har)
+
+
+    let image = new Image();
+        image.src = URL.createObjectURL(input.files[0])
+    image.style.width = '100%';
+    image.style.height = '100%';
+    image.style.borderRadius = '10%';
+    image.style.position = ' relative';
+    imagecontiner.style.background = 'black';
+    imagecontiner.append(image)
+
+    document.getElementById(fileToUpload).style.display ="none";
+    document.getElementById(knappTillFoto).style.display ="none";
+    document.getElementById(upload).style.display ="none";
+
+
+}
+
 
