@@ -47,7 +47,7 @@
         </ul>
     </div>
     <div>
-        <a href="loginPage.html"><button class="login">Logga In</button></a>
+        <a id="link"><button class="login-out">Logga In</button></a>
     </div>
 </header>
 
@@ -74,8 +74,6 @@
         </div>
     </div>
 </section>
-
-
 
 <section id="cards">
     <h2 class="m-heading">Våra medlemmar berättar</h2>
@@ -129,10 +127,6 @@
             </div>
         </div>
     </div>
-
-
-
-
     <div class="card">
         <div class="card-image2"></div>
         <div class="card-text">
@@ -157,7 +151,6 @@
             </div>
         </div>
     </div>
-
     <div class="card">
         <div class="card-image3"></div>
         <div class="card-text">
@@ -249,25 +242,22 @@
         <p> copyright &copy;2023 Vilhelm Moberg</p>
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+<script>
+    const loginButton = document.querySelector(".login-out");
+    const link = document.getElementById('link')
 
-
+    if(localStorage.getItem('token')){
+        loginButton.innerHTML = "Logga ut"
+        link.href = "#";
+        loginButton.addEventListener('click', function(){
+            localStorage.clear();
+            window.href = "/src/html/"
+            location.reload()
+        })
+    }else{
+        link.href = "/src/html/loginPage.html"
+    }
+</script>
 </body>
 </html>

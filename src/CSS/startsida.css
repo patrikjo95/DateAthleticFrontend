@@ -75,13 +75,13 @@ ul{
 
   
 
-    .login{
-
-            position: absolute;
+    .login-out{
+        position: absolute;
             top: 18px;
             right: 260px;
             font-size: 14px;
     }
+
     .skapaKonto{
         top:55;
         left: 22%;

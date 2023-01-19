@@ -23,17 +23,15 @@
 
 <div class="container">
     <h2> Logga in </h2>
-    <!-- Username -->
-    <form class="loginForm">
+    <form id="loginid" class="loginForm">
         <label for="username"></label>
         <div class="input-container">
-            <input type="text" class="username-placeholder" placeholder="Användarnamn" name="username" required>
+            <input id="usn" type="text" class="username-placeholder" placeholder="Användarnamn" name="username" required>
             <span class="material-symbols-outlined" id="symbol-person">person</span>
         </div>
-        <!--Password -->
         <label for="password"></label>
         <div class="input-container">
-        <input type="password" class="password-placeholder" placeholder="Lösenord" name="password" required>
+        <input id="psw" type="password" class="password-placeholder" placeholder="Lösenord" name="password" required>
         <span class="material-symbols-outlined" id="symbol-lock">lock</span>
         </div>
         <!--Log in button -->
@@ -44,7 +42,7 @@
 
 </div>
 
+<script src="/src/javaScript/login.js"></script>
 <script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
-
 </body>
 </html>
