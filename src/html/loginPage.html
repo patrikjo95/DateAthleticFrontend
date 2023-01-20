@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logga in</title>
+
     <link rel="stylesheet" href="../CSS/loginPage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="../javaScript/form.js" defer></script>
 </head>
 <body>
 
@@ -15,10 +18,18 @@
 
 <div class="slideOutMenu">
     <ul>
-        <li>Startsida</li>
-        <li>Kontakta Oss</li>
-        <li>Om oss</li>
+        <li><a class="menu-item" href="index.html">Startsida</a></li>
+        <li><a class="menu-item" href="#">Kontakta oss</a></li>
+        <li><a class="menu-item" href="#">Om oss</a></li>
     </ul>
+</div>
+
+<div id="modalBodyBackdrop" onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'" style="visibility: hidden;">
+    <div id="modal-body"  style="visibility: hidden;">
+        <button onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'" id="close-button" class="close-button">X</button>
+        <iframe src="form.html" ></iframe>
+
+    </div>
 </div>
 
 <div class="container">
@@ -39,8 +50,9 @@
         <!--Log in button -->
         <button type="submit">Logga in</button>
         <!-- Sign up -->
-        <div class="signUp"> Inte medlem?  <a href="#"> Bli medlem här </a> </div>
+        <div class="signUp"> Inte medlem?  <a href="#" onclick="buttonHiVi(1)"> Bli medlem här </a> </div>
     </form>
+
 
 </div>
 

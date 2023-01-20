@@ -31,12 +31,6 @@ $(document).ready(function(){
     $('#år').append(option);
     $('#år').val(selectedYear);
 
-    $("form").submit(function(){
-        if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
-            alert("Please select at least one sport.");
-            return false;
-        }
-    });
 });
 function isLeapYear(år) {
     år = parseInt(år);
@@ -113,14 +107,14 @@ $(document).ready(function() {
 
         thisID = thisID.charAt(0).toUpperCase() + thisID.slice(1);
 
-
-
+        let gridItem = checkBox.closest(".grid-item");
         let thisIdPlusCheck = thisID + "check";
-        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" className="slider">'
+        let idf = thisID + "rangeValue";
+        let fullArrayItem = '<label id ="sliderLabel"> ' + thisID + ' </label> '+ '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '" class="sliderValue">5</p>'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
-
+            gridItem.classList.add("dark-bg");
 
             printArray.push(removeAndCompressArray)
 
@@ -139,6 +133,7 @@ $(document).ready(function() {
             document.getElementById("slidecontainer").innerHTML = arrayRes;
 
         } else {
+            gridItem.classList.remove("dark-bg");
             document.getElementById(thisIdPlusCheck).remove();
 
             let int = printArray.indexOf(removeAndCompressArray, 0)
@@ -149,6 +144,7 @@ $(document).ready(function() {
                 document.getElementById("nivå").remove();
             }
         }
+
     }
 
 function buttonHiVi(n) {
@@ -186,7 +182,6 @@ function kontrolleraLösenord() {
     let password2 = document.getElementById("lösenord2").value;
 
 
-
     if (password1 === password2) {
         return true;
     } else {
@@ -218,12 +213,8 @@ function validateCheckBoxes(event, n){
         let boolean = checkIfCheckboxes();
     if (boolean === true){
         nextStep(n)
-        console.log("HÄR ÄR N " + n)
     }
     else{
-        console.log(3)
-        alert("Please select at least one sport.");
-
         return false;
     }
 
@@ -231,13 +222,19 @@ function validateCheckBoxes(event, n){
 
 
     function checkIfCheckboxes(){
-        if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
-            console.log("HEJ")
-            return false
-        }else
-            console.log("DÅ")
-            return true
+        if($('#sportCheckboxes input[type="checkbox"]:checked').length === 0)
+            alert("Please select at least one sport.");
+        if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
+            alert("Du måste välja preferens på vilka du vill träffa");
 
+        else{
+            return true;
+        }
     }
+
+
+
+
+
 
 

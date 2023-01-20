@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="../CSS/mobile.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
 <script src="../javaScript/form.js"></script>
 
 <head>
@@ -79,12 +80,9 @@
                 <div class="grid-container">
                     <div class="grid-item">
                 <input type="checkbox" id="gym" class="checkbox" onchange="printCheckedSport(this.id)">
-                <label for="gym">Gym</label>
+                        <label for="gym"></label>
+                        <label for="gym">Gym</label>
                     <span class="material-symbols-outlined">fitness_center</span>
-                    </div>
-                    <div class="grid-item">
-                <input type="checkbox" id="crossfit" class="checkbox" onchange="printCheckedSport(this.id)">
-                <label for="crossfit">Crossfit</label>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="padel"class="checkbox" onchange="printCheckedSport(this.id)">
@@ -109,6 +107,7 @@
                     <div class="grid-item">
                 <input type="checkbox" id="klättring" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="klättring">Klättring</label>
+                        <span class="material-symbols-outlined">altitude</span>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="tennis" class="checkbox" onchange="printCheckedSport(this.id)">
@@ -126,6 +125,11 @@
                     <span class="material-symbols-outlined">golf_course</span>
                     </div>
                     <div class="grid-item">
+                        <input type="checkbox" id="crossfit" class="checkbox" onchange="printCheckedSport(this.id)">
+                        <label for="crossfit">Crossfit</label>
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>
+                    <div class="grid-item">
                 <input type="checkbox" id="fotboll" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="fotboll">Fotboll</label>
                     <span class="material-symbols-outlined">sports_soccer</span>
@@ -133,14 +137,17 @@
                     <div class="grid-item">
                 <input type="checkbox" id="dans" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="dans">Dans</label>
+                        <span class="material-symbols-outlined">emoji_people</span>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="badminton" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="badminton">Badminton</label>
+                        <span class="material-symbols-outlined">sports_tennis</span>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="pingis" class="checkbox" onchange="printCheckedSport(this.id)">
                 <label for="pingis">Pingis</label>
+                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="volleyboll" class="checkbox" onchange="printCheckedSport(this.id)">
@@ -182,6 +189,16 @@
                 <label for="vandring">Vandring</label>
                     <span class="material-symbols-outlined">hiking</span>
                     </div>
+                    <div class="grid-item">
+                        <input type="checkbox" id="handboll" class="checkbox" onchange="printCheckedSport(this.id)">
+                        <label for="handboll">Handboll</label>
+                        <span class="material-symbols-outlined">sports_handball</span>
+                    </div>
+                    <div class="grid-item">
+                        <input type="checkbox" id="skateboarding" class="checkbox" onchange="printCheckedSport(this.id)">
+                        <label for="skateboarding">Skateboarding</label>
+                        <span class="material-symbols-outlined">skateboarding</span>
+                    </div>
                 </div>
             </fieldset>
         </div>
@@ -190,12 +207,14 @@
         <div>
             <p>Vilka vill du träna med?</p>
             <p><small>Det går givetvis bra att välja samtliga</small></p>
+            <fieldset id="preferensCheckboxes">
             <input type="checkbox" id="valMän" class="checkbox">
             <label for="valMän">Män</label>
             <input type="checkbox" id="valKvinnor" class="checkbox">
             <label for="valKvinnor">Kvinnor</label>
             <input type="checkbox" id="valÖvrigt" class="checkbox">
             <label for="valÖvrigt">Övrigt</label>
+            </fieldset>
         </div>
         <button type="submit"  class="nextStep" >NÄSTA STEG</button>
         </form>
