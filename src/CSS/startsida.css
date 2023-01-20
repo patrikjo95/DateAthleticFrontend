@@ -64,6 +64,7 @@ ul{
         font-size: 24px;
         z-index: 1;
         transition: all 0.3s ease-in-out;
+      cursor: pointer;
     }
     #menu-toggle{
         display:none ;
@@ -75,8 +76,6 @@ ul{
     #menu-toggle:checked + .menu-icon {
         right: 210px
     }
-  
-  
 
     .login{
 
@@ -85,11 +84,11 @@ ul{
             right: 260px;
             font-size: 14px;
     }
+
     .skapaKonto{
         top:55;
         left: 22%;
         font-size: 14px;
-
 }
     button{
         border: none;
@@ -631,8 +630,10 @@ iframe {
 #modal-body{
     width: 1000px;
     height: 700px;
-    margin-top: 80px;
-    margin-left: 250px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
 

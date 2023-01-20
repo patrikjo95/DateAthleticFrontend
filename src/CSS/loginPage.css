@@ -52,6 +52,7 @@ li:hover{
     font-size: 24px;
     z-index: 1;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 #menu-toggle{
     display:none ;
@@ -238,8 +239,11 @@ iframe {
 #modal-body{
     width: 1000px;
     height: 700px;
-    margin-top: 80px;
-    margin-left: 250px;
+
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
 
@@ -250,6 +254,7 @@ iframe {
     top: 80px;
     z-index: 1;
 }
+
 
 .menu-item{
     color: black;
