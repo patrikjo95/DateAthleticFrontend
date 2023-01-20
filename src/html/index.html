@@ -16,7 +16,6 @@
 <body >
 <header>
     <div id="showcase">
-
         <div class="logo">Date<span class="text"><span class="tecken">|</span>
              Athletic</span></div>
         <div class="showcase-content">
@@ -29,7 +28,6 @@
     <div id="modal-body"  style="visibility: hidden;">
         <button onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'" id="close-button" class="close-button">X</button>
         <iframe src="form.html" ></iframe>
-
     </div>
         </div>
  </div>
@@ -45,12 +43,13 @@
             <li>Om oss</li>
         </ul>
     </div>
-    <div id="logIn">
-        <a href="../html/loginPage.html"><button class="login">Logga In</button></a>
+    <div>
+        <a id="link"><button class="login-out">Logga In</button></a>
     </div>
 </header>
 
 <section id="what" class="bg-light py-1">
+
     <div class="container1">
         <h2 class="m-heading text-center">Varför<span class="text-primary"> just</span> Date Athletic</h2>
         <div class="items">
@@ -72,6 +71,8 @@
         </div>
     </div>
 </section>
+
+
 
 <section id="cards">
     <h2 class="m-heading">Våra medlemmar berättar</h2>
@@ -245,25 +246,22 @@
         <p> copyright &copy;2023 Vilhelm Moberg</p>
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+<script>
+    const loginButton = document.querySelector(".login-out");
+    const link = document.getElementById('link')
 
-
+    if(localStorage.getItem('token')){
+        loginButton.innerHTML = "Logga ut"
+        link.href = "#";
+        loginButton.addEventListener('click', function(){
+            localStorage.clear();
+            window.href = "/src/html/"
+            location.reload()
+        })
+    }else{
+        link.href = "/src/html/loginPage.html"
+    }
+</script>
 </body>
 </html>
