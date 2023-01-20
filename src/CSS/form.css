@@ -1,3 +1,9 @@
+*{
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
 .container{
     padding: 20px;
 }
@@ -8,8 +14,8 @@ SELECT{
 *{
     align-items: center;
     text-align: center;
-
-
+ 
+   
 
 }
 
@@ -126,6 +132,13 @@ fieldset {
 
 .checkbox input:checked {
     accent-color: #d25f0d;
+    border: 2px solid black;
+}
+
+.checkbox:hover{
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
 }
 
 .back{
@@ -167,25 +180,25 @@ input:focus {
 
 .checkbox{
     vertical-align: middle;
-    border: 1px solid black;
 }
 
 .material-symbols-outlined{
     vertical-align: middle;
-
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-    grid-template-rows: auto; /* rows with same height as content */
-    grid-gap: 20px; /* 20px gap between grid items */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
 }
 .grid-item {
-    border: 1px solid black; /* add a border around grid item */
-    padding: 10px; /* add padding inside the grid item */
-    box-sizing: border-box; /* include padding and border in total width and height */
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
 }
+
 
 #continerBild {
     display: grid;
@@ -281,6 +294,25 @@ material-symbols-outlined{
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+.grid-item.dark-bg {
+    background-color: #d25f0d;
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+#sliderLabel{
+    font-size: 20px;
+}
+
+.sliderValue{
+    margin-top: 0;
+    font-size: 20px;
+    position: relative;
+
+}
+
+
 
 @keyframes flash-screen {
     0% { opacity: 1; }

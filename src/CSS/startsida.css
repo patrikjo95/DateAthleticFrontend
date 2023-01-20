@@ -11,6 +11,7 @@ body{
 
 
 .page-title{
+ 
     text-align: center;
     border-bottom: 1px solid #d25f0d;
     float: left;
@@ -47,9 +48,6 @@ ul{
         
     }
 
-    li:last-child{
-        border-bottom: none;
-    }
 
     li:hover{
         color:rgba(255,255,255, 1);
@@ -75,12 +73,9 @@ ul{
     #menu-toggle:checked + .menu-icon {
         right: 210px
     }
-  
-  
 
-    .login{
-
-            position: absolute;
+    .login-out{
+        position: absolute;
             top: 18px;
             right: 260px;
             font-size: 14px;
@@ -136,25 +131,26 @@ ul{
 
     }
     #showcase .showcase-content{
+        
         color: #fff;
         text-align: center;
         padding-top: 170px;
         position: absolute;
-
+        top: 45%;
+        left: 38%;
+        transform: translate(-50%, -50%);
     }
    
 
     #showcase .showcase-content h1{
         font-size: 40px;
         line-height: 1.2em;
-
+       
     }
     #showcase .showcase-content p{
        padding-bottom: 20px;
        line-height: 1.7em;
     }
-
-
     .logo{
         font-size: 2rem;
         margin-left: 100px;
@@ -631,8 +627,10 @@ iframe {
 #modal-body{
     width: 1000px;
     height: 700px;
-    margin-top: 80px;
-    margin-left: 250px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
 
