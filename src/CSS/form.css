@@ -14,6 +14,8 @@ SELECT{
 *{
     align-items: center;
     text-align: center;
+ 
+   
 
 }
 
@@ -22,7 +24,7 @@ SELECT{
     
 }
 
-button{
+.button{
     border: none;
     padding: 12px 30px;
     background-color: #d25f0d;
@@ -32,7 +34,7 @@ button{
     cursor: pointer;
     position: relative;
 }
-button::before{
+.button::before{
     content: "";
     position: absolute;
     width: 18px;
@@ -43,7 +45,7 @@ button::before{
     border-left: 2px solid #d25f0d;
     transition: all 0.25s;
 }
-button::after{
+.button::after{
     content: "";
     position: absolute;
     width: 18px;
@@ -54,8 +56,8 @@ button::after{
     border-right: 2px solid #d25f0d;
     transition: all 0.25s;
 }
-button:hover::before,
-button:hover::after{
+.button:hover::before,
+.button:hover::after{
     height: 100%;
     width: 100%;
 
@@ -195,6 +197,60 @@ input:focus {
     padding: 10px;
     box-sizing: border-box;
     text-align: left;
+}
+
+=======
+#continerBild {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    place-items:  center;
+}
+
+.foto {
+    position: relative;
+    background-color: orange;
+    width: 200px;
+    height: 250px;
+    border: 10px solid;
+    border-radius: 15%;
+    text-align: center;
+
+}
+
+.fotoButton{
+    background-color: orange;
+    border: none;
+    position: absolute;
+    bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 75px;
+    cursor: pointer;
+}
+
+.fotoButton:hover{
+    transform: scale(1.2);
+}
+
+.fileFoto input{
+    overflow: hidden;
+}
+
+.file-upload {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 73px;
+}
+
+.file-upload input {
+    overflow: hidden;
+    width: 0;
 }
 
 .grid-item.dark-bg {
