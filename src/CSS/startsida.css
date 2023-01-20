@@ -48,9 +48,6 @@ ul{
         
     }
 
-    li:last-child{
-        border-bottom: none;
-    }
 
     li:hover{
         color:rgba(255,255,255, 1);
@@ -139,6 +136,9 @@ ul{
         text-align: center;
         padding-top: 170px;
         position: absolute;
+        top: 45%;
+        left: 38%;
+        transform: translate(-50%, -50%);
     }
    
 
