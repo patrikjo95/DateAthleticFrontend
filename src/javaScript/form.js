@@ -31,12 +31,12 @@ $(document).ready(function(){
     $('#år').append(option);
     $('#år').val(selectedYear);
 
-    $("form").submit(function(){
-        if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
-            alert("Please select at least one sport.");
-            return false;
-        }
-    });
+    // $("form").submit(function(){
+    //     if($('#sportCheckboxes input[type="checkbox"]:checked').length == 0){
+    //         alert("Please select at least one sport.");
+    //         return false;
+    //     }
+    // });
 });
 function isLeapYear(år) {
     år = parseInt(år);
@@ -116,7 +116,8 @@ $(document).ready(function() {
 
 
         let thisIdPlusCheck = thisID + "check";
-        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" className="slider">'
+        let idf = thisID + "rangeValue";
+        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '">5</p>'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
@@ -264,6 +265,47 @@ function displayImage(n, har){
     document.getElementById(upload).style.display ="none";
 
 
+
+
 }
 
+function startWebcam() {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        let video = document.getElementById('webcam');
+        let button = document.getElementById('taBild')
+        video.srcObject = stream;
+        video.style.display = 'block';
+        button.style.display = 'block';
+        video.play();
+    });
+}
+
+
+let count = 3;
+let countdownInterval;
+
+function takePicture(event) {
+    event.preventDefault();
+    let countdown = document.getElementById('countdown');
+    let stegtre = document.getElementById('webcam')
+    countdown.innerHTML = count;
+    countdownInterval = setInterval(() => {
+        count--;
+        countdown.innerHTML = count;
+        if (count === 0) {
+            clearInterval(countdownInterval);
+            let video = document.getElementById('webcam');
+            let canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            let img = document.createElement('img');
+            img.src = canvas.toDataURL();
+            img.style.borderRadius = '20%';
+            img.style.border =  '10px solid black';
+            video.parentNode.replaceChild(img, video);
+            stegtre.classList.add("flash-screen");
+        }
+    }, 1000);
+}
 
