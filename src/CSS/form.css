@@ -241,21 +241,36 @@ input:focus {
 }
 
 #webbContiner{
-    position: absolute;
-    left: 150px;
-    top: 125px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #webcam{
-    position: relative;
     border: 10px solid black;
     border-radius: 20%;
 }
 
-#taBild{
+#taBild, #taOmBild {
+    background: none !important;/* Sätter bakgrundsfärgen till blå */
+    border: none;
+    position: fixed;
+    top: 95%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
 
+
+material-symbols-outlined{
+    width: 100px;
+    height: 100px;
 
 }
+
+
 #countdown {
     font-size: 50px;
     color: red ;

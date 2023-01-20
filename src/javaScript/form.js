@@ -2,6 +2,11 @@ const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
 const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
 
+let liveImg;
+
+let int;
+let intLetter;
+
 
 
 $(document).ready(function(){
@@ -265,11 +270,10 @@ function displayImage(n, har){
     document.getElementById(upload).style.display ="none";
 
 
-
-
 }
 
-function startWebcam() {
+function startWebcam(n, intLetterLive) {
+    document.getElementById("webbContiner").style.visibility = "visible";
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
         let video = document.getElementById('webcam');
         let button = document.getElementById('taBild')
@@ -277,17 +281,23 @@ function startWebcam() {
         video.style.display = 'block';
         button.style.display = 'block';
         video.play();
+
+        int = n;
+        intLetter = intLetterLive;
     });
 }
 
 
-let count = 3;
 let countdownInterval;
 
 function takePicture(event) {
     event.preventDefault();
+    let count = 3;
     let countdown = document.getElementById('countdown');
     let stegtre = document.getElementById('webcam')
+    let taBild = document.getElementById('taBild')
+    let taOmBild = document.getElementById('taOmBild')
+    taBild.style.visibility = "hidden"
     countdown.innerHTML = count;
     countdownInterval = setInterval(() => {
         count--;
@@ -301,11 +311,53 @@ function takePicture(event) {
             canvas.getContext('2d').drawImage(video, 0, 0);
             let img = document.createElement('img');
             img.src = canvas.toDataURL();
+            liveImg = img.src
             img.style.borderRadius = '20%';
             img.style.border =  '10px solid black';
             video.parentNode.replaceChild(img, video);
             stegtre.classList.add("flash-screen");
+            countdown.style.visibility = "hidden"
+            taOmBild.style.display = 'block'
+
+
+            console.log(liveImg)
+
         }
     }, 1000);
+}
+
+function displayImageFromKamera(event){
+    event.preventDefault();
+
+
+    let fileToUpload = "fileToUpload" + int;
+    let knappTillFoto = "knappTillFoto" + int;
+    let upload = "file-upload" + int;
+
+    let imagecontiner = document.getElementById(intLetter)
+
+    let imgTag = document.createElement('img');
+    imgTag.src = liveImg;
+
+
+
+
+    imgTag.style.width = '100%';
+    imgTag.style.height = '100%';
+    imgTag.style.borderRadius = '10%';
+    imgTag.style.position = 'relative';
+    imagecontiner.style.background = 'black';
+    imagecontiner.appendChild(imgTag);
+
+    document.getElementById(fileToUpload ).style.display ="none";
+    document.getElementById(knappTillFoto).style.display ="none";
+    document.getElementById(upload).style.display ="none";
+
+    let content = '<video id="webcam" style="display:none;"></video> <p id="countdown"></p> <button id="check" style="display:none;"></button> <button id="taBild" onClick="takePicture(event)" style="display:none;"><span className="material-symbols-outlined"style="color: white">add_circle</span> </button> <button id="taOmBild" style="display:none;" onClick="displayImageFromKamera(event)"><spanclassName="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;"></button>'
+    $("#webbContiner").html(content);
+
+    document.getElementById("webbContiner").style.visibility = "hidden";
+
+
 }
 

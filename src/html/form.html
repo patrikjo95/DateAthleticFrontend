@@ -211,21 +211,21 @@
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
         <div id="continerBild">
-            <div class="foto" id="ett"><button type="button" onclick="startWebcam()" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
-            <div class="foto" id="två"><button type="button" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
-            <div class="foto" id="tre"><button type="button" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
-            <div class="foto" id="fyra"><button type="button" id="knappTillFoto4" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload4" class="file-upload"><input  onchange="displayImage(4,'fyra')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload4">Välj fil</label></div>
-            <div class="foto" id="fem"><button type="button" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
-            <div class="foto" id="sex"><button type="button" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
+            <div class="foto" id="ett"><button type="button" onclick="startWebcam(1,'ett')" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
+            <div class="foto" id="två"><button type="button" onclick="startWebcam(2,'två')" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
+            <div class="foto" id="tre"><button type="button" onclick="startWebcam(3,'tre')" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
+            <div class="foto" id="fyra"><button type="button" onclick="startWebcam(4,'fyra')" id="knappTillFoto4" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload4" class="file-upload"><input  onchange="displayImage(4,'fyra')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload4">Välj fil</label></div>
+            <div class="foto" id="fem"><button type="button" onclick="startWebcam(5,'fem')" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
+            <div class="foto" id="sex"><button type="button" onclick="startWebcam(6,'sex')" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
         </div>
 
         <div id="webbContiner">
         <video id="webcam" style="display:none;"></video>
             <p id="countdown"></p>
             <button id="check" style="display:none;"></button>
-            <button id="taBild" onclick="takePicture(event)" style="display:none;"></button>
+            <button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button>
+            <button id="taOmBild" style="display:none;" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button>
             <button id="close" style="display:none;"></button>
-
         </div>
     <br>
     <button type="submit" id="klar"  class="button" onclick="buttonHiVi(2)">KLAR</button>
