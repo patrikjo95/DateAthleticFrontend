@@ -265,7 +265,18 @@ input:focus {
     border-radius: 20%;
 }
 
-#taBild, #taOmBild {
+#taBild {
+    background: none !important;/* Sätter bakgrundsfärgen till blå */
+    border: none;
+    position: fixed;
+    top: 95%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
+
+#check{
     background: none !important;/* Sätter bakgrundsfärgen till blå */
     border: none;
     position: fixed;

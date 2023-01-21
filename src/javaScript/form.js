@@ -289,6 +289,7 @@ function takePicture(event) {
     let stegtre = document.getElementById('webcam')
     let taBild = document.getElementById('taBild')
     let taOmBild = document.getElementById('taOmBild')
+    let check = document.getElementById('check')
     taBild.style.visibility = "hidden"
     countdown.innerHTML = count;
     countdownInterval = setInterval(() => {
@@ -306,50 +307,15 @@ function takePicture(event) {
             liveImg = img.src
             img.style.borderRadius = '20%';
             img.style.border =  '10px solid black';
+            img.style.height = '100%';
+            img.style.position = 'relative';
             video.parentNode.replaceChild(img, video);
             stegtre.classList.add("flash-screen");
             countdown.style.visibility = "hidden"
-            taOmBild.style.display = 'block'
-
-
-            console.log(liveImg)
+            check.style.display = 'block'
 
         }
     }, 1000);
 }
 
-function displayImageFromKamera(event){
-    event.preventDefault();
-
-
-    let fileToUpload = "fileToUpload" + int;
-    let knappTillFoto = "knappTillFoto" + int;
-    let upload = "file-upload" + int;
-
-    let imagecontiner = document.getElementById(intLetter)
-
-    let imgTag = document.createElement('img');
-    imgTag.src = liveImg;
-
-
-
-
-    imgTag.style.width = '100%';
-    imgTag.style.height = '100%';
-    imgTag.style.borderRadius = '10%';
-    imgTag.style.position = 'relative';
-    imagecontiner.style.background = 'black';
-    imagecontiner.appendChild(imgTag);
-
-    document.getElementById(fileToUpload ).style.display ="none";
-    document.getElementById(knappTillFoto).style.display ="none";
-    document.getElementById(upload).style.display ="none";
-
-    let content = '<video id="webcam" style="display:none;"></video> <p id="countdown"></p> <button id="check" style="display:none;"></button> <button id="taBild" onClick="takePicture(event)" style="display:none;"><span className="material-symbols-outlined"style="color: white">add_circle</span> </button> <button id="taOmBild" style="display:none;" onClick="displayImageFromKamera(event)"><spanclassName="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;"></button>'
-    $("#webbContiner").html(content);
-
-    document.getElementById("webbContiner").style.visibility = "hidden";
-
-
-}
 

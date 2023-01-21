@@ -15,7 +15,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" style="visibility:hidden">
+<div id="stegEtt" style="visibility:hidden" >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -241,9 +241,9 @@
         <div id="webbContiner">
         <video id="webcam" style="display:none;"></video>
             <p id="countdown"></p>
-            <button id="check" style="display:none;"></button>
+            <button id="check"  onclick="displayImageFromKamera(event)" style="display:none;"><span class="material-symbols-outlined" style="color: green">check_circle</span></button>
             <button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button>
-            <button id="taOmBild" style="display:none;" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button>
+            <button id="taOmBild" style="display:none;"><span class="material-symbols-outlined" style="color: white">sync</span></button>
             <button id="close" style="display:none;"></button>
         </div>
     <br>
@@ -251,5 +251,33 @@
     </form>
 </div>
 </body>
+<script>
+    function displayImageFromKamera(event){
+        event.preventDefault();
+        let fileToUpload = "fileToUpload" + int;
+        let knappTillFoto = "knappTillFoto" + int;
+        let upload = "file-upload" + int;
+
+        let imagecontiner = document.getElementById(intLetter)
+
+        let imgTag = document.createElement('img');
+        imgTag.src = liveImg;
+        imgTag.style.width = '100%';
+        imgTag.style.height = '100%';
+        imgTag.style.borderRadius = '10%';
+        imgTag.style.position = 'relative';
+        imagecontiner.style.background = 'black';
+        imagecontiner.appendChild(imgTag);
+
+        document.getElementById(fileToUpload ).style.display ="none";
+        document.getElementById(knappTillFoto).style.display ="none";
+        document.getElementById(upload).style.display ="none";
+
+        let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;"><span class="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;"></button>'
+        $("#webbContiner").html(content);
+
+        document.getElementById("webbContiner").style.visibility = "hidden";
+    }
+</script>
 </html>
 
