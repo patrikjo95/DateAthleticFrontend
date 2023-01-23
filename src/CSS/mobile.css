@@ -5,7 +5,8 @@
 }
 .login{
     margin-right: -80px;
-    padding: 10px 10px;
+    padding: 8px 10px;
+    font-size: 12px;
 }
 .page-title{
     margin:60px;
@@ -19,6 +20,19 @@
 .skapaKonto{
     margin-right: 200px;
 }
+
+#cards{
+    display: grid;
+    padding: 70px;
+    background: whitesmoke;
+   
+    
+
+   
+
+}
+  
+
 #cards .m-heading{
     top: 1220px;
 
@@ -55,8 +69,9 @@
     height: 300px;
    
     
-    margin-top: 70%;
+    margin-top: 2100px;
     margin-left: 27%;
+
 }
 .container2 .icon{
     position: relative;
@@ -64,6 +79,7 @@
     width: 60%;
     height: 60%;
     display: flex;
+    
 }
 .container2 .icon .images{
     position: absolute;
@@ -90,10 +106,37 @@
 #images .knapp{
     display: flex;
     position:absolute;
-    margin-top: 1750px;
+    margin-top: 3500px;
     margin-left: -200px;
 }
 #images p{
-    top:150px;
+    top:1870px;
     left:20%
 }
+iframe {
+    position: relative;
+    width: 40%;
+    height: 90%;
+    top: 10px;
+    margin-left: -20%;
+   
+ 
+}
+#close-button{
+    margin-left: 100px;
+    font-size: 4px;
+    padding: 4px 10px;
+}
+.nextStep{
+   
+    bottom: -100px;
+    border: 3px;
+    font-size: 12px;
+}
+footer{
+    
+    top: 650%;
+    left: 0;
+    right: 0;
+ 
+   }

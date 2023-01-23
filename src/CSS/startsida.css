@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
+}
+
+body{
+    overflow-x: hidden
 }
 
 
@@ -44,9 +48,6 @@ ul{
         
     }
 
-    li:last-child{
-        border-bottom: none;
-    }
 
     li:hover{
         color:rgba(255,255,255, 1);
@@ -73,11 +74,8 @@ ul{
         right: 210px
     }
 
-  
-
-    .login{
-
-            position: absolute;
+    .login-out{
+        position: absolute;
             top: 18px;
             right: 260px;
             font-size: 14px;
@@ -128,7 +126,7 @@ ul{
 
     }
     #showcase{
-        background: url('../../img/bild2.jpg') no-repeat center center/cover;
+        background: url('../img/bild2.jpg') no-repeat center center/cover;
         height: 100vh
 
     }
@@ -138,6 +136,9 @@ ul{
         text-align: center;
         padding-top: 170px;
         position: absolute;
+        top: 45%;
+        left: 38%;
+        transform: translate(-50%, -50%);
     }
    
 
@@ -218,8 +219,9 @@ ul{
         
     }
     #cards  .m-heading{
+        display: block;
         position: absolute;
-        top:1050px;
+        top:1080px;
 
         font-size: 2rem;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -246,28 +248,28 @@ ul{
 
     .card-image{
         grid-area: image;
-        background: url("../../img/person5.jpg");
+        background: url("../img/person5.jpg");
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background-size:¨cover;
     }
     .card-image1{
         grid-area: image;
-        background: url("../../img/person7.jpg");
+        background: url("../img/person7.jpg");
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background-size:¨cover;
     }
     .card-image2{
         grid-area: image;
-        background: url("../../img/person6.jpg");
+        background: url("../img/person6.jpg");
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background-size:cover;
     }
     .card-image3{
         grid-area: image;
-        background: url("../../img/person9.jpg");
+        background: url("../img/person9.jpg");
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background-size:¨cover;
@@ -599,18 +601,47 @@ ul{
     font-weight: 200;
 }
 
+#modalBodyBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+}
 
 iframe {
     display: block;
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 10%;
     border: 6mm inset #d25f0d;
-}
+    background: whitesmoke;
 
+}
 
 #modal-body{
     width: 1000px;
-    height: 600px;
+    height: 700px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
+
+.close-button{
+    font-size: 10px;
+    position: relative;
+    left: 890px;
+    top: 80px;
+    z-index: 1;
+}
+
+
+
 
