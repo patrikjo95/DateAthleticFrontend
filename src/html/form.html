@@ -16,12 +16,13 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt"  >
+<div id="stegEtt" >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
 
     <form id="formEtt" onsubmit="validateForm(event, 1)">
+
         <div id="info">
             <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
             <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
@@ -29,7 +30,7 @@
             <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
             <input type="email" name="email" placeholder="Email" class="first" required>
              <br>
-            <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required>
+            <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required><button type="button" id="visa-lösenord"><span class="material-symbols-outlined">visibility</span></button>
             <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
             <br>
             <input type="text" name="stad" placeholder="Stad" class="first" required>
@@ -53,10 +54,9 @@
         <br>
         <div id="pronomen" hidden>
             <SELECT name = "pronomen" class="first">
-                <option selected>Annat</option>
+                <option selected>Hen: "Vill du träna med hen?"</option>
                 <option>Hon: "Vill du träna med henne?"</option>
                 <option>Han: "Vill du träna med honom?"</option>
-                <option>Hen: "Vill du träna med hen?"</option>
                 <option>Den/Det: "Vill du träna med den/det?"</option>
             </SELECT>
             <br>
@@ -226,7 +226,7 @@
 
 
 <!--STEG TRE-->
-<div id="stegTre" style="display:none" >
+<div id="stegTre" style="display:none">
     <h2>Steg 3: BIO</h2>
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
@@ -257,7 +257,7 @@
 
     <br>
         <br>
-    <button type="submit" id="klar"  class="button" onclick="buttonHiVi(2)">KLAR</button>
+    <button type="submit" id="klar" class="button" onclick="hide()">KLAR</button>
     </form>
 </div>
 </body>

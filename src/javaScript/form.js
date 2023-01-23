@@ -8,34 +8,41 @@ let int;
 let intLetter;
 
 
-
+/**
+ * Inehåller populering av år, månad, dag felt. Samt visa-lösenord knappen aktiveras här.
+ */
 $(document).ready(function(){
     let i;
-    let option = '<option selected value="dag">dag</option>';
-    const selectedDay = "dag";
+    let val = '<option selected value="dag">dag</option>';
+    const väljDag = "dag";
     for (i = 1; i <= Dagar[0]; i++){ //add option days
-        option += '<option selected value="'+ i + '">' + i + '</option>';
+        val += '<option selected value="'+ i + '">' + i + '</option>';
     }
-    $('#dag').append(option);
-    $('#dag').val(selectedDay);
+    $('#dag').append(val);
+    $('#dag').val(väljDag);
 
-    option = '<option selected value="månad">månad</option>';
-    let selectedMon = "månad";
+    val = '<option selected value="månad">månad</option>';
+    let väljMånad = "månad";
     for (i = 1; i <= 12; i++){
-        option += '<option value="'+ i + '">' + i + '</option>';
+        val += '<option value="'+ i + '">' + i + '</option>';
     }
-    $('#månad').append(option);
-    $('#månad').val(selectedMon);
+    $('#månad').append(val);
+    $('#månad').val(väljMånad);
 
-    let d = new Date();
-    option = '<option selected value="år">år</option>';
+    let datum = new Date();
+    val = '<option selected value="år">år</option>';
     selectedYear ="år";
-    for (i = 1930; i <= d.getFullYear(); i++){// years start i
-        option += '<option value="'+ i + '">' + i + '</option>';
+    for (i = 1930; i <= datum.getFullYear(); i++){// years start i
+        val += '<option value="'+ i + '">' + i + '</option>';
     }
-    $('#år').append(option);
+    $('#år').append(val);
     $('#år').val(selectedYear);
 
+    $("#visa-lösenord").click(function(){
+        let type = $("#lösenord1").attr("type") == "password" ? "text" : "password";
+        $("#lösenord1").prop("type", type);
+        $("#lösenord2").prop("type", type);
+    });
 });
 function isLeapYear(år) {
     år = parseInt(år);
@@ -50,9 +57,9 @@ function isLeapYear(år) {
     }
 }
 
-function change_year(select)
+function change_year(vald)
 {
-    if( isLeapYear( $(select).val() ) )
+    if( isLeapYear( $(vald).val() ) )
     {
         Dagar[1] = 29;
 
@@ -65,11 +72,11 @@ function change_year(select)
         const dag = $('#dag');
         let val = $(dag).val();
         $(dag).empty();
-        let option = '<option selected value="dag">dag</option>';
+        let val2 = '<option selected value="dag">dag</option>';
         for (let i=1; i <= Dagar[1]; i++){ //add option days
-            option += '<option value="'+ i + '">' + i + '</option>';
+            val2 += '<option value="'+ i + '">' + i + '</option>';
         }
-        $(dag).append(option);
+        $(dag).append(val2);
         if( val > Dagar[ månad ] )
         {
             val = 1;
@@ -155,11 +162,12 @@ $(document).ready(function() {
 function buttonHiVi(n) {
     console.log(n)
         if (n===1){
-            document.getElementById('modal-body').style.visibility = 'visible';
-            document.getElementById('modalBodyBackdrop').style.visibility = 'visible';
+            document.getElementById('modal-body').style.display = 'block';
+            document.getElementById('modalBodyBackdrop').style.display = 'block';
         }
         else {
-           document.getElementById('modal-body').style.visibility= 'hidden';
+           document.getElementById('modal-body').style.display = 'none';
+            document.getElementById('modalBodyBackdrop').style.display = 'none';
         }
 }
 
@@ -188,10 +196,24 @@ function kontrolleraLösenord() {
 
 
 
-    if (password1 === password2) {
+    if(password1 !== password2){
+        event.preventDefault();
+        return 1;
+    }
+
+    if(password1.length < 6){
+        alert("Lösenordet måste vara minst 6 tecken långt!");
+        event.preventDefault(); // förhindra formuläret från att skickas
+        return 2;
+    }
+    // Kolla om det innehåller både bokstäver och siffror
+    if(!password1.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)){
+        alert("Lösenordet måste innehålla både bokstäver och siffror!");
+        event.preventDefault();
+        return 3;
+    }
+    else {
         return true;
-    } else {
-        return false;
     }
 }
 
@@ -205,13 +227,25 @@ function validateForm(event, n) {
         return false;
     }
 
-    if (kontrolleraLösenord() === true){
+    let koll = kontrolleraLösenord();
+
+    if (koll === true){
         nextStep(n)
     }
-    else{
-        alert("Lösenorden matchar ej!");
+    if (koll === 1){
+        alert("Lösenordet och bekräfta lösenordet matchar inte!");
         return false;
     }
+    if (koll === 2){
+        alert("Lösenordet måste vara minst 6 tecken långt!");
+        return false;
+    }
+    if (koll === 3){
+        alert("Lösenordet måste innehålla både bokstäver och siffror!");
+        return false;
+    }
+
+
 }
 
 function validateCheckBoxes(event, n){
@@ -419,5 +453,14 @@ function countChars(target) {
     const currentLength = target.value.length;
     document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
 }
+
+function hide() {
+    let iframe = window.parent.document.getElementById("modal-body");
+    let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
+    iframe.style.display = "none";
+    iframemodel.style.display = "none";
+};
+
+
 
 
