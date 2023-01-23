@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
 <script src="../javaScript/form.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +16,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" style="display:none" >
+<div id="stegEtt"  >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -225,7 +226,7 @@
 
 
 <!--STEG TRE-->
-<div id="stegTre" >
+<div id="stegTre" style="display:none" >
     <h2>Steg 3: BIO</h2>
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
@@ -251,7 +252,9 @@
         <br>
         <br>
         <h3>Här kan du skriva en beskrivning om dig själv</h3>
-        <textarea id="myTextarea"></textarea>
+            <textarea id="myTextarea" maxlength="500" oninput="countChars(this)"></textarea>
+            <div id="counter">0/500</div>
+
     <br>
         <br>
     <button type="submit" id="klar"  class="button" onclick="buttonHiVi(2)">KLAR</button>
@@ -263,6 +266,7 @@
         event.preventDefault();
         let buttons = document.querySelectorAll("button:not(#webbContiner button)");
         let inputs = document.querySelectorAll("input[type='file']");
+        let texta = document.querySelectorAll("textarea");
 
         inputs.forEach(function(button) {
             button.disabled = false;
@@ -273,6 +277,13 @@
             button.disabled = false;
             button.classList.remove("disabled");
         });
+
+
+        texta.forEach(function(button) {
+            button.disabled = false;
+            button.classList.remove("disabled");
+        });
+
         let fileToUpload = "fileToUpload" + int;
         let knappTillFoto = "knappTillFoto" + int;
         let upload = "file-upload" + int;
@@ -303,6 +314,5 @@
 
     }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.js"></script>
 </html>
 
