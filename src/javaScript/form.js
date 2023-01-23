@@ -285,6 +285,12 @@ function startWebcam(n, intLetterLive) {
 
 
 
+    let texta = document.querySelectorAll("textarea");
+    texta.forEach(function(button) {
+        button.disabled = true;
+        button.classList.add("disabled");
+    });
+
     let inputs = document.querySelectorAll("input[type='file']");
     inputs.forEach(function(button) {
         button.disabled = true;
@@ -381,6 +387,12 @@ function retake (event, close){
         button.classList.remove("disabled");
     });
 
+    let texta = document.querySelectorAll("textarea");
+    texta.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
 }
 
 function removeBild(n, event, lett){
@@ -402,8 +414,10 @@ function removeBild(n, event, lett){
 
 }
 
-
-
-
+function countChars(target) {
+    const maxLength = target.getAttribute('maxlength');
+    const currentLength = target.value.length;
+    document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
+}
 
 
