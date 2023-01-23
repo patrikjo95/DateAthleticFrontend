@@ -601,17 +601,7 @@ ul{
     font-weight: 200;
 }
 
-#modalBodyBackdrop{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
 
-}
 
 iframe {
     display: block;
@@ -621,6 +611,18 @@ iframe {
     border-radius: 10%;
     border: 6mm inset #d25f0d;
     background: whitesmoke;
+
+
+}
+#modalBodyBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
 
 }
 
