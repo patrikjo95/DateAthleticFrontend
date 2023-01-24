@@ -349,7 +349,11 @@ input:focus {
     transform: scale(1.5);
 }
 
-.material-symbols-outlined{
+.fa-table-tennis-paddle-ball:hover{
+    transform: scale(1.5);
+}
+
+.material-symbols-outlined, .fa-table-tennis-paddle-ball {
     transform: scale(1.2);
 }
 

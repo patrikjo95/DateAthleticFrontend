@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" >
+<div id="stegEtt" style="display:none">
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -42,7 +42,6 @@
         <SELECT required="" type="number" id ="månad" name = "mm" onchange="change_month(this)" class="first"></SELECT>
         <SELECT required="" type="number" id = "dag" name = "dd" class="first" ></SELECT>
     <br>
-
     <div id="identifiera">
         <h2 id="textIdentifiera">Hur vill du identifiera dig?</h2>
         <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
@@ -70,7 +69,7 @@
 
 
 <!--STEG TVÅ-->
-    <div id="stegTvå" style="display:none" >
+    <div id="stegTvå" >
         <h2>Steg 2: SPORT</h2>
         <button class="back button" onclick="nextStep(3)">Back</button>
         <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
@@ -224,7 +223,6 @@
 
 
 
-
 <!--STEG TRE-->
 <div id="stegTre" style="display:none">
     <h2>Steg 3: BIO</h2>
@@ -246,14 +244,13 @@
             <button id="taOmBild" style="display:none;"  onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button>
             <button id="close" style="display:none;" onclick="retake(event, 'close')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>
         </div>
-
         <br>
         <br>
         <br>
         <br>
         <h3>Här kan du skriva en beskrivning om dig själv</h3>
             <textarea id="myTextarea" maxlength="500" oninput="countChars(this)"></textarea>
-            <div id="counter">0/500</div>
+        <div id="counter">0/500</div>
 
     <br>
         <br>
@@ -278,7 +275,6 @@
             button.classList.remove("disabled");
         });
 
-
         texta.forEach(function(button) {
             button.disabled = false;
             button.classList.remove("disabled");
@@ -288,10 +284,9 @@
         let knappTillFoto = "knappTillFoto" + int;
         let upload = "file-upload" + int;
         let deleteBild = "deleteBild" + int;
-
         let imagecontiner = document.getElementById(intLetter)
-
         let imgTag = document.createElement('img');
+
         imgTag.src = liveImg;
         imgTag.id = int;
         imgTag.style.width = '100%';
