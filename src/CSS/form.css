@@ -138,15 +138,22 @@ fieldset {
     border: 2px solid black;
 }
 
-.checkbox:hover{
+.grid-item:hover{
+    transform: scale(1.05);
     box-shadow: 0 0 10px #000;
     border: 2px solid #000;
-    transform: scale(1.05);
 }
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
 
 .back{
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 10px;
     font-size: 10px;
 
@@ -194,12 +201,6 @@ input:focus {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-gap: 20px;
-}
-.grid-item {
-    border: 1px solid black;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: left;
 }
 
 
@@ -345,13 +346,10 @@ input:focus {
     }
 }
 
-.material-symbols-outlined:hover{
+.symbol:hover{
     transform: scale(1.5);
 }
 
-.fa-table-tennis-paddle-ball:hover{
-    transform: scale(1.5);
-}
 
 .material-symbols-outlined, .fa-table-tennis-paddle-ball {
     transform: scale(1.2);
@@ -406,6 +404,9 @@ input:focus {
 
 }
 
+.grid-item {
+    cursor: pointer;
+}
 
 
 

@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" >
+<div id="stegEtt" style="display:none" >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
@@ -29,7 +29,7 @@
             <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
             <input type="email" name="email" placeholder="Email" class="first" required>
              <br>
-            <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required><button type="button" id="visa-lösenord"><span class="material-symbols-outlined">visibility</span></button>
+            <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required><button type="button" id="visa-lösenord"><span class="material-symbols-outlined symbol">visibility</span></button>
             <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
             <br>
             <input type="text" name="stad" placeholder="Stad" class="first" required>
@@ -68,7 +68,7 @@
 
 
 <!--STEG TVÅ-->
-    <div id="stegTvå" style="display:none" >
+    <div id="stegTvå" >
         <h2>Steg 2: SPORT</h2>
         <button class="back button" onclick="nextStep(3)">Back</button>
         <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
@@ -175,9 +175,9 @@
                     <span class="material-symbols-outlined">sports_bar</span>
                     </div>
                     <div class="grid-item">
-                <input type="checkbox" id="skidåkning" class="checkbox" onchange="printCheckedSport(this.id)">
-                <label for="skidåkning">Skidåkning </label>
-                    <span class="material-symbols-outlined">downhill_skiing</span>
+                        <input type="checkbox" id="skidåkning" class="checkbox" onchange="printCheckedSport(this.id)">
+                        <label for="skidåkning">Skidåkning</label>
+                        <span class="material-symbols-outlined">downhill_skiing</span>
                     </div>
                     <div class="grid-item">
                 <input type="checkbox" id="fiske" class="checkbox" onchange="printCheckedSport(this.id)">
@@ -225,16 +225,16 @@
 
 <!--STEG TRE-->
 <div id="stegTre" style="display:none">
-    <h2>Steg 3: BIO</h2>
+    <h2>Steg 3: BILDER OCH BESKRIVNING</h2>
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
         <div id="continerBild">
-            <div class="foto" id="ett"><button class="deleteButton" id="deleteBild1" onclick="removeBild(1, event, 'ett')" style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(1,'ett')" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
-            <div class="foto" id="två"><button class="deleteButton" id="deleteBild2" onclick="removeBild(2, event, 'två')" style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(2,'två')" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
-            <div class="foto" id="tre"><button class="deleteButton" id="deleteBild3" onclick="removeBild(3, event, 'tre')" style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(3,'tre')" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
-            <div class="foto" id="fyra"><button class="deleteButton" id="deleteBild4" onclick="removeBild(4, event, 'fyra')" style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(4,'fyra')" id="knappTillFoto4" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload4" class="file-upload"><input  onchange="displayImage(4,'fyra')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload4">Välj fil</label></div>
-            <div class="foto" id="fem"><button class="deleteButton" id="deleteBild5" onclick="removeBild(5, event, 'fem')" style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(5,'fem')" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
-            <div class="foto" id="sex"><button class="deleteButton" id="deleteBild6" onclick="removeBild(6, event, 'sex') " style="display: none"><span class="material-symbols-outlined" style="color: white">delete</span></button><button type="button" onclick="startWebcam(6,'sex')" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
+            <div class="foto" id="ett"><button class="deleteButton" id="deleteBild1" onclick="removeBild(1, event, 'ett')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(1,'ett')" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
+            <div class="foto" id="två"><button class="deleteButton" id="deleteBild2" onclick="removeBild(2, event, 'två')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(2,'två')" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
+            <div class="foto" id="tre"><button class="deleteButton" id="deleteBild3" onclick="removeBild(3, event, 'tre')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(3,'tre')" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
+            <div class="foto" id="fyra"><button class="deleteButton" id="deleteBild4" onclick="removeBild(4, event, 'fyra')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(4,'fyra')" id="knappTillFoto4" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload4" class="file-upload"><input  onchange="displayImage(4,'fyra')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload4">Välj fil</label></div>
+            <div class="foto" id="fem"><button class="deleteButton" id="deleteBild5" onclick="removeBild(5, event, 'fem')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(5,'fem')" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
+            <div class="foto" id="sex"><button class="deleteButton" id="deleteBild6" onclick="removeBild(6, event, 'sex') " style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(6,'sex')" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
         </div>
         <div id="webbContiner">
         <video id="webcam" style="display:none;"></video>
