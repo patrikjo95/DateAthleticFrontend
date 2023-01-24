@@ -460,11 +460,6 @@ function hide() {
 };
 
 
-document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.currentTarget.querySelector('input[type="checkbox"]').checked = true;
-    });
-});
 
 
 
