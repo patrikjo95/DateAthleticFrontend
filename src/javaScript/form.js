@@ -202,13 +202,11 @@ function kontrolleraLösenord() {
     }
 
     if(password1.length < 6){
-        alert("Lösenordet måste vara minst 6 tecken långt!");
         event.preventDefault(); // förhindra formuläret från att skickas
         return 2;
     }
     // Kolla om det innehåller både bokstäver och siffror
     if(!password1.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)){
-        alert("Lösenordet måste innehålla både bokstäver och siffror!");
         event.preventDefault();
         return 3;
     }
