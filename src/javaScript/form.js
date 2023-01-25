@@ -2,6 +2,134 @@ const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
 const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
 
+let sports = [
+    {
+        id: "gym",
+        name: "Gym",
+        icon: "fitness_center"
+    },
+    {
+        id: "padel",
+        name: "Padel",
+        icon: "sports_cricket"
+    },
+    {
+        id: "löpning",
+        name: "Löpning",
+        icon: "sprint"
+    },
+    {
+        id: "kampsport",
+        name: "Kampsport",
+        icon: "sports_martial_arts"
+    }
+    ,
+    {
+        id: "esport",
+        name: "E-sport",
+        icon: "sports_esports"
+    },
+    {
+        id: "klättring",
+        name: "Klättring",
+        icon: "altitude"
+    },
+    {
+        id: "basket",
+        name: "Basket",
+        icon: "sports_basketball"
+    },
+
+    {
+        id: "tennis",
+        name: "Tennis",
+        icon: "sports_tennis"
+    },
+    {
+        id: "golf",
+        name: "Golf",
+        icon: "golf_course"
+    }
+    ,
+    {
+        id: "crossfit",
+        name: "Crossfit",
+        icon: "fitness_center"
+    },
+    {
+        id: "fotboll",
+        name: "Fotboll",
+        icon: "sports_soccer"
+    },
+    {
+        id: "dans",
+        name: "Dans",
+        icon: "emoji_people"
+    },
+    {
+        id: "badminton",
+        name: "Badminton",
+        icon: "sports_tennis"
+    }
+    ,
+    {
+        id: "pingis",
+        name: "Pingis",
+        icon: "sports_tennis"
+    },
+    {
+        id: "volleyboll",
+        name: "Volleyboll",
+        icon: "sports_volleyball"
+    },
+    {
+        id: "hockey",
+        name: "Hockey",
+        icon: "sports_hockey"
+    },
+    {
+        id: "simning",
+        name: "Simning",
+        icon: "pool"
+    }
+    ,
+    {
+        id: "cyklning",
+        name: "Cyklning",
+        icon: "directions_bike"
+    },
+    {
+        id: "biljard",
+        name: "Biljard",
+        icon: "sports_bar"
+    },
+    {
+        id: "skidåkning",
+        name: "Skidåkning",
+        icon: "downhill_skiing"
+    },
+    {
+        id: "fiske",
+        name: "Fiske",
+        icon: "phishing"
+    },
+    {
+        id: "vandring",
+        name: "Vandring",
+        icon: "hiking"
+    },
+    {
+        id: "handboll",
+        name: "Handboll",
+        icon: "sports_handball"
+    },
+    {
+        id: "skateboarding",
+        name: "Skateboarding",
+        icon: "skateboarding"
+    }
+];
+
 let liveImg;
 
 let int;
@@ -115,13 +243,18 @@ $(document).ready(function() {
 
     function printCheckedSport(thisID) {
 
-        let checkBox = document.getElementById(thisID);
 
+        let checkBox = document.getElementById(thisID);
+        console.log(thisID + "1")
         thisID = thisID.charAt(0).toUpperCase() + thisID.slice(1);
+        console.log(thisID + "2")
 
         let gridItem = checkBox.closest(".grid-item");
+        console.log(gridItem + "3")
         let thisIdPlusCheck = thisID + "check";
+        console.log(thisIdPlusCheck + "4")
         let idf = thisID + "rangeValue";
+        console.log(idf + "5")
         let fullArrayItem = '<label id ="sliderLabel"> ' + thisID + ' </label> '+ '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '" class="sliderValue">5</p>'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
@@ -457,7 +590,51 @@ function hide() {
     let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
     iframe.style.display = "none";
     iframemodel.style.display = "none";
-};
+}
+
+
+window.onload = function(){
+    let gridContainer = document.querySelector(".grid-container");
+
+    for (let sport of sports) {
+        let gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+        gridItem.onclick = function(){
+            document.getElementById(this.querySelector('input').id).checked = document.getElementById(this.querySelector('input').id).checked ? false : true;
+            printCheckedSport(this.querySelector('input').id);
+        };
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = sport.id;
+        checkbox.classList.add("checkbox");
+        checkbox.onclick = function (){
+            document.getElementById(this.id).checked = document.getElementById(this.id).checked ? false : true;
+        }
+
+        let label = document.createElement("label");
+        label.htmlFor = sport.id;
+        label.innerText = " " + sport.name + " ";
+        label.onclick = function(){
+            document.getElementById(this.parentNode.querySelector('input').id).checked = document.getElementById(this.parentNode.querySelector('input').id).checked ? false : true;
+            printCheckedSport(this.parentNode.querySelector('input').id);
+        };
+
+
+            let icon = document.createElement("span");
+            icon.classList.add("material-symbols-outlined");
+            icon.innerText = sport.icon;
+
+
+        gridItem.appendChild(checkbox);
+        gridItem.appendChild(label);
+        gridItem.appendChild(icon);
+
+        gridContainer.appendChild(gridItem);
+    }
+}
+
+
 
 
 
