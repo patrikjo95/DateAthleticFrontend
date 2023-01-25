@@ -193,19 +193,17 @@
         height: 400px;
     }
 
-    #counter {
+   #counter {
         position: absolute;
-        bottom: -248%;
+        bottom: -255%;
         right: 10%;
         font-size: 15px;
         color: gray;
     }
 
-    #stegTre{
+    #stegTreH2{
         padding-top: 50px;
     }
-
-
 
 footer{
     
