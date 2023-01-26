@@ -449,7 +449,6 @@ function startWebcam(n, intLetterLive) {
     document.getElementById("webbContainer").style.visibility = "visible";
 
 
-
     let texta = document.querySelectorAll("textarea");
     texta.forEach(function(button) {
         button.disabled = true;
@@ -471,9 +470,12 @@ function startWebcam(n, intLetterLive) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
         let video = document.getElementById('webcam');
         let button = document.getElementById('taBild')
+        let close  = document.getElementById('close')
+
         video.srcObject = stream;
         video.style.display = 'block';
         button.style.display = 'block';
+        close.style.display = 'block';
         video.play();
 
         int = n;
@@ -495,7 +497,8 @@ function takePicture(event) {
     let taOmBild = document.getElementById('taOmBild')
     let check = document.getElementById('check')
     let close  = document.getElementById('close')
-    taBild.style.visibility = "hidden"
+    close.style.display = 'none';
+    taBild.style.visibility = "hidden";
     countdown.innerHTML = count;
     countdownInterval = setInterval(() => {
         count--;
