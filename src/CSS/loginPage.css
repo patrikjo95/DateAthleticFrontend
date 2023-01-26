@@ -167,6 +167,24 @@ button[type="submit"] {
     border-bottom: 1px solid #d25f0d;
 }
 
+.forgotPass{
+    margin-top: 5px;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 14px;
+    text-align: center;
+    color: #989898;
+}
+.forgotPass a{
+    text-decoration: none;
+    color: #d25f0d;
+
+}
+
+.forgotPass a:hover{
+    border-bottom: 1px solid #d25f0d;
+}
+
 button:hover{
     background: rgba(210, 95, 13, 0.68);
 }
@@ -260,6 +278,82 @@ iframe {
 
 .menu-item:hover{
     color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #visa-lösenord{
+        position: absolute;
+        left: 10%;
+        top: 59%;
+    }
+
+    #modal-body{
+        width: 370px;
+        height: 700px;
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    #stegTvåH2{
+        padding-top: 50px;
+    }
+
+    /* Steg 3 */
+    #containerBild {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #webcam{
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    #webbContainer{
+        position: fixed;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    img{
+        width: 300px;
+        height: 400px;
+    }
+
+    #counter {
+        position: absolute;
+        bottom: -255%;
+        right: 10%;
+        font-size: 15px;
+        color: gray;
+    }
+
+    #stegTreH2{
+        padding-top: 50px;
+    }
+
+
 }
 
 
