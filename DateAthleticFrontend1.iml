@@ -12,5 +12,6 @@
     <orderEntry type="library" name="camanjs" level="application" />
     <orderEntry type="library" name="jquery-ui" level="application" />
     <orderEntry type="library" name="7dff18c79c" level="application" />
+    <orderEntry type="library" name="jquery-3.6.0" level="application" />
   </component>
 </module>

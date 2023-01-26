@@ -2,6 +2,11 @@ const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
 const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
 
+let liveImg;
+
+let int;
+let intLetter;
+
 let sports = [
     {
         id: "styrcketräning",
@@ -131,10 +136,7 @@ let sports = [
     }
 ];
 
-let liveImg;
 
-let int;
-let intLetter;
 
 
 /**
@@ -172,6 +174,21 @@ $(document).ready(function(){
         $("#lösenord1").prop("type", type);
         $("#lösenord2").prop("type", type);
     });
+
+    // Gör bilderna dragbara
+
+    // Gör bilderna droppbara
+        $('#containerBild').sortable({
+            items: '.foto',
+            update: function(event, ui) {
+                // Hämta det nya indexet för båda bilderna
+                let img1Id = ui.item.attr("id");
+                let img2Id = $('#containerBild .bild').not(ui.item).eq(ui.item.index()).attr("id");
+                // Byt id:n för bilderna
+                $("#" + img1Id).attr("id", img2Id);
+                $("#" + img2Id).attr("id", img1Id);
+            }
+        });
 });
 
 function isLeapYear(år) {
@@ -427,12 +444,7 @@ function displayImage(n, har){
         let input = document.getElementById(fileToUpload)
     let imagecontiner = document.getElementById(har)
 
-    let images = document.querySelectorAll('.foto');
-    images.forEach(function(image) {
-        image.addEventListener('dragstart', handleDragStart);
-        image.addEventListener('drop', handleDrop);
-        image.addEventListener('dragover', handleDragOver);
-    });
+
 
     let image = new Image();
         image.src = URL.createObjectURL(input.files[0])
@@ -441,17 +453,8 @@ function displayImage(n, har){
     image.style.height = '100%';
     image.style.borderRadius = '10%';
     image.style.position = ' relative';
+    image.style.position = ' relative';
     image.setAttribute("draggable", "true");
-    image.ondragstart = function(event) {
-        event.dataTransfer.setData("text", event.target.id);
-    };
-    image.ondragover = function(event) {
-        event.preventDefault();
-    };
-    image.ondrop = function(event) {
-        event.preventDefault();
-        let id = event.dataTransfer.getData("text");
-        let image = document.getElementById(id);}
     imagecontiner.style.background = 'black';
     imagecontiner.append(image)
 
@@ -655,8 +658,6 @@ window.onload = function(){
         gridContainer.appendChild(gridItem);
     }
 }
-
-
 
 
 
