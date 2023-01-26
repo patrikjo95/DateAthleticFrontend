@@ -4,14 +4,9 @@ const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
 
 let sports = [
     {
-        id: "gym",
-        name: "Gym",
+        id: "styrcketräning",
+        name: "Styrcketräning",
         icon: "fitness_center"
-    },
-    {
-        id: "padel",
-        name: "Padel",
-        icon: "sports_cricket"
     },
     {
         id: "löpning",
@@ -41,8 +36,8 @@ let sports = [
     },
 
     {
-        id: "tennis",
-        name: "Tennis",
+        id: "racketsport",
+        name: "Racketsport",
         icon: "sports_tennis"
     },
     {
@@ -52,11 +47,6 @@ let sports = [
     }
     ,
     {
-        id: "crossfit",
-        name: "Crossfit",
-        icon: "fitness_center"
-    },
-    {
         id: "fotboll",
         name: "Fotboll",
         icon: "sports_soccer"
@@ -65,18 +55,8 @@ let sports = [
         id: "dans",
         name: "Dans",
         icon: "emoji_people"
-    },
-    {
-        id: "badminton",
-        name: "Badminton",
-        icon: "sports_tennis"
     }
     ,
-    {
-        id: "pingis",
-        name: "Pingis",
-        icon: "sports_tennis"
-    },
     {
         id: "volleyboll",
         name: "Volleyboll",
@@ -128,6 +108,27 @@ let sports = [
         name: "Skateboarding",
         icon: "skateboarding"
     }
+    ,
+    {
+        id: "yoga",
+        name: "Yoga",
+        icon: "self_improvement"
+    },
+    {
+        id: "segling",
+        name: "Segling",
+        icon: "sailing"
+    },
+    {
+        id: "surfa",
+        name: "Surfa",
+        icon: "surfing"
+    },
+    {
+        id: "snowboarding",
+        name: "Snowboarding",
+        icon: "snowboarding"
+    }
 ];
 
 let liveImg;
@@ -172,6 +173,7 @@ $(document).ready(function(){
         $("#lösenord2").prop("type", type);
     });
 });
+
 function isLeapYear(år) {
     år = parseInt(år);
     if (år % 4 != 0) {
@@ -425,6 +427,12 @@ function displayImage(n, har){
         let input = document.getElementById(fileToUpload)
     let imagecontiner = document.getElementById(har)
 
+    let images = document.querySelectorAll('.foto');
+    images.forEach(function(image) {
+        image.addEventListener('dragstart', handleDragStart);
+        image.addEventListener('drop', handleDrop);
+        image.addEventListener('dragover', handleDragOver);
+    });
 
     let image = new Image();
         image.src = URL.createObjectURL(input.files[0])
@@ -433,6 +441,17 @@ function displayImage(n, har){
     image.style.height = '100%';
     image.style.borderRadius = '10%';
     image.style.position = ' relative';
+    image.setAttribute("draggable", "true");
+    image.ondragstart = function(event) {
+        event.dataTransfer.setData("text", event.target.id);
+    };
+    image.ondragover = function(event) {
+        event.preventDefault();
+    };
+    image.ondrop = function(event) {
+        event.preventDefault();
+        let id = event.dataTransfer.getData("text");
+        let image = document.getElementById(id);}
     imagecontiner.style.background = 'black';
     imagecontiner.append(image)
 
