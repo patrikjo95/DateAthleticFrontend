@@ -271,9 +271,10 @@ input:focus {
     background: none !important;/* Sätter bakgrundsfärgen till blå */
     border: none;
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 #check{
