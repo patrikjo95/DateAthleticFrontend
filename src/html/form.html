@@ -38,10 +38,13 @@
             <br>
         </div>
     <br>
+        <div>
         <label > FÖDELSEDATUM : <span></span></label>
+            <br>
         <SELECT required="" type="number" id ="år" name = "yyyy"  onchange="change_year(this)" class="first"></SELECT>
         <SELECT required="" type="number" id ="månad" name = "mm" onchange="change_month(this)" class="first"></SELECT>
         <SELECT required="" type="number" id = "dag" name = "dd" class="first" ></SELECT>
+        </div>
     <br>
     <div id="identifiera">
         <h2 id="textIdentifiera">Hur vill du identifiera dig?</h2>
@@ -63,7 +66,7 @@
         <input type="text" placeholder="Kön (Valfritt)" class="first">
         </div>
     </div>
-    <button type="submit" class="nextStep button" >NÄSTA STEG</button>
+    <button type="submit" class="nextStep button">NÄSTA STEG</button>
     </form>
 </div>
 
@@ -71,7 +74,9 @@
 
 <!--STEG TVÅ-->
     <div id="stegTvå" style="display:none">
-        <h2>Steg 2: SPORT</h2>
+
+
+        <h2 id="stegTvåH2">Steg 2: SPORT</h2>
         <button class="back button" onclick="nextStep(3)">Back</button>
         <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
         <div id="sporter">
@@ -105,11 +110,11 @@
 
 
 <!--STEG TRE-->
-<div id="stegTre" style="display:none">
-    <h2>Steg 3: BILDER OCH BESKRIVNING</h2>
+<div id="stegTre">
+    <h2 id="stegTreH2">Steg 3: BILDER OCH BESKRIVNING</h2>
     <button class="back button" onclick="nextStep(4)">Back</button>
     <form id="formTre">
-        <div id="continerBild">
+        <div id="containerBild">
             <div class="foto" id="ett"><button class="deleteButton" id="deleteBild1" onclick="removeBild(1, event, 'ett')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(1,'ett')" id="knappTillFoto1" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload1" class="file-upload"><input  onchange="displayImage(1,'ett')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload1">Välj fil</label></div>
             <div class="foto" id="två"><button class="deleteButton" id="deleteBild2" onclick="removeBild(2, event, 'två')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(2,'två')" id="knappTillFoto2" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload2" class="file-upload"><input  onchange="displayImage(2,'två')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload2">Välj fil</label></div>
             <div class="foto" id="tre"><button class="deleteButton" id="deleteBild3" onclick="removeBild(3, event, 'tre')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(3,'tre')" id="knappTillFoto3" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload3" class="file-upload"><input  onchange="displayImage(3,'tre')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload3">Välj fil</label></div>
@@ -117,7 +122,7 @@
             <div class="foto" id="fem"><button class="deleteButton" id="deleteBild5" onclick="removeBild(5, event, 'fem')" style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(5,'fem')" id="knappTillFoto5" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload5" class="file-upload"><input  onchange="displayImage(5,'fem')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload5">Välj fil</label></div>
             <div class="foto" id="sex"><button class="deleteButton" id="deleteBild6" onclick="removeBild(6, event, 'sex') " style="display: none"><span class="material-symbols-outlined symbol" style="color: white">delete</span></button><button type="button" onclick="startWebcam(6,'sex')" id="knappTillFoto6" class="fotoButton"><i class="fa fa-camera" style="font-size:36px"></i></button><label id="file-upload6" class="file-upload"><input  onchange="displayImage(6,'sex')" type="file" multiple="multiple" name="fileToUpload"  id="fileToUpload6">Välj fil</label></div>
         </div>
-        <div id="webbContiner">
+        <div id="webbContainer">
         <video id="webcam" style="display:none;"></video>
             <p id="countdown"></p>
             <button id="check"  onclick="displayImageFromKamera(event)" style="display:none;"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button>
@@ -154,7 +159,7 @@
 <script>
     function displayImageFromKamera(event){
         event.preventDefault();
-        let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+        let buttons = document.querySelectorAll("button:not(#webbContainer button)");
         let inputs = document.querySelectorAll("input[type='file']");
         let texta = document.querySelectorAll("textarea");
 
@@ -195,9 +200,9 @@
         document.getElementById(deleteBild).style.display = "block";
 
         let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button><button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
-        $("#webbContiner").html(content);
+        $("#webbContainer").html(content);
 
-        document.getElementById("webbContiner").style.visibility = "hidden";
+        document.getElementById("webbContainer").style.visibility = "hidden";
 
 
     }

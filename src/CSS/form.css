@@ -14,9 +14,6 @@ SELECT{
 *{
     align-items: center;
     text-align: center;
-
-
-
 }
 
 textArea{
@@ -96,6 +93,7 @@ textArea{
     bottom: -100px;
     border: 3px;
     font-size: 20px;
+    top: 20px;
 }
 
 
@@ -143,6 +141,7 @@ fieldset {
     box-shadow: 0 0 10px #000;
     border: 2px solid #000;
 }
+
 .grid-item {
     border: 1px solid black;
     padding: 10px;
@@ -152,10 +151,11 @@ fieldset {
 
 
 .back{
-    position: absolute;
+    position: fixed;
     top: 25px;
     left: 10px;
     font-size: 10px;
+    z-index: 4;
 
 }
 
@@ -184,10 +184,6 @@ input:focus {
     margin: 5px;
 }
 
-.nextStep{
-    top: 20px
-}
-
 .checkbox{
     vertical-align: middle;
 }
@@ -204,7 +200,7 @@ input:focus {
 }
 
 
-#continerBild {
+#containerBild {
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -258,7 +254,7 @@ input:focus {
     width: 0;
 }
 
-#webbContiner{
+#webbContainer{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -275,9 +271,10 @@ input:focus {
     background: none !important;/* Sätter bakgrundsfärgen till blå */
     border: none;
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 #check{
@@ -289,13 +286,11 @@ input:focus {
     left: 80%;
     top: 90%;
 }
+
 #taOmBild, #taBild{
     left: 50%;
     top: 90%;
 }
-
-
-
 
 #countdown {
     font-size: 70px;
@@ -327,8 +322,6 @@ input:focus {
     position: relative;
 
 }
-
-
 
 .flash-screen {
     animation: flash 3s linear;
@@ -383,7 +376,7 @@ input:focus {
 #counter {
     position: absolute;
     bottom: -70%;
-    right: 13%;
+    right: 11%;
     font-size: 15px;
     color: gray;
 }

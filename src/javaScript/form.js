@@ -418,7 +418,7 @@ function displayImage(n, har){
         button.classList.remove("disabled");
     });
 
-    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    let buttons = document.querySelectorAll("button:not(#webbContainer button)");
     buttons.forEach(function(button) {
         button.disabled = false;
         button.classList.remove("disabled");
@@ -465,8 +465,7 @@ function displayImage(n, har){
 }
 
 function startWebcam(n, intLetterLive) {
-    document.getElementById("webbContiner").style.visibility = "visible";
-
+    document.getElementById("webbContainer").style.visibility = "visible";
 
 
     let texta = document.querySelectorAll("textarea");
@@ -481,7 +480,7 @@ function startWebcam(n, intLetterLive) {
         button.classList.add("disabled");
     });
 
-    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    let buttons = document.querySelectorAll("button:not(#webbContainer button)");
     buttons.forEach(function(button) {
         button.disabled = true;
         button.classList.add("disabled");
@@ -490,9 +489,12 @@ function startWebcam(n, intLetterLive) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
         let video = document.getElementById('webcam');
         let button = document.getElementById('taBild')
+        let close  = document.getElementById('close')
+
         video.srcObject = stream;
         video.style.display = 'block';
         button.style.display = 'block';
+        close.style.display = 'block';
         video.play();
 
         int = n;
@@ -514,7 +516,8 @@ function takePicture(event) {
     let taOmBild = document.getElementById('taOmBild')
     let check = document.getElementById('check')
     let close  = document.getElementById('close')
-    taBild.style.visibility = "hidden"
+    close.style.display = 'none';
+    taBild.style.visibility = "hidden";
     countdown.innerHTML = count;
     countdownInterval = setInterval(() => {
         count--;
@@ -549,7 +552,7 @@ function retake (event, close){
     event.preventDefault();
 
     let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
-    $("#webbContiner").html(content);
+    $("#webbContainer").html(content);
 
    // document.getElementById("webbContiner").style.visibility = "hidden";
 
@@ -565,7 +568,7 @@ function retake (event, close){
         button.classList.remove("disabled");
     });
 
-    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    let buttons = document.querySelectorAll("button:not(#webbContainer button)");
     buttons.forEach(function(button) {
         button.disabled = false;
         button.classList.remove("disabled");
