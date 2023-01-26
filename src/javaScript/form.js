@@ -773,6 +773,78 @@ function countChars(target) {
     document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
 }
 
+function hide() {
+    let iframe = window.parent.document.getElementById("modal-body");
+    let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
+    iframe.style.display = "none";
+    iframemodel.style.display = "none";
+}
+
+
+window.onload = function(){
+    let gridContainer = document.querySelector(".grid-container");
+
+    for (let sport of sports) {
+        let gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+        gridItem.onclick = function(){
+            document.getElementById(this.querySelector('input').id).checked = document.getElementById(this.querySelector('input').id).checked ? false : true;
+            printCheckedSport(this.querySelector('input').id);
+        };
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = sport.id;
+        checkbox.classList.add("checkbox");
+        checkbox.onclick = function (){
+            document.getElementById(this.id).checked = document.getElementById(this.id).checked ? false : true;
+        }
+
+        let label = document.createElement("label");
+        label.htmlFor = sport.id;
+        label.innerText = " " + sport.name + " ";
+        label.onclick = function(){
+            document.getElementById(this.parentNode.querySelector('input').id).checked = document.getElementById(this.parentNode.querySelector('input').id).checked ? false : true;
+            printCheckedSport(this.parentNode.querySelector('input').id);
+        };
+
+
+            let icon = document.createElement("span");
+            icon.classList.add("material-symbols-outlined");
+            icon.innerText = sport.icon;
+
+
+        gridItem.appendChild(checkbox);
+        gridItem.appendChild(label);
+        gridItem.appendChild(icon);
+
+        gridContainer.appendChild(gridItem);
+    }
+}
+
+const button = document.querySelector('#dark-mode');
+let isDark = false;
+const color = getComputedStyle(document.documentElement).getPropertyValue('color');
+
+button.addEventListener('click', () => {
+    isDark = !isDark;
+    if(isDark) {
+        document.body.classList.toggle('dark-mode');
+        document.documentElement.style.setProperty('color', 'white');
+        document.documentElement.style.setProperty('--background-color',  '#252323');
+        document.getElementById('images').classList.toggle('dark-mode');
+        document.querySelector('iframe').classList.toggle('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.documentElement.style.setProperty('color', color);
+        document.documentElement.style.setProperty('--background-color', 'whitesmoke');
+        document.getElementById('images').classList.remove('dark-mode');
+
+    }
+});
+
+
+
 
 
 

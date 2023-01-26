@@ -2,18 +2,20 @@
     font-family: sans-serif;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    text-align: center;
 }
+
+:root{
+    --background-color: whitesmoke;
+}
+
 
 .container{
     padding: 20px;
 }
 SELECT{
     padding: 10px;
-}
-
-*{
-    align-items: center;
-    text-align: center;
 }
 
 textArea{
@@ -60,7 +62,6 @@ textArea{
 .button:hover::after{
     height: 100%;
     width: 100%;
-
 }
 
 #stegEtt{
@@ -387,7 +388,7 @@ input:focus {
     padding: 2rem 1rem;
     min-height: 3em;
     resize: none;
-    background: whitesmoke;
+    background: var(--background-color);
 }
 
 #visa-lösenord{
@@ -419,6 +420,11 @@ input:focus {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
     cursor: pointer;
+}
+
+.dark-mode {
+    background: black;
+    color: white;
 }
 
 
