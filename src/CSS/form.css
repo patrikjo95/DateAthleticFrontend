@@ -2,7 +2,14 @@
     font-family: sans-serif;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    text-align: center;
 }
+
+:root{
+    --background-color: whitesmoke;
+}
+
 
 .container{
     padding: 20px;
@@ -11,20 +18,12 @@ SELECT{
     padding: 10px;
 }
 
-*{
-    align-items: center;
-    text-align: center;
- 
-   
-
-}
-
 textArea{
     text-align: left;
-    width: 500px;
-    height: 300px;
+    width: 100px;
+    height: 50px;
     resize: none;
-    
+
 }
 
 .button{
@@ -63,7 +62,6 @@ textArea{
 .button:hover::after{
     height: 100%;
     width: 100%;
-
 }
 
 #stegEtt{
@@ -96,6 +94,7 @@ textArea{
     bottom: -100px;
     border: 3px;
     font-size: 20px;
+    top: 20px;
 }
 
 
@@ -138,17 +137,26 @@ fieldset {
     border: 2px solid black;
 }
 
-.checkbox:hover{
+.grid-item:hover{
+    transform: scale(1.05);
     box-shadow: 0 0 10px #000;
     border: 2px solid #000;
-    transform: scale(1.05);
 }
 
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
 .back{
-    position: absolute;
-    top: 30px;
+    position: fixed;
+    top: 25px;
     left: 10px;
     font-size: 10px;
+    z-index: 4;
 
 }
 
@@ -177,10 +185,6 @@ input:focus {
     margin: 5px;
 }
 
-.nextStep{
-    top: 20px
-}
-
 .checkbox{
     vertical-align: middle;
 }
@@ -195,15 +199,10 @@ input:focus {
     grid-template-rows: auto;
     grid-gap: 20px;
 }
-.grid-item {
-    border: 1px solid black;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: left;
-}
 
 
-#continerBild {
+#containerBild {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -256,7 +255,7 @@ input:focus {
     width: 0;
 }
 
-#webbContiner{
+#webbContainer{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -269,29 +268,30 @@ input:focus {
     border-radius: 20%;
 }
 
-#taBild, #taOmBild, #check, #close{
+#taBild, #taOmBild, #check, #close, #visa-lösenord{
     background: none !important;/* Sätter bakgrundsfärgen till blå */
     border: none;
     position: absolute;
-    top: 90%;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 #check{
     left: 20%;
+    top: 90%;
 }
 
 #close{
     left: 80%;
+    top: 90%;
 }
+
 #taOmBild, #taBild{
     left: 50%;
+    top: 90%;
 }
-
-
-
 
 #countdown {
     font-size: 70px;
@@ -324,8 +324,6 @@ input:focus {
 
 }
 
-
-
 .flash-screen {
     animation: flash 3s linear;
 }
@@ -342,11 +340,12 @@ input:focus {
     }
 }
 
-.material-symbols-outlined:hover{
+.symbol:hover{
     transform: scale(1.5);
 }
 
-.material-symbols-outlined{
+
+.material-symbols-outlined, .fa-table-tennis-paddle-ball {
     transform: scale(1.2);
 }
 
@@ -373,4 +372,59 @@ input:focus {
     background: rgba(0,0,0,0.6);
     z-index: 0;
 }
+
+
+#counter {
+    position: absolute;
+    bottom: -70%;
+    right: 11%;
+    font-size: 15px;
+    color: gray;
+}
+
+#myTextarea {
+    font-size: 20px;
+    border:2px solid black;
+    padding: 2rem 1rem;
+    min-height: 3em;
+    resize: none;
+    background: var(--background-color);
+}
+
+#visa-lösenord{
+    position: absolute;
+    left: 26%;
+    top: 44%;
+
+}
+
+.grid-item {
+    cursor: pointer;
+}
+
+.grid-container label{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.grid-container span{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.dark-mode {
+    background: black;
+    color: white;
+}
+
 

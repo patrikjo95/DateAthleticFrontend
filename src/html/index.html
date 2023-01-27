@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/startsida.css" />
-    <link
-      rel="stylesheet"
-      media="screen and (max-width:768px)"
-      href="../CSS/mobile.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../javaScript/form.js" defer></script>
 
+    <link rel="stylesheet" href="../CSS/startsida.css">
+    <link rel="stylesheet" media="screen and (max-width:768px)"  href="../CSS/mobile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+
     <title>Date | Athletic</title>
-  </head>
+</head>
 
   <body>
     <header>
@@ -43,23 +40,14 @@
           >
         </div>
 
-        <div
-          id="modalBodyBackdrop"
-          onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'"
-          style="visibility: hidden"
-        >
-          <div id="modal-body" style="visibility: hidden">
-            <button
-              onclick="document.getElementById('modal-body').style.visibility= 'hidden' ; document.getElementById('modalBodyBackdrop').style.visibility = 'hidden'"
-              id="close-button"
-              class="close-button"
-            >
-              X
-            </button>
-            <iframe src="form.html"></iframe>
-          </div>
+        <div id="modalBodyBackdrop" onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" style="display: none;">
+    <div id="modal-body"  style="display: none">
+        <button onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" id="close-button" class="close-button">X</button>
+        <iframe src="form.html" ></iframe>
+
+    </div>
         </div>
-      </div>
+ </div>
 
       <input type="checkbox" id="menu-toggle" />
       <label for="menu-toggle" class="menu-icon"
@@ -68,12 +56,13 @@
 
       <div class="slideOutMenu">
         <ul>
-          <li>Startsida</li>
-          <li>Kontakta Oss</li>
-          <li>Om oss</li>
+            <li>Startsida</li>
+            <li>Kontakta Oss</li>
+            <li>Om oss</li>
+            <li id="dark-mode">Dark mode</li>
         </ul>
-      </div>
-    </header>
+    </div>
+</header>
 
     <section id="what" class="bg-light py-1">
       <div class="container1">
@@ -140,9 +129,10 @@
       <div class="card">
         <div class="card-image1"></div>
         <div class="card-text">
-          <span class="date">Medlem</span>
-          <h2>Edwin Chaiderson</h2>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <span class="date">Medlem</span>
+            <h2>Edwin Chaiderson</h2>
+            <p>Email: ewjc.01@gmail.com <br>
+            Telefonnummer:+46738005080</p>
         </div>
         <div class="card-stats">
           <div class="stat">
@@ -183,7 +173,7 @@
             <div class="value"><i class="fa-solid fa-person-skiing"></i></div>
           </div>
         </div>
-      </div>
+    </div>
 
       <div class="card">
         <div class="card-image3"></div>
@@ -262,9 +252,11 @@
       </div>
     </section>
 
-    <!--Sidfot-->
-    <footer>
-      <div class="footer-content">
+
+
+<!--Sidfot-->
+<footer>
+    <div class="footer-content">
         <h3>Date | Athletic</h3>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
         <ul class="socials">
@@ -314,14 +306,14 @@
       if (localStorage.getItem("token")) {
         loginButton.innerHTML = "Logga ut";
         link.href = "#";
-        loginButton.addEventListener("click", function () {
-          localStorage.clear();
-          window.href = "/src/html/";
-          location.reload();
-        });
-      } else {
-        link.href = "/src/html/loginPage.html";
-      }
-    </script>
-  </body>
+        loginButton.addEventListener('click', function(){
+            localStorage.clear();
+            window.href = "../html/"
+            location.reload()
+        })
+    }else{
+        link.href = "../html/loginPage.html"
+    }
+</script>
+</body>
 </html>

@@ -1,12 +1,12 @@
+@media (max-width: 768px) { /* Av någon anledning så applicerades denna CSS på förstasidan när jag inte hade mediaquery här?!*/
 
-.logo{
+    .logo{
     margin-left:10px;
     font-size: 18px;
 }
-.login{
-    margin-right: -80px;
+.login-out{
+    margin-right: -20px;
     padding: 8px 10px;
-    font-size: 12px;
 }
 .page-title{
     margin:60px;
@@ -25,16 +25,11 @@
     display: grid;
     padding: 70px;
     background: whitesmoke;
-   
-    
-
-   
-
 }
-  
+
 
 #cards .m-heading{
-    top: 1220px;
+    top: 1350px;
 
 }
 #what .items{
@@ -113,30 +108,110 @@
     top:1870px;
     left:20%
 }
-iframe {
-    position: relative;
-    width: 40%;
-    height: 90%;
-    top: 10px;
-    margin-left: -20%;
-   
- 
-}
+
 #close-button{
     margin-left: 100px;
     font-size: 4px;
     padding: 4px 10px;
 }
+
+
 .nextStep{
-   
     bottom: -100px;
     border: 3px;
     font-size: 12px;
 }
+/**/
+    #showcase .showcase-content{
+
+        color: #fff;
+        text-align: center;
+        padding-top: 170px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Steg 2 */
+    #visa-lösenord{
+        position: absolute;
+        left: 10%;
+        top: 59%;
+    }
+
+    #modal-body{
+        width: 370px;
+        height: 700px;
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    #stegTvåH2{
+        padding-top: 50px;
+    }
+
+    /* Steg 3 */
+    #containerBild {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #webcam{
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    #webbContainer{
+        position: fixed;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    img{
+        width: 300px;
+        height: 400px;
+    }
+
+   #counter {
+        position: absolute;
+        bottom: -255%;
+        right: 10%;
+        font-size: 15px;
+        color: gray;
+    }
+
+    #stegTreH2{
+        padding-top: 50px;
+    }
+
 footer{
     
     top: 650%;
     left: 0;
     right: 0;
  
-   }
+}
+
+}
+

@@ -73,7 +73,6 @@ li:hover{
     flex-direction: column;
     height: 70vh;
     width: 55vh;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -85,7 +84,6 @@ li:hover{
 }
 
 h2{
-
     position: relative;
     margin-top: -40px;
     z-index: 5;
@@ -169,20 +167,26 @@ button[type="submit"] {
     border-bottom: 1px solid #d25f0d;
 }
 
-button:hover{
-    background: rgba(210, 95, 13, 0.68);
+.forgotPass{
+    margin-top: 5px;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 14px;
+    text-align: center;
+    color: #989898;
+}
+.forgotPass a{
+    text-decoration: none;
+    color: #d25f0d;
+
 }
 
-#modalBodyBackdrop{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+.forgotPass a:hover{
+    border-bottom: 1px solid #d25f0d;
+}
 
+button:hover{
+    background: rgba(210, 95, 13, 0.68);
 }
 
 button{
@@ -228,18 +232,29 @@ button:hover::after{
 iframe {
     display: block;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
     border-radius: 10%;
     border: 6mm inset #d25f0d;
     background: whitesmoke;
+}
+
+#modalBodyBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
 
 }
+
 
 #modal-body{
     width: 1000px;
     height: 700px;
-
     position: fixed;
     top: 45%;
     left: 50%;
@@ -263,6 +278,82 @@ iframe {
 
 .menu-item:hover{
     color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #visa-lösenord{
+        position: absolute;
+        left: 10%;
+        top: 59%;
+    }
+
+    #modal-body{
+        width: 370px;
+        height: 700px;
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    #stegTvåH2{
+        padding-top: 50px;
+    }
+
+    /* Steg 3 */
+    #containerBild {
+        display: grid;
+        grid-template-columns: fit-content(100%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #webcam{
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    #webbContainer{
+        position: fixed;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    img{
+        width: 300px;
+        height: 400px;
+    }
+
+    #counter {
+        position: absolute;
+        bottom: -255%;
+        right: 10%;
+        font-size: 15px;
+        color: gray;
+    }
+
+    #stegTreH2{
+        padding-top: 50px;
+    }
+
+
 }
 
 
