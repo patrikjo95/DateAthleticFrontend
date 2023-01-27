@@ -1,3 +1,9 @@
+*{
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
 .container{
     padding: 20px;
 }
@@ -13,12 +19,15 @@ SELECT{
 
 }
 
-#textArea{
+textArea{
     text-align: left;
+    width: 500px;
+    height: 300px;
+    resize: none;
     
 }
 
-button{
+.button{
     border: none;
     padding: 12px 30px;
     background-color: #d25f0d;
@@ -28,7 +37,7 @@ button{
     cursor: pointer;
     position: relative;
 }
-button::before{
+.button::before{
     content: "";
     position: absolute;
     width: 18px;
@@ -39,7 +48,7 @@ button::before{
     border-left: 2px solid #d25f0d;
     transition: all 0.25s;
 }
-button::after{
+.button::after{
     content: "";
     position: absolute;
     width: 18px;
@@ -50,8 +59,8 @@ button::after{
     border-right: 2px solid #d25f0d;
     transition: all 0.25s;
 }
-button:hover::before,
-button:hover::after{
+.button:hover::before,
+.button:hover::after{
     height: 100%;
     width: 100%;
 
@@ -62,18 +71,24 @@ button:hover::after{
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 #stegTvå{
     align-items: center;
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 #stegTre{
     align-items: center;
     position:fixed;
     top:0;
     width:100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .nextStep{
@@ -88,8 +103,9 @@ button:hover::after{
     height: 30px;
     width: 30px;
 }
-.textKön ,[id=textIdentifiera],[id=pronomen]{
-    font-size: 40px;
+.textKön [id=pronomen]{
+    font-size: 25px;
+
 }
 
 textarea{
@@ -97,9 +113,264 @@ textarea{
     height: 300px;
 }
 
-.bir[type="text"]:invalid{
-    border: 2px solid red;
+
+fieldset {
+    border: 0;
+}
+
+.checkbox input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    accent-color: #d25f0d;
+}
+
+.checkbox input:checked {
+    accent-color: #d25f0d;
+    border: 2px solid black;
+}
+
+.checkbox:hover{
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+.back{
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: 10px;
+
+}
+
+input[type = "range"]{
+    margin-top: 15px;
+    accent-color: #d25f0d;
+}
+
+input:focus {
+    background-color: lightblue;
+}
+
+.kön{
+    accent-color: #D25F0D;
+    vertical-align: middle;
+}
+
+.textKön{
+    font-size:18px;
+    vertical-align: middle;
 }
 
 
+.first{
+    padding: 10px;
+    margin: 5px;
+}
+
+.nextStep{
+    top: 20px
+}
+
+.checkbox{
+    vertical-align: middle;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
+#continerBild {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    place-items:  center;
+}
+
+.foto {
+    position: relative;
+    background-color: orange;
+    width: 200px;
+    height: 250px;
+    border: 10px solid;
+    border-radius: 15%;
+    text-align: center;
+
+}
+
+.fotoButton{
+    background-color: orange;
+    border: none;
+    position: absolute;
+    bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 75px;
+    cursor: pointer;
+}
+
+.fotoButton:hover{
+    transform: scale(1.2);
+}
+
+.fileFoto input{
+    overflow: hidden;
+}
+
+.file-upload {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 73px;
+}
+
+.file-upload input {
+    overflow: hidden;
+    width: 0;
+}
+
+#webbContiner{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#webcam{
+    border: 10px solid black;
+    border-radius: 20%;
+}
+
+#taBild, #taOmBild, #check, #close{
+    background: none !important;/* Sätter bakgrundsfärgen till blå */
+    border: none;
+    position: absolute;
+    top: 90%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
+
+#check{
+    left: 20%;
+}
+
+#close{
+    left: 80%;
+}
+#taOmBild, #taBild{
+    left: 50%;
+}
+
+
+
+
+#countdown {
+    font-size: 70px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+
+.grid-item.dark-bg {
+    background-color: #d25f0d;
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+#sliderLabel{
+    font-size: 20px;
+}
+
+.sliderValue{
+    margin-top: 0;
+    font-size: 20px;
+    position: relative;
+
+}
+
+
+
+.flash-screen {
+    animation: flash 3s linear;
+}
+
+@keyframes flash {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: white;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.material-symbols-outlined:hover{
+    transform: scale(1.5);
+}
+
+.material-symbols-outlined{
+    transform: scale(1.2);
+}
+
+.deleteButton{
+    background: none !important;/* Sätter bakgrundsfärgen till blå */
+    border: none;
+    position: absolute;
+    left: 90%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+}
 

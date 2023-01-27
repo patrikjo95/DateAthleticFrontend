@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
+}
+
+body{
+    overflow-x: hidden
 }
 
 
@@ -44,9 +48,6 @@ ul{
         
     }
 
-    li:last-child{
-        border-bottom: none;
-    }
 
     li:hover{
         color:rgba(255,255,255, 1);
@@ -72,12 +73,9 @@ ul{
     #menu-toggle:checked + .menu-icon {
         right: 210px
     }
-  
-  
 
-    .login{
-
-            position: absolute;
+    .login-out{
+        position: absolute;
             top: 18px;
             right: 260px;
             font-size: 14px;
@@ -138,6 +136,9 @@ ul{
         text-align: center;
         padding-top: 170px;
         position: absolute;
+        top: 45%;
+        left: 38%;
+        transform: translate(-50%, -50%);
     }
    
 
@@ -150,8 +151,6 @@ ul{
        padding-bottom: 20px;
        line-height: 1.7em;
     }
-
-
     .logo{
         font-size: 2rem;
         margin-left: 100px;
@@ -602,6 +601,17 @@ ul{
     font-weight: 200;
 }
 
+#modalBodyBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+}
 
 iframe {
     display: block;
@@ -611,22 +621,27 @@ iframe {
     border-radius: 10%;
     border: 6mm inset #d25f0d;
     background: whitesmoke;
-    
-    
-    
-  
-}
 
+}
 
 #modal-body{
     width: 1000px;
-    height: 600px;
-    margin-top: 80px;
-    margin-left: 250px; 
-    
-    
+    height: 700px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
-#close-button{
-    margin-left: 800px;
+.close-button{
+    font-size: 10px;
+    position: relative;
+    left: 890px;
+    top: 80px;
+    z-index: 1;
 }
+
+
+
+

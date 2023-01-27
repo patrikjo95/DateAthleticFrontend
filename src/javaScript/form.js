@@ -1,6 +1,11 @@
 const Dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
-const printArray = ['<div id="nivå">Betygsätt din nivå</div>'];
+const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
+
+let liveImg;
+
+let int;
+let intLetter;
 
 
 
@@ -30,6 +35,7 @@ $(document).ready(function(){
     }
     $('#år').append(option);
     $('#år').val(selectedYear);
+
 });
 function isLeapYear(år) {
     år = parseInt(år);
@@ -106,14 +112,14 @@ $(document).ready(function() {
 
         thisID = thisID.charAt(0).toUpperCase() + thisID.slice(1);
 
-
-
+        let gridItem = checkBox.closest(".grid-item");
         let thisIdPlusCheck = thisID + "check";
-        let fullArrayItem = thisID + '<br> <input type="range" min="1" max="10" value="5" className="slider">'
+        let idf = thisID + "rangeValue";
+        let fullArrayItem = '<label id ="sliderLabel"> ' + thisID + ' </label> '+ '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '" class="sliderValue">5</p>'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
-
+            gridItem.classList.add("dark-bg");
 
             printArray.push(removeAndCompressArray)
 
@@ -132,6 +138,7 @@ $(document).ready(function() {
             document.getElementById("slidecontainer").innerHTML = arrayRes;
 
         } else {
+            gridItem.classList.remove("dark-bg");
             document.getElementById(thisIdPlusCheck).remove();
 
             let int = printArray.indexOf(removeAndCompressArray, 0)
@@ -142,12 +149,14 @@ $(document).ready(function() {
                 document.getElementById("nivå").remove();
             }
         }
+
     }
 
 function buttonHiVi(n) {
     console.log(n)
         if (n===1){
             document.getElementById('modal-body').style.visibility = 'visible';
+            document.getElementById('modalBodyBackdrop').style.visibility = 'visible';
         }
         else {
            document.getElementById('modal-body').style.visibility= 'hidden';
@@ -156,14 +165,21 @@ function buttonHiVi(n) {
 
 function nextStep(n) {
         if (n === 1) {
-            document.getElementById('stegTvå').style.visibility = 'visible';
-            document.getElementById('stegEtt').style.visibility = 'hidden';
+            document.getElementById('stegTvå').style.display = "block";
+            document.getElementById('stegEtt').style.display = "none";
         }
         if (n === 2) {
-            document.getElementById('stegTre').style.visibility = 'visible';
-            document.getElementById('stegTvå').style.visibility = 'hidden';
+            document.getElementById('stegTre').style.display = "block";
+            document.getElementById('stegTvå').style.display = "none";
         }
-
+        if (n===3){
+            document.getElementById('stegTvå').style.display = "none";
+            document.getElementById('stegEtt').style.display = "block";
+        }
+        if (n===4){
+            document.getElementById('stegTre').style.display = "none";
+            document.getElementById('stegTvå').style.display = "block";
+        }
 }
 
 function kontrolleraLösenord() {
@@ -179,7 +195,7 @@ function kontrolleraLösenord() {
     }
 }
 
-function validateForm(event) {
+function validateForm(event, n) {
         event.preventDefault();
     let year = document.getElementById("år").value;
     let month = document.getElementById("månad").value;
@@ -190,13 +206,204 @@ function validateForm(event) {
     }
 
     if (kontrolleraLösenord() === true){
-        nextStep(1)
+        nextStep(n)
     }
     else{
         alert("Lösenorden matchar ej!");
         return false;
     }
+}
+
+function validateCheckBoxes(event, n){
+    event.preventDefault();
+        let boolean = checkIfCheckboxes();
+    if (boolean === true){
+        nextStep(n)
+    }
+    else{
+        return false;
+    }
+
+    }
+
+
+    function checkIfCheckboxes(){
+        if($('#sportCheckboxes input[type="checkbox"]:checked').length === 0)
+            alert("Please select at least one sport.");
+        if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
+            alert("Du måste välja preferens på vilka du vill träffa");
+
+        else{
+            return true;
+        }
+    }
+
+function displayImage(n, har){
+
+        let fileToUpload = "fileToUpload" + n;
+    let knappTillFoto = "knappTillFoto" + n;
+    let upload = "file-upload" + n;
+    let deleteBild = "deleteBild" + n;
+
+    let inputs = document.querySelectorAll("input[type='file']");
+    inputs.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    buttons.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+        let input = document.getElementById(fileToUpload)
+    let imagecontiner = document.getElementById(har)
+
+
+    let image = new Image();
+        image.src = URL.createObjectURL(input.files[0])
+    image.id = n;
+    image.style.width = '100%';
+    image.style.height = '100%';
+    image.style.borderRadius = '10%';
+    image.style.position = ' relative';
+    imagecontiner.style.background = 'black';
+    imagecontiner.append(image)
+
+    document.getElementById(fileToUpload).style.visibility ="hidden";
+    document.getElementById(knappTillFoto).style.visibility ="hidden";
+    document.getElementById(upload).style.visibility ="hidden";
+    document.getElementById(deleteBild).style.display = "block";
+
+
 
 }
+
+function startWebcam(n, intLetterLive) {
+    document.getElementById("webbContiner").style.visibility = "visible";
+
+
+
+    let inputs = document.querySelectorAll("input[type='file']");
+    inputs.forEach(function(button) {
+        button.disabled = true;
+        button.classList.add("disabled");
+    });
+
+    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    buttons.forEach(function(button) {
+        button.disabled = true;
+        button.classList.add("disabled");
+    });
+
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        let video = document.getElementById('webcam');
+        let button = document.getElementById('taBild')
+        video.srcObject = stream;
+        video.style.display = 'block';
+        button.style.display = 'block';
+        video.play();
+
+        int = n;
+        intLetter = intLetterLive;
+
+
+    });
+}
+
+
+let countdownInterval;
+
+function takePicture(event) {
+    event.preventDefault();
+    let count = 3;
+    let countdown = document.getElementById('countdown');
+    let stegtre = document.getElementById('webcam')
+    let taBild = document.getElementById('taBild')
+    let taOmBild = document.getElementById('taOmBild')
+    let check = document.getElementById('check')
+    let close  = document.getElementById('close')
+    taBild.style.visibility = "hidden"
+    countdown.innerHTML = count;
+    countdownInterval = setInterval(() => {
+        count--;
+        countdown.innerHTML = count;
+        if (count === 0) {
+            document.body.classList.add('flash-screen');
+            clearInterval(countdownInterval);
+            let video = document.getElementById('webcam');
+            let canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            let img = document.createElement('img');
+            img.src = canvas.toDataURL();
+            liveImg = img.src
+            img.style.borderRadius = '20%';
+            img.style.border =  '10px solid black';
+            img.style.position = 'static';
+            video.parentNode.replaceChild(img, video);
+            stegtre.classList.add("flash-screen");
+            countdown.style.visibility = "hidden"
+            check.style.display = 'block'
+            taOmBild.style.display = 'block'
+            close.style.display = 'block'
+            let stream = video.srcObject;
+            stream.getTracks().forEach(track => track.stop());
+        }
+    }, 1000);
+}
+
+function retake (event, close){
+    event.preventDefault();
+
+    let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
+    $("#webbContiner").html(content);
+
+   // document.getElementById("webbContiner").style.visibility = "hidden";
+
+    if (close !== "close"){
+        startWebcam(int, intLetter)
+        takePicture(event)
+
+    }
+
+    let inputs = document.querySelectorAll("input[type='file']");
+    inputs.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+    let buttons = document.querySelectorAll("button:not(#webbContiner button)");
+    buttons.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+}
+
+function removeBild(n, event, lett){
+    event.preventDefault();
+
+    let fileToUpload = "fileToUpload" + n;
+    let knappTillFoto = "knappTillFoto" + n;
+    let upload = "file-upload" + n;
+    let deleteBild = "deleteBild" + n;
+
+    let imagecontiner = document.getElementById(n)
+    imagecontiner.remove()
+
+    document.getElementById(lett).style.background = 'orange';
+    document.getElementById(fileToUpload).style.visibility ="visible";
+    document.getElementById(knappTillFoto).style.visibility ="visible";
+    document.getElementById(upload).style.visibility ="visible";
+    document.getElementById(deleteBild).style.display = "none";
+
+}
+
+
+
+
 
 
