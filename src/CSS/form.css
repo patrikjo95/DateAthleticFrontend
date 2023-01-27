@@ -130,12 +130,14 @@ fieldset {
     height: 20px;
     width: 20px;
     accent-color: #d25f0d;
+
 }
 
 .checkbox input:checked {
     accent-color: #d25f0d;
     border: 2px solid black;
 }
+
 
 .grid-item:hover{
     transform: scale(1.05);
@@ -148,6 +150,11 @@ fieldset {
     padding: 10px;
     box-sizing: border-box;
     text-align: left;
+}
+
+.grid-item.checked span,
+.grid-item.checked label {
+    color: gray;
 }
 
 
@@ -325,7 +332,7 @@ input:focus {
 }
 
 .flash-screen {
-    animation: flash 3s linear;
+    animation: flash 1s linear;
 }
 
 @keyframes flash {
@@ -333,7 +340,7 @@ input:focus {
         background-color: transparent;
     }
     50% {
-        background-color: white;
+        background-color: black;
     }
     100% {
         background-color: transparent;
