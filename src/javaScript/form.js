@@ -2,8 +2,8 @@ const dagarMånader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // måna
 const printArray = [];
 const sports = [
     {
-        id: "styrcketräning",
-        name: "Styrcketräning",
+        id: "styrketräning",
+        name: "Styrketräning",
         icon: "fitness_center"
     },
     {
@@ -118,8 +118,8 @@ const sports = [
         icon: "sailing"
     },
     {
-        id: "surfa",
-        name: "Surfa",
+        id: "surfing",
+        name: "Surfing",
         icon: "surfing"
     },
     {

@@ -1,19 +1,23 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 1px;
     box-sizing: border-box;
     list-style-type: none;
 
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    text-align: center;
+
 }
 body{
-    
+
     background: #D25F0D;
     background: -webkit-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: -moz-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: linear-gradient(to bottom right, #D25F0D, #EFAD7E);
- 
 
- 
 }
 .navbar {
     display: flex;
@@ -42,11 +46,13 @@ body{
 }
   
 .min-profil{
-    position: relative;
-    width: fit-content;
+    position: fixed;
 }
 
 .profil-btn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,15 +64,14 @@ body{
     background-color: #EFAD7E;
     cursor: pointer;
     border: 3px solid #D25F0D;
-    margin-left: 1050px;
-   
-    
+
   }
 
   .profil-btn:hover {
     background-color: #d25f0d;
   
   }
+
   .profil-img {
     position: relative;
     width: 2.5rem;
@@ -83,10 +88,10 @@ body{
    
   }
   .dropdown-ul{
-    position: absolute;
+    position: fixed;
     top: 68px;
     width: 220px;
-    right: 0;
+    right: 10px;
     max-height: 0;
     overflow: hidden;
   }
@@ -118,7 +123,6 @@ body{
     color: #D25F0D;
     line-height: 2.3rem;
     text-align: center;
-    margin-right: 1rem;
     border-radius: 50%;
     transition: margin-right 0.3s;
   }
@@ -158,6 +162,7 @@ body{
     border-radius:5px;
     cursor:pointer;
   }
+
   .form-input .preview{
     height:200px;
     width:200px;
@@ -165,28 +170,129 @@ body{
     border-radius:50%;
     margin:0 auto;
   }
+
   .form-input img {
     width:100%;
     height:200px;
-    width:200px;
     border-radius:50%;
     display:none;
     margin-bottom:30px;
   }
  
 .settings{
-  margin-left: 330px;
+  margin-left: 15%;
   text-align: center;
-  width: 800px;
-  height: 650px;
+  width: 70%;
+  height: 80%;
   background-color: whitesmoke;
   border-radius:20px;
+  margin-bottom: 50px;
 }
-textarea{
-  width: 75%;
-  height: 300px;
-  resize: none;
+
+.kön {
+    accent-color: rgb(210, 95, 13);
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 15px;
+}
+
+.grid-container label{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.grid-container span{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: pointer;
+
+}
+
+.grid-item.dark-bg {
+    background-color: #d25f0d;
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+.checkbox input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    accent-color: #d25f0d;
+    vertical-align: middle;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
+
+.checkbox input:checked {
+    accent-color: #d25f0d;
+    border: 2px solid black;
+}
+
+#sliderLabel{
+    font-size: 20px;
+}
+
+.sliderValue{
+    margin-top: 0;
+    font-size: 20px;
+    position: relative;
+
+}
+
+input[type = "range"]{
+    margin-top: 15px;
+    accent-color: #d25f0d;
+}
+
+
+
+#myTextarea {
+    width: 75%;
+    height: 300px;
+    font-size: 20px;
+    border:2px solid black;
+    padding: 2rem 1rem;
+    min-height: 3em;
+    resize: none;
+    background: var(--background-color);
+}
+
 .first{
   padding: 10px;
   margin: 5px;
@@ -229,6 +335,8 @@ textarea{
 .spara-btn:hover::after{
     height: 100%;
     width: 100%;
+}
 
-
+fieldset {
+    border: 0;
 }
