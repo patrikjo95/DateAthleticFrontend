@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+     <!---Meny-->
+     <nav class="navbar">
+        <div class="logo">Date<span class="text"><span class="tecken">|</span>
+            Athletic</span></div>
+        
+        <div class="min-profil">
+            <div class="profil-btn" onclick="toggle()">
+                <div class="profil-img"></div>
+        
+                  <span
+                    >Förnamn
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+            
+    
+        <ul class="dropdown-ul">
+            <li class="dropdown-li">
+              <a href="../html/min-profil.html">
+                <i class="fa-regular fa-user"></i>
+               Min profil
+              </a>
+            </li>
+            
+            <li class="dropdown-li">
+                <a href="#">
+                  <i class="fa-regular fa-envelope"></i>
+                  Meddelande
+                </a>
+              </li>
+
+              <li class="dropdown-li">
+                <a href="../html/settings.html">
+                  <i class="fa-solid fa-sliders"></i>
+                Konto- Inställningar
+                </a>
+              </li>
+              <hr>
+              <li class="dropdown-li">
+                <a href="#">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log out
+                </a>
+              </li>
+            </ul>
+          </div>
+    </nav>
+      
+          
+      
+            <div class="center">
+              <div class="form-input">
+                <div class="preview">
+                  <img id="file-ip-1-preview">
+                </div>
+                <label for="file-ip-1">Upload Image</label>
+                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+      
+              </div>
+            </div>
+
+            <form class="settings">
+               
+                <div id="StegEtt">
+                    <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
+                    <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
+                    <br>
+
+                    <input type="email" name="email" placeholder="Email" class="first" required>
+                    <br>
+                    <input type="text" name="stad" placeholder="Stad" class="first" required>
+                    <input type="number" placeholder="Ålder" class="first">
+                    <br>
+                    <br>
+                    <hr>
+                    <h4>Välj Kön</h4>
+                    <input type="radio" id="man" name="kön" value="MAN" class="kön" class="first" required>
+                    <label for="man" class="textKön">Man</label>
+                    <input type="radio" id="kvinna" name="kön" value="KVINNA" class="kön" class="first">
+                    <label for="man" class="textKön">Kvinna</label>
+                    <input type="radio" id="anpassat" name="kön" value="ANPASSAT" class="kön" class="first">
+                    <label for="man" class="textKön">Anpassat</label>
+                    <br>
+                    <br>
+                    <h3>Bio</h3>
+                    <textarea id="myTextarea"></textarea>
+                </div>
+                <button type="submit" class="spara-btn" >Spara</button>
+            </form>
+         
+            
+    <script src="../javaScript/profil.js"></script>
+           
+</body>
+</html>

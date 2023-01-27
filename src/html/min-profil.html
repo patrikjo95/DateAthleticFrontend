@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/min-profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Min sida</title>
+</head>
+
+<body>
+  <!---Meny-->
+    <nav class="navbar">
+        <div class="logo">Date<span class="text"><span class="tecken">|</span>
+            Athletic</span></div>
+        
+        <div class="min-profil">
+            <div class="profil-btn" onclick="toggle()">
+                <div class="profil-img"></div>
+        
+                  <span
+                    >Förnamn
+                    <i class="fa-solid fa-angle-down"></i>
+                  </span>
+                </div>
+
+            <!--Dropdown meny-->
+    
+        <ul class="dropdown-ul">
+            <li class="dropdown-li">
+              <a href="#">
+                <i class="fa-regular fa-user"></i>
+               Min profil
+              </a>
+            </li>
+            
+            <li class="dropdown-li">
+                <a href="#">
+                  <i class="fa-regular fa-envelope"></i>
+                  Meddelande
+                </a>
+              </li>
+
+              <li class="dropdown-li">
+                <a href="../html/settings.html">
+                  <i class="fa-solid fa-sliders"></i>
+                Konto- Inställningar
+                </a>
+              </li>
+              <hr>
+              <li class="dropdown-li">
+                <a href="#">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log out
+                </a>
+              </li>
+            </ul>
+          </div>
+    </nav>
+
+
+
+    <!--Profil-innehåll-->
+      <section>
+          <div class="container">
+            <div class="profile">
+              <div class="profile-image">
+                <img src="../img/person1.jpg" alt="">
+              </div>
+        
+              <div class="profile-user-settings">
+                <h1 class="profile-user-name">Användarnamn</h1>
+              </div>
+        
+              
+        
+              <div class="profile-bio">
+                <h2>Bio</h2>
+                <hr color="black">
+                <p><span class="profile-real-name">Mitt Namn</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              </div>
+            </div>
+          </div>
+          
+        
+
+    <script src="../javaScript/profil.js"></script>
+ </body>
+</html>
