@@ -150,6 +150,8 @@ fieldset {
     padding: 10px;
     box-sizing: border-box;
     text-align: left;
+    cursor: pointer;
+
 }
 
 .grid-item.checked span,
@@ -170,6 +172,7 @@ fieldset {
 input[type = "range"]{
     margin-top: 15px;
     accent-color: #d25f0d;
+    vertical-align: middle;
 }
 
 input:focus {
@@ -190,10 +193,6 @@ input:focus {
 .first{
     padding: 10px;
     margin: 5px;
-}
-
-.checkbox{
-    vertical-align: middle;
 }
 
 .material-symbols-outlined{
@@ -403,10 +402,6 @@ input:focus {
     left: 26%;
     top: 44%;
 
-}
-
-.grid-item {
-    cursor: pointer;
 }
 
 .grid-container label{
