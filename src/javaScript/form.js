@@ -135,6 +135,8 @@ let int;
 let intLetter;
 let countdownInterval;
 let isDark = false;
+let labels = document.querySelectorAll('.label');
+let darkModeValue = sessionStorage.getItem("darkMode");
 
 
 
@@ -174,6 +176,7 @@ $(document).ready(function(){
         let type = $("#lösenord1").attr("type") == "password" ? "text" : "password";
         $("#lösenord1").prop("type", type);
         $("#lösenord2").prop("type", type);
+
     });
 
     // Gör bilderna dragbara
@@ -190,6 +193,15 @@ $(document).ready(function(){
                 $("#" + img2Id).attr("id", img1Id);
             }
         });
+
+    if(darkModeValue === "enabled") {
+        isDark = true;
+        darkMode();
+    }if(darkModeValue === "disabled"){
+        isDark = false;
+        darkMode();
+    }
+
 });
 
 
@@ -795,21 +807,40 @@ function countChars(target) {
  Gör att man kan göra program till dark mode
  */
 function darkMode(){
-    isDark = !isDark;
     if(isDark) {
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.add("dark-mode");
+        }
         document.body.classList.toggle('dark-mode');
         document.documentElement.style.setProperty('color', 'white');
         document.documentElement.style.setProperty('--background-color',  '#252323');
-        document.getElementById('images').classList.toggle('dark-mode');
-        document.querySelector('iframe').classList.toggle('dark-mode');
-    } else {
+        //document.querySelector('iframe').classList.toggle('dark-mode');
+        sessionStorage.setItem("darkMode", "enabled");
+    } if(!isDark) {
         document.body.classList.remove('dark-mode');
-        document.documentElement.style.setProperty('color', color);
+        document.documentElement.style.setProperty('color', 'black');
         document.documentElement.style.setProperty('--background-color', 'whitesmoke');
-        document.getElementById('images').classList.remove('dark-mode');
-
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.remove("dark-mode");
+        }
+        sessionStorage.setItem("darkMode", "disabled");
     }
+    isDark = !isDark;
+
 }
+
+window.addEventListener('popstate', function(event) {
+    if (sessionStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add('dark-mode');
+        document.documentElement.style.setProperty('color', 'white');
+        document.documentElement.style.setProperty('--background-color',  '#252323');
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.add("dark-mode");
+        }
+        isDark = true;
+    }
+})
+
 
 
 
