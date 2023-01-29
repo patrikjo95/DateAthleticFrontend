@@ -2,11 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root{
+    --background-color: whitesmoke;
 
 }
 
 body{
     overflow-x: hidden
+}
+
+.dark-mode{
+    background: #3d3a3a;
+    color: white;
 }
 
 
@@ -26,6 +35,7 @@ body{
     font-weight: 600;
     color: #fff;
 }
+
 
 .slideOutMenu{
     position: fixed;
@@ -216,13 +226,13 @@ ul{
         display: flex;
         align-items: center;
         justify-content: center;
-        background: whitesmoke;
+        background: var(--background-color);
         
     }
     #cards  .m-heading{
         display: block;
         position: absolute;
-        top:1080px;
+        top:1350px;
 
         font-size: 2rem;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -404,14 +414,11 @@ ul{
         align-items: center;
         height: 70px;
         width: 350px;
-        color: #111;
         letter-spacing: 2px;
         left: 38%;
         top: 300px;
         
     }
-
-
 
 
     .container2{
@@ -538,13 +545,13 @@ ul{
     padding-top: 10px;
     color:#fff;
    }
+
    .footer-content{
     display: flex;
     align-items: center;
     justify-content:center ;
     flex-direction: column;
     text-align: center;
-   
    }
 
    .footer-content h3{
@@ -553,13 +560,14 @@ ul{
     text-transform: capitalize;
     line-height: 3rem;
    }
+
    .footer-content p{
     max-width: 500px;
     margin: 10px auto;
     line-height: 28px;
     font-size:  14px ;
-
    }
+
    .socials{
     list-style: none;
     display: flex;
@@ -567,9 +575,11 @@ ul{
     justify-content: center;
     margin: 1rem 0 3rem 0;
    }
+
    .socials li{
     margin: 0 10px;
    }
+
     .socials a{
     text-decoration: none;
     color: #fff;
@@ -611,10 +621,10 @@ iframe {
     height: 100%;
     border-radius: 10%;
     border: 6mm inset #d25f0d;
-    background: whitesmoke;
-
+    background: var(--background-color);
 
 }
+
 #modalBodyBackdrop{
     position: fixed;
     top: 0;
@@ -644,6 +654,8 @@ iframe {
     top: 80px;
     z-index: 1;
 }
+
+
 
 
 

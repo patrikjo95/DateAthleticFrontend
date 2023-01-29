@@ -1,0 +1,342 @@
+*{
+    margin: 0;
+    padding: 1px;
+    box-sizing: border-box;
+    list-style-type: none;
+
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    text-align: center;
+
+}
+body{
+
+    background: #D25F0D;
+    background: -webkit-linear-gradient(top left, #D25F0D, #EFAD7E);
+    background: -moz-linear-gradient(top left, #D25F0D, #EFAD7E);
+    background: linear-gradient(to bottom right, #D25F0D, #EFAD7E);
+
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: white;
+    padding: 0 8%;
+    
+  }
+  .logo{
+    font-size: 1.5rem;
+    margin-left: 10px;
+   
+    color: black;
+    font-family: "Indie Flower", cursive;
+    
+}
+
+.text{
+    color: black;
+    margin-right: 10px;
+}
+.tecken{
+    color: #d25f0d;
+    font-size: 1.8rem;
+}
+  
+.min-profil{
+    position: fixed;
+}
+
+.profil-btn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 150px;
+    border-radius: 50px;
+    background-color: #EFAD7E;
+    cursor: pointer;
+    border: 3px solid #D25F0D;
+
+  }
+
+  .profil-btn:hover {
+    background-color: #d25f0d;
+  
+  }
+
+  .profil-img {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: url(../img/person1.jpg);
+    background-size: cover;
+  }
+ 
+
+  .profil-btn span {
+    margin: 0 0.5rem;
+    margin-right: 0;
+   
+  }
+  .dropdown-ul{
+    position: fixed;
+    top: 68px;
+    width: 220px;
+    right: 10px;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .dropdown-ul.active {
+    max-height: 500px;
+  }
+  .dropdown-li{
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    background-color:white;
+   
+   
+  }
+  .dropdown-li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: black;
+    text-transform: uppercase;
+  }
+  .dropdown-li a i {
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    color: #D25F0D;
+    line-height: 2.3rem;
+    text-align: center;
+    border-radius: 50%;
+    transition: margin-right 0.3s;
+  }
+  
+  .dropdown-li:hover {
+    padding-left: 1.5rem;
+    background-color:#D25F0D;
+  }
+  .center {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+  }
+  .form-input {
+    width:350px;
+    padding:20px;
+
+  }
+  .form-input input {
+    display:none;
+  }
+  .form-input label {
+    display:block;
+    width:45%;
+    height:45px;
+    margin-top:30px;
+    margin-left: 27%;
+    margin-right: 27%;
+    line-height:50px;
+    text-align:center;
+    background:#D25F0D;
+    color:#fff;
+    font-size:15px;
+    text-transform:Uppercase;
+    font-weight:600;
+    border-radius:5px;
+    cursor:pointer;
+  }
+
+  .form-input .preview{
+    height:200px;
+    width:200px;
+    border:2px dashed #222;
+    border-radius:50%;
+    margin:0 auto;
+  }
+
+  .form-input img {
+    width:100%;
+    height:200px;
+    border-radius:50%;
+    display:none;
+    margin-bottom:30px;
+  }
+ 
+.settings{
+  margin-left: 15%;
+  text-align: center;
+  width: 70%;
+  height: 80%;
+  background-color: whitesmoke;
+  border-radius:20px;
+  margin-bottom: 50px;
+}
+
+.kön {
+    accent-color: rgb(210, 95, 13);
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 15px;
+}
+
+.grid-container label{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.grid-container span{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: pointer;
+
+}
+
+.grid-item.dark-bg {
+    background-color: #d25f0d;
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+.checkbox input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    accent-color: #d25f0d;
+    vertical-align: middle;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
+
+.checkbox input:checked {
+    accent-color: #d25f0d;
+    border: 2px solid black;
+}
+
+#sliderLabel{
+    font-size: 20px;
+}
+
+.sliderValue{
+    margin-top: 0;
+    font-size: 20px;
+    position: relative;
+
+}
+
+input[type = "range"]{
+    margin-top: 15px;
+    accent-color: #d25f0d;
+}
+
+
+
+#myTextarea {
+    width: 75%;
+    height: 300px;
+    font-size: 20px;
+    border:2px solid black;
+    padding: 2rem 1rem;
+    min-height: 3em;
+    resize: none;
+    background: var(--background-color);
+}
+
+.first{
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #d25f0d
+}
+.spara-btn{
+    border: none;
+    margin: 30px;
+    padding: 12px 30px;
+    background-color: #d25f0d;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+.spara-btn::before{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -5px;
+    left: -5px;
+    border-top: 2px solid #222;
+    border-left: 2px solid #d25f0d;
+    transition: all 0.25s;
+}
+.spara-btn::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    bottom: -5px;
+    right: -5px;
+    border-bottom: 2px solid #222;
+    border-right: 2px solid #d25f0d;
+    transition: all 0.25s;
+}
+.spara-btn:hover::before,
+.spara-btn:hover::after{
+    height: 100%;
+    width: 100%;
+}
+
+fieldset {
+    border: 0;
+}
