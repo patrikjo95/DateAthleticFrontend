@@ -5,8 +5,12 @@
     font-size: 18px;
 }
 .login-out{
-    margin-right: -20px;
-    padding: 8px 10px;
+   display: none;
+}
+#hide-loginBtn {
+ display: block;
+ text-decoration: none;
+ color: black;
 }
 .page-title{
     margin:60px;
@@ -21,17 +25,10 @@
     margin-right: 200px;
 }
 
-#cards{
-    display: grid;
-    padding: 70px;
-    background: whitesmoke;
-}
 
 
-#cards .m-heading{
-    top: 1350px;
 
-}
+
 #what .items{
     display: block;
     padding: 1.5rem;
@@ -52,9 +49,28 @@
    
     
 }
+
+
+
+#cards{
+    display: grid;
+    padding: 70px;
+    background: whitesmoke;
+    height: 400vh;
+}
+#cards .m-heading{
+    position: relative;
+    top: 0;
+    right: -60px;
+    font-size: 24px;
+  
+    
+
+}
 #cards .card{
     display: grid;
     grid-template-rows: 240px 180px 80px;
+    margin: 50px;
     
    
 }
@@ -64,8 +80,8 @@
     height: 300px;
    
     
-    margin-top: 2100px;
-    margin-left: 27%;
+    margin-top: 500px;
+    margin-left: 20%;
 
 }
 .container2 .icon{
@@ -99,14 +115,14 @@
 
   }
 #images .knapp{
-    display: flex;
-    position:absolute;
-    margin-top: 3500px;
-    margin-left: -200px;
+    position: relative;
+    top: 20px;
+    left: 120px;
 }
 #images p{
-    top:1870px;
-    left:20%
+    top: 250px;
+    left: -100px;
+    font-size: 22px;
 }
 
 #close-button{
@@ -206,8 +222,9 @@
     }
 
 footer{
-    
-    top: 650%;
+   
+    position:absolute;
+    margin-top: 2200px;
     left: 0;
     right: 0;
  
