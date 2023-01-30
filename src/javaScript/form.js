@@ -1,5 +1,6 @@
 const dagarMånader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 const printArray = [];
+const color = getComputedStyle(document.documentElement).getPropertyValue('color');
 const sports = [
     {
         id: "styrketräning",
@@ -127,8 +128,29 @@ const sports = [
         name: "Snowboarding",
         icon: "snowboarding"
     }
+    ,
+    {
+        id: "skridskor",
+        name: "Skridskor",
+        icon: "ice_skating"
+    },
+    {
+        id: "kayak",
+        name: "Kayak",
+        icon: "kayaking"
+    },
+    {
+        id: "brännboll",
+        name: "Brännboll",
+        icon: "sports_baseball"
+    },
+    {
+        id: "rullskridskor",
+        name: "Rullskridskor",
+        icon: "roller_skating"
+    }
 ];
-const color = getComputedStyle(document.documentElement).getPropertyValue('color');
+
 
 let liveImg;
 let int;
@@ -376,8 +398,6 @@ window.onload = function() {
                 this.querySelector("span").style.color = "orange";
                 this.querySelector("label").style.color = "orange";
             }
-
-
         }
 
         gridItem.onmouseout = function() {
@@ -505,7 +525,7 @@ function validateForm(event, n) {
         return false;
     }
     if (koll === 2){
-        alert("Lösenordet måste vara minst 6 tecken långt!");
+        alert("Lösenordet måste vara minst 8 tecken långt!");
         return false;
     }
     if (koll === 3){
@@ -743,13 +763,19 @@ function takePicture(event) {
 function retake (event, close){
     event.preventDefault();
 
+
+
     let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
     $("#webbContainer").html(content);
+
+
 
     if (close !== "close"){
         startWebcam(int, intLetter, false)
         takePicture(event)
     }
+
+
 
     let inputs = document.querySelectorAll("input[type='file']");
     inputs.forEach(function(button) {
@@ -768,6 +794,7 @@ function retake (event, close){
         button.disabled = false;
         button.classList.remove("disabled");
     });
+
 }
 
 /**
@@ -841,9 +868,16 @@ window.addEventListener('popstate', function(event) {
     }
 })
 
-
-
-
-
+function toggleTextFunction() {
+    let first = document.getElementById('första');
+    let andra = document.getElementById('andra');
+    if (first.style.display === "none") {
+       first.style.display = 'block'
+       andra.style.display = 'none'
+    } else {
+        first.style.display = 'none'
+        andra.style.display = 'block'
+    }
+}
 
 
