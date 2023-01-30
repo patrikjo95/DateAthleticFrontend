@@ -452,12 +452,13 @@ function countChars(target) {
     document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
 }
 
-function hide() {
+ function hide() {
     let iframe = window.parent.document.getElementById("modal-body");
     let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
     iframe.style.display = "none";
     iframemodel.style.display = "none";
-};
+}
+
 
 
 

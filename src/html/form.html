@@ -9,6 +9,7 @@
 <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
 <script src="../javaScript/form.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../javaScript/form_fetch.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -16,23 +17,23 @@
 </head>
 <body>
 <!--STEG ETT-->
-<div id="stegEtt" style="display:none" >
+<div id="stegEtt"  >
     <h1>BLI MEDLEM</h1>
     <p>Det går snabbt och enkelt</p>
     <h2>Steg 1: Vem är du?</h2>
 
     <form id="formEtt" onsubmit="validateForm(event, 1)">
         <div id="info">
-            <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
-            <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
+            <input type="text" id="förnamn" placeholder="Förnamn" class="first" required>
+            <input type="text" id="efternamn" placeholder="Efternamn" class="first" required>
             <br>
-            <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
-            <input type="email" name="email" placeholder="Email" class="first" required>
+            <input type="text" id="användarnamn" placeholder="Användarnamn" class="first" required>
+            <input type="email" id="email" placeholder="Email" class="first" required>
              <br>
             <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required><button type="button" id="visa-lösenord"><span class="material-symbols-outlined symbol">visibility</span></button>
             <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
             <br>
-            <input type="text" name="stad" placeholder="Stad" class="first" required>
+            <input type="text" id="stad" placeholder="Stad" class="first" required>
             <br>
         </div>
     <br>
@@ -68,7 +69,7 @@
 
 
 <!--STEG TVÅ-->
-    <div id="stegTvå" >
+    <div id="stegTvå" style="display:none">
         <h2>Steg 2: SPORT</h2>
         <button class="back button" onclick="nextStep(3)">Back</button>
         <form id="formTvå" onsubmit="validateCheckBoxes(event, 2)">
@@ -208,11 +209,11 @@
             <p>Vilka vill du träna med?</p>
             <p><small>Det går givetvis bra att välja samtliga</small></p>
             <fieldset id="preferensCheckboxes">
-            <input type="checkbox" id="valMän" class="checkbox">
+            <input type="checkbox" id="valMän" class="checkbox" value="Män">
             <label for="valMän">Män</label>
-            <input type="checkbox" id="valKvinnor" class="checkbox">
+            <input type="checkbox" id="valKvinnor" class="checkbox" value="Kvinnor">
             <label for="valKvinnor">Kvinnor</label>
-            <input type="checkbox" id="valÖvrigt" class="checkbox">
+            <input type="checkbox" id="valÖvrigt" class="checkbox" value="Övrigt">
             <label for="valÖvrigt">Övrigt</label>
             </fieldset>
         </div>
@@ -254,7 +255,7 @@
 
     <br>
         <br>
-    <button type="submit" id="klar" class="button" onclick="hide()">KLAR</button>
+    <button type="submit" id="klar" class="button" onclick=" createUser() ">KLAR</button>
     </form>
 </div>
 </body>
@@ -309,5 +310,6 @@
 
     }
 </script>
+
 </html>
 
