@@ -7,10 +7,10 @@ form.addEventListener("submit", (event) => {
       password: document.getElementById("psw").value
     };
     
-    fetch("http://localhost:8080/login/", {
+    fetch("http://localhost:3305/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginDTO)
+        body: JSON.stringify(loginDTO),
       })
       .then((response) => {
         if (!response.ok) {
@@ -21,7 +21,7 @@ form.addEventListener("submit", (event) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("token", data)
-        window.location.href = '/src/html';
+        window.location.href = "../html/min-profil.html";
       })
       .catch((error) => {
         console.log(error);
