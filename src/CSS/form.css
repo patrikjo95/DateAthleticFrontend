@@ -1,15 +1,18 @@
 *{
     font-family: sans-serif;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.6);
     align-items: center;
     text-align: center;
 }
 
 :root{
     --background-color: whitesmoke;
+
 }
 
+.dark-mode{ !important;
+    color: white;
+}
 
 .container{
     padding: 20px;
@@ -130,12 +133,14 @@ fieldset {
     height: 20px;
     width: 20px;
     accent-color: #d25f0d;
+
 }
 
 .checkbox input:checked {
     accent-color: #d25f0d;
     border: 2px solid black;
 }
+
 
 .grid-item:hover{
     transform: scale(1.05);
@@ -148,6 +153,13 @@ fieldset {
     padding: 10px;
     box-sizing: border-box;
     text-align: left;
+    cursor: pointer;
+
+}
+
+.grid-item.checked span,
+.grid-item.checked label {
+    color: gray;
 }
 
 
@@ -163,6 +175,7 @@ fieldset {
 input[type = "range"]{
     margin-top: 15px;
     accent-color: #d25f0d;
+    vertical-align: middle;
 }
 
 input:focus {
@@ -183,10 +196,6 @@ input:focus {
 .first{
     padding: 10px;
     margin: 5px;
-}
-
-.checkbox{
-    vertical-align: middle;
 }
 
 .material-symbols-outlined{
@@ -325,7 +334,7 @@ input:focus {
 }
 
 .flash-screen {
-    animation: flash 3s linear;
+    animation: flash 1s linear;
 }
 
 @keyframes flash {
@@ -333,7 +342,7 @@ input:focus {
         background-color: transparent;
     }
     50% {
-        background-color: white;
+        background-color: black;
     }
     100% {
         background-color: transparent;
@@ -369,7 +378,7 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 0;
 }
 
@@ -398,10 +407,6 @@ input:focus {
 
 }
 
-.grid-item {
-    cursor: pointer;
-}
-
 .grid-container label{
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -420,11 +425,6 @@ input:focus {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
     cursor: pointer;
-}
-
-.dark-mode {
-    background: black;
-    color: white;
 }
 
 

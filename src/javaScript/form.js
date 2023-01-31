@@ -1,9 +1,10 @@
-const dagar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
-const printArray = ['<div id="nivå"><h2>Betygsätt din nivå</h2> </div>'];
+const dagarMånader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
+const printArray = [];
+const color = getComputedStyle(document.documentElement).getPropertyValue('color');
 const sports = [
     {
-        id: "styrcketräning",
-        name: "Styrcketräning",
+        id: "styrketräning",
+        name: "Styrketräning",
         icon: "fitness_center"
     },
     {
@@ -118,8 +119,8 @@ const sports = [
         icon: "sailing"
     },
     {
-        id: "surfa",
-        name: "Surfa",
+        id: "surfing",
+        name: "Surfing",
         icon: "surfing"
     },
     {
@@ -127,12 +128,37 @@ const sports = [
         name: "Snowboarding",
         icon: "snowboarding"
     }
+    ,
+    {
+        id: "skridskor",
+        name: "Skridskor",
+        icon: "ice_skating"
+    },
+    {
+        id: "kayak",
+        name: "Kayak",
+        icon: "kayaking"
+    },
+    {
+        id: "brännboll",
+        name: "Brännboll",
+        icon: "sports_baseball"
+    },
+    {
+        id: "rullskridskor",
+        name: "Rullskridskor",
+        icon: "roller_skating"
+    }
 ];
+
 
 let liveImg;
 let int;
 let intLetter;
 let countdownInterval;
+let isDark = false;
+let labels = document.querySelectorAll('.label');
+let darkModeValue = sessionStorage.getItem("darkMode");
 
 
 
@@ -145,7 +171,7 @@ $(document).ready(function(){
     let i;
     let val = '<option selected value="dag">dag</option>';
     const väljDag = "dag";
-    for (i = 1; i <= dagar[0]; i++){ //add option days
+    for (i = 1; i <= dagarMånader[0]; i++){ //add option days
         val += '<option selected value="'+ i + '">' + i + '</option>';
     }
     $('#dag').append(val);
@@ -172,6 +198,7 @@ $(document).ready(function(){
         let type = $("#lösenord1").attr("type") == "password" ? "text" : "password";
         $("#lösenord1").prop("type", type);
         $("#lösenord2").prop("type", type);
+
     });
 
     // Gör bilderna dragbara
@@ -188,6 +215,15 @@ $(document).ready(function(){
                 $("#" + img2Id).attr("id", img1Id);
             }
         });
+
+    if(darkModeValue === "enabled") {
+        isDark = true;
+        darkMode();
+    }if(darkModeValue === "disabled"){
+        isDark = false;
+        darkMode();
+    }
+
 });
 
 
@@ -215,11 +251,11 @@ function change_year(vald)
 {
     if( isLeapYear( $(vald).val() ) )
     {
-        dagar[1] = 29;
+        dagarMånader[1] = 29;
 
     }
     else {
-        dagar[1] = 28;
+        dagarMånader[1] = 28;
     }
     if( $("#månad").val() == 2)
     {
@@ -227,11 +263,11 @@ function change_year(vald)
         let val = $(dag).val();
         $(dag).empty();
         let val2 = '<option selected value="dag">dag</option>';
-        for (let i=1; i <= dagar[1]; i++){ //add option days
+        for (let i=1; i <= dagarMånader[1]; i++){ //add option days
             val2 += '<option value="'+ i + '">' + i + '</option>';
         }
         $(dag).append(val2);
-        if( val > dagar[ månad ] )
+        if( val > dagarMånader[ månad ] )
         {
             val = 1;
         }
@@ -248,11 +284,11 @@ function change_month(select) {
     $(dag).empty();
     let option = '<option selected="dag value="dag">dag</option>';
     let månad = parseInt( $(select).val() ) - 1;
-    for (let i=1;i <= dagar[ månad ];i++){ //add option days
+    for (let i=1;i <= dagarMånader[ månad ];i++){ //add option days
         option += '<option value="'+ i + '">' + i + '</option>';
     }
     $(dag).append(option);
-    if( val > dagar[ månad ] )
+    if( val > dagarMånader[ månad ] )
     {
         val = 1;
     }
@@ -287,22 +323,17 @@ Printar ut en rating label satt man kan ge ett betyg på hur bar man är på spo
 
         if (checkBox.checked === true) {
             gridItem.classList.add("dark-bg");
-
             printArray.push(removeAndCompressArray)
 
-            let arrayRes;
-            for (let i = 0; i < printArray.length; i++) {
-                if (printArray[i].length >= 1) {
-                    if (arrayRes === undefined) {
-                        arrayRes = printArray[i];
-                    } else
-                        arrayRes += printArray[i];
-                } else {
-                    break;
-                }
-            }
 
-            document.getElementById("slidecontainer").innerHTML = arrayRes;
+            if (printArray.length === 1){
+                let newElementText = document.createElement('div');
+                newElementText.innerHTML = '<div id="nivå"><h2>Betygsätt din nivå</h2> </div>';
+                document.getElementById("slidecontainer").appendChild(newElementText);
+            }
+            let newElement = document.createElement('div');
+            newElement.innerHTML = removeAndCompressArray;
+            document.getElementById("slidecontainer").appendChild(newElement);
 
         } else {
             gridItem.classList.remove("dark-bg");
@@ -312,7 +343,7 @@ Printar ut en rating label satt man kan ge ett betyg på hur bar man är på spo
 
             printArray.splice(int, 1)
 
-            if (printArray.length <= 1){
+            if (printArray.length < 1){
                 document.getElementById("nivå").remove();
             }
         }
@@ -323,7 +354,7 @@ Printar ut en rating label satt man kan ge ett betyg på hur bar man är på spo
 /**
  Denna populera alla checkboxes och alla sport iconer som finns i arrayen sports
  */
-window.onload = function(){
+window.onload = function() {
     let gridContainer = document.querySelector(".grid-container");
 
     for (let sport of sports) {
@@ -361,7 +392,28 @@ window.onload = function(){
         gridItem.appendChild(icon);
 
         gridContainer.appendChild(gridItem);
+
+        gridItem.onmouseover = function() {
+            if (!this.querySelector("input").checked){
+                this.querySelector("span").style.color = "orange";
+                this.querySelector("label").style.color = "orange";
+            }
+        }
+
+        gridItem.onmouseout = function() {
+            if (this.querySelector("input").checked) {
+                this.querySelector("span").style.color = "white";
+                this.querySelector("label").style.color = "white";
+            }
+            else{
+                this.querySelector("span").style.color = "gray";
+                this.querySelector("label").style.color = "gray";
+            }
+        }
+
+
     }
+
 }
 
 //------------------------------Fönster byte--------------------------------------------
@@ -473,7 +525,7 @@ function validateForm(event, n) {
         return false;
     }
     if (koll === 2){
-        alert("Lösenordet måste vara minst 6 tecken långt!");
+        alert("Lösenordet måste vara minst 8 tecken långt!");
         return false;
     }
     if (koll === 3){
@@ -505,7 +557,7 @@ function validateCheckBoxes(event, n){
     function checkIfCheckboxes(){
         if($('#sportCheckboxes input[type="checkbox"]:checked').length === 0)
             alert("Välj minst en sport");
-        if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
+        else if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
             alert("Du måste välja preferens på vilka du vill träffa");
 
         else{
@@ -668,11 +720,11 @@ function takePicture(event) {
     event.preventDefault();
     let count = 3;
     let countdown = document.getElementById('countdown');
-    let stegtre = document.getElementById('webcam')
     let taBild = document.getElementById('taBild')
     let taOmBild = document.getElementById('taOmBild')
     let check = document.getElementById('check')
     let close  = document.getElementById('close')
+
     close.style.display = 'none';
     taBild.style.visibility = "hidden";
     countdown.innerHTML = count;
@@ -680,7 +732,6 @@ function takePicture(event) {
         count--;
         countdown.innerHTML = count;
         if (count === 0) {
-            document.body.classList.add('flash-screen');
             clearInterval(countdownInterval);
             let video = document.getElementById('webcam');
             let canvas = document.createElement('canvas');
@@ -694,13 +745,14 @@ function takePicture(event) {
             img.style.border =  '10px solid black';
             img.style.position = 'static';
             video.parentNode.replaceChild(img, video);
-            stegtre.classList.add("flash-screen");
             countdown.style.visibility = "hidden"
             check.style.display = 'block'
             taOmBild.style.display = 'block'
             close.style.display = 'block'
             let stream = video.srcObject;
             stream.getTracks().forEach(track => track.stop());
+
+
         }
     }, 1000);
 }
@@ -711,15 +763,19 @@ function takePicture(event) {
 function retake (event, close){
     event.preventDefault();
 
+
+
     let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button> <button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
     $("#webbContainer").html(content);
 
-   // document.getElementById("webbContiner").style.visibility = "hidden";
+
 
     if (close !== "close"){
         startWebcam(int, intLetter, false)
         takePicture(event)
     }
+
+
 
     let inputs = document.querySelectorAll("input[type='file']");
     inputs.forEach(function(button) {
@@ -738,6 +794,7 @@ function retake (event, close){
         button.disabled = false;
         button.classList.remove("disabled");
     });
+
 }
 
 /**
@@ -773,78 +830,54 @@ function countChars(target) {
     document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
 }
 
-function hide() {
-    let iframe = window.parent.document.getElementById("modal-body");
-    let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
-    iframe.style.display = "none";
-    iframemodel.style.display = "none";
-}
-
-
-window.onload = function(){
-    let gridContainer = document.querySelector(".grid-container");
-
-    for (let sport of sports) {
-        let gridItem = document.createElement("div");
-        gridItem.classList.add("grid-item");
-        gridItem.onclick = function(){
-            document.getElementById(this.querySelector('input').id).checked = document.getElementById(this.querySelector('input').id).checked ? false : true;
-            printCheckedSport(this.querySelector('input').id);
-        };
-
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = sport.id;
-        checkbox.classList.add("checkbox");
-        checkbox.onclick = function (){
-            document.getElementById(this.id).checked = document.getElementById(this.id).checked ? false : true;
-        }
-
-        let label = document.createElement("label");
-        label.htmlFor = sport.id;
-        label.innerText = " " + sport.name + " ";
-        label.onclick = function(){
-            document.getElementById(this.parentNode.querySelector('input').id).checked = document.getElementById(this.parentNode.querySelector('input').id).checked ? false : true;
-            printCheckedSport(this.parentNode.querySelector('input').id);
-        };
-
-
-            let icon = document.createElement("span");
-            icon.classList.add("material-symbols-outlined");
-            icon.innerText = sport.icon;
-
-
-        gridItem.appendChild(checkbox);
-        gridItem.appendChild(label);
-        gridItem.appendChild(icon);
-
-        gridContainer.appendChild(gridItem);
-    }
-}
-
-const button = document.querySelector('#dark-mode');
-let isDark = false;
-const color = getComputedStyle(document.documentElement).getPropertyValue('color');
-
-button.addEventListener('click', () => {
-    isDark = !isDark;
+/**
+ Gör att man kan göra program till dark mode
+ */
+function darkMode(){
     if(isDark) {
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.add("dark-mode");
+        }
         document.body.classList.toggle('dark-mode');
         document.documentElement.style.setProperty('color', 'white');
         document.documentElement.style.setProperty('--background-color',  '#252323');
-        document.getElementById('images').classList.toggle('dark-mode');
-        document.querySelector('iframe').classList.toggle('dark-mode');
-    } else {
+        //document.querySelector('iframe').classList.toggle('dark-mode');
+        sessionStorage.setItem("darkMode", "enabled");
+    } if(!isDark) {
         document.body.classList.remove('dark-mode');
-        document.documentElement.style.setProperty('color', color);
+        document.documentElement.style.setProperty('color', 'black');
         document.documentElement.style.setProperty('--background-color', 'whitesmoke');
-        document.getElementById('images').classList.remove('dark-mode');
-
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.remove("dark-mode");
+        }
+        sessionStorage.setItem("darkMode", "disabled");
     }
-});
+    isDark = !isDark;
 
+}
 
+window.addEventListener('popstate', function(event) {
+    if (sessionStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add('dark-mode');
+        document.documentElement.style.setProperty('color', 'white');
+        document.documentElement.style.setProperty('--background-color',  '#252323');
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.add("dark-mode");
+        }
+        isDark = true;
+    }
+})
 
-
+function toggleTextFunction() {
+    let first = document.getElementById('första');
+    let andra = document.getElementById('andra');
+    if (first.style.display === "none") {
+       first.style.display = 'block'
+       andra.style.display = 'none'
+    } else {
+        first.style.display = 'none'
+        andra.style.display = 'block'
+    }
+}
 
 
