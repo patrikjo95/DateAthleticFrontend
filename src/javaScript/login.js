@@ -21,7 +21,7 @@ form.addEventListener("submit", (event) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("token", data)
-        window.location.href = "../html/min-profil.html";
+        //window.location.href = "../html/min-profil.html";
       })
       .catch((error) => {
         console.log(error);
