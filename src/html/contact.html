@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../CSS/contact.css">
+</head>
+<body>
+    
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon"
+    ><i class="fa-solid fa-bars"></i
+  ></label>
+
+  <div class="slideOutMenu">
+    <ul>
+        <li><a href="../html/index.html">Startsida</a> </li>
+        <li>Kontakta Oss</li>
+        <li>Om oss</li>
+        <li id="dark-mode">Dark mode</li>  <li><a href="../html/loginPage.html" id="hide-loginBtn">Logga in</a></li>
+    </ul>
+</div>
+    <section>
+     
+      <h1>Vill du hylla oss eller ge feedback?</h1>
+          <p>
+            Perfekt! Vi vill gärna veta vad du tycker.  <br>Vi gillar alla positiv feedback och all konstruktiv kritik är viktig i vår strävan att förbättra vår service! 
+          </p>
+   
+       
+        <div class="container">
+          <form action="https://formspree.io/f/xzbqdvyy"method="POST" id="my-form">
+      
+            <div class="form-group">
+              <label for="firstName">Förnamn</label>
+              <input type="text" id="firstName" name="firstName">
+            </div>
+      
+            <div class="form-group">
+              <label for="latsName">Efternamn</label>
+              <input type="text" id="lastName" name="lastName">
+            </div>
+      
+            <div class="form-group">
+              <label for="email">Epost</label>
+              <input type="email" id="email" name="email">
+            </div>
+      
+            <div class="form-group">
+              <label for="massage">Meddelande</label>
+              <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </div>
+      
+            <button type="submit">Skicka</button>
+          </form>
+        </div>
+        <div id="status"></div>
+      </section>
+</body>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+  
+
+  var form = document.getElementById("my-form");
+  // var button = document.getElementById("my-form-button");
+  var status = document.getElementById("status");
+
+
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Tack, vi har tagit emot ditt meddelande!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Oj, Det uppstod ett problem!";
+  }
+
+
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
+});
+
+
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
+}
+
+
+</script>
+<script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+</html>
