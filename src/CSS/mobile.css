@@ -54,13 +54,12 @@
 
 #cards{
     display: grid;
-    padding: 70px;
     background: whitesmoke;
     height: 400vh;
 }
 #cards .m-heading{
     position: relative;
-    top: 0;
+    top: -30px;
     right: -60px;
     font-size: 24px;
   
@@ -70,7 +69,6 @@
 #cards .card{
     display: grid;
     grid-template-rows: 240px 180px 80px;
-    margin: 50px;
     
    
 }
@@ -80,7 +78,7 @@
     height: 300px;
    
     
-    margin-top: 500px;
+    margin-top: 550px;
     margin-left: 20%;
 
 }
@@ -120,8 +118,8 @@
     left: 120px;
 }
 #images p{
-    top: 250px;
-    left: -100px;
+    top: 210px;
+    left: -80px;
     font-size: 22px;
 }
 
@@ -224,7 +222,7 @@
 footer{
    
     position:absolute;
-    margin-top: 2200px;
+    margin-top: 2600px;
     left: 0;
     right: 0;
  
