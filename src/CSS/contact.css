@@ -9,8 +9,13 @@
     background: -webkit-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: -moz-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: linear-gradient(to bottom right, #D25F0D, #EFAD7E);
+    overflow: hidden;
   
   }
+
+:root{
+  --background-color: whitesmoke;
+}
 
   
 .slideOutMenu{
@@ -29,7 +34,7 @@ ul{
 }
 
 li{
-  color: 50px solid white;
+  color:black ;
   border-bottom: 2px solid rgba(255,255,255, 0.4);
   padding:  20px 0;
 
@@ -97,7 +102,7 @@ a:hover{
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0px 0px 20px #00000010;
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 8px;
     margin-bottom: 20px;
   }
