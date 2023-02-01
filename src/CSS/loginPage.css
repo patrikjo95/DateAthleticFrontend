@@ -18,9 +18,6 @@ body {
 
 }
 
-.dark-mode{
-    color: white;
-}
 
 .slideOutMenu{
     position: absolute;
@@ -38,7 +35,6 @@ ul{
 }
 
 li{
-    color: white;
     border-bottom: 2px solid rgba(255,255,255, 0.4);
     padding:  20px 0;
 
