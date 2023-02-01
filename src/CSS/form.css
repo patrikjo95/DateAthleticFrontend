@@ -75,6 +75,7 @@ textArea{
     height: 100%;
     overflow: auto;
 }
+
 #stegTvå{
     align-items: center;
     position:fixed;
@@ -342,7 +343,7 @@ input:focus {
         background-color: transparent;
     }
     50% {
-        background-color: black;
+        background-color: #000000;
     }
     100% {
         background-color: transparent;
@@ -425,6 +426,24 @@ input:focus {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
     cursor: pointer;
+}
+#containerBild .foto:first-child:hover:after {
+    content: "Profilbild";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px orange;
+}
+#containerBild .foto:first-child{
+ box-shadow: 0 0 10px 5px blue;
 }
 
 

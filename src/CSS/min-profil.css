@@ -215,3 +215,13 @@ img {
     font-weight: 600;
 }
 
+/* Stil för modalen */
+#file-ip-1-preview {
+    width: 200px;
+    height: 200px;/* Sätt bredd till 100% för att göra bilden lika stor som "preview" */
+    /* Automatisk höjd */
+    position: absolute; /* Sätt position till absolut för att bilden ligger framför allt annat */
+   /* Sätt vänsterposition till 0 */
+    z-index: 1; /* Sätt z-index till 1 för att bilden ska ligga framför allt annat */
+}
+
