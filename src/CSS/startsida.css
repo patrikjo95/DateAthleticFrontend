@@ -60,7 +60,7 @@ ul{
 
 
     li{
-        color: 50px solid white;
+        color: white;
         border-bottom: 2px solid rgba(255,255,255, 0.4);
         padding:  20px 0;
         
@@ -112,7 +112,6 @@ ul{
             font-size: 14px;
     }
     .skapaKonto{
-        top: 55;
         left: 22%;
         font-size: 14px;
 
@@ -279,14 +278,14 @@ ul{
         background: url("../img/person5.jpg");
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        background-size:¨cover;
+        background-size:cover;
     }
     .card-image1{
         grid-area: image;
         background: url("../img/person7.jpg");
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
-        background-size:¨cover;
+        background-size:cover;
     }
     .card-image2{
         grid-area: image;
@@ -300,7 +299,7 @@ ul{
         background: url("../img/person9.jpg");
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
-        background-size:¨cover;
+        background-size:cover;
     }
     .card-text{
         grid-area: text;
@@ -595,6 +594,8 @@ ul{
 
    .socials li{
     margin: 0 10px;
+       border-bottom: 2px solid rgba(255,255,255, 0.4);
+
    }
 
     .socials a{
