@@ -2,15 +2,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+
+}
   body {
-    font-family: "Montserrat";
     background: #D25F0D;
     background: -webkit-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: -moz-linear-gradient(top left, #D25F0D, #EFAD7E);
     background: linear-gradient(to bottom right, #D25F0D, #EFAD7E);
-    overflow: hidden;
-  
+    overflow-x: hidden;
   }
 
 :root{
@@ -88,23 +87,27 @@ a:hover{
   }
   h1{
     padding: 40px;
+    font-family: sans-serif;
+    font-weight: 600;
   }
   p{
     text-align: center;
     padding-bottom: 30px;
     font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 600;
     
   }
   .container {
     width: 70%;
-    height: 50%;
+    height: 60%;
     max-width: 500px;
-    margin: 0 auto;
     padding: 20px;
     box-shadow: 0px 0px 20px #00000010;
     background-color: var(--background-color);
-    border-radius: 8px;
     margin-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: 600;
   }
   .form-group {
     width: 100%;
