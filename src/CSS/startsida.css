@@ -47,10 +47,17 @@ body{
     background-color: #d25f0d;
     transition: all 0.3s ease-in-out;  
    
-} 
+}
+
 ul{
-        list-style: none;
-    }
+    list-style: none;
+
+}
+
+.listItem{
+    color: black;
+}
+
 
     li{
         color: 50px solid white;
@@ -71,7 +78,7 @@ ul{
  }
  a{
     text-decoration: none;
-    color: #111
+     color: black;
  }
  a:hover{
     color:rgba(255,255,255, 1);

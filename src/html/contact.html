@@ -16,10 +16,13 @@
 
   <div class="slideOutMenu">
     <ul>
-        <li><a href="../html/index.html">Startsida</a> </li>
+        <li><a href="../html/index.html">Startsida</a></li>
         <li>Kontakta Oss</li>
         <li>Om oss</li>
-        <li id="dark-mode">Dark mode</li>  <li><a href="../html/loginPage.html" id="hide-loginBtn">Logga in</a></li>
+        <li><a href="../html/loginPage.html" id="hide-loginBtn">Logga in</a></li>
+        <a onclick="darkMode()">
+            <li id="dark-mode" ><i class="fa-solid fa-circle-half-stroke"></i> Dark mode</li>
+        </a>
     </ul>
 </div>
     <section>
@@ -109,4 +112,5 @@ function ajax(method, url, data, success, error) {
 
 </script>
 <script src="https://kit.fontawesome.com/c6647520b8.js" crossorigin="anonymous"></script>
+<script src="../javaScript/form.js"></script>
 </html>
