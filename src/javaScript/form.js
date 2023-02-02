@@ -312,7 +312,7 @@ Printar ut en rating label satt man kan ge ett betyg på hur bar man är på spo
         let gridItem = checkBox.closest(".grid-item");
         let thisIdPlusCheck = thisID + "check";
         let idf = thisID + "rangeValue";
-        let fullArrayItem = '<label id ="sliderLabel"> ' + thisID + ' </label> '+ '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '" class="sliderValue">5</p>'
+        let fullArrayItem = '<label class="sliderLabel"> ' + thisID + ' </label> '+ '<br> <input type="range" min="1" max="10" value="5" class="slider" oninput="'+ idf +'.innerText = this.value "> <p id="' + idf + '" class="sliderValue">5</p>'
         let removeAndCompressArray = '<div id="' + thisIdPlusCheck + '">' + fullArrayItem + '</div>';
 
         if (checkBox.checked === true) {
@@ -456,6 +456,7 @@ function hide() {
     let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
     iframe.style.display = "none";
     iframemodel.style.display = "none";
+    event.preventDefault();
 
 
     alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
