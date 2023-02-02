@@ -96,6 +96,7 @@ a:hover{
     font-size: 18px;
     font-family: sans-serif;
     font-weight: 600;
+    color: #222;
     
   }
   .container {
@@ -115,7 +116,8 @@ a:hover{
   .form-group {
     width: 100%;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
+    color: #333;
   }
   .form-group input,
   .form-group textarea {
@@ -126,7 +128,6 @@ a:hover{
     margin-top: 5px;
     background-color: whitesmoke;
     resize: vertical;
-
   }
 
   textarea {
@@ -141,11 +142,12 @@ a:hover{
     font-size: 24px;
     border-radius: 8px;
     font-family: "Montserrat";
-    color: #222;
+    color: black;
     background-color: #d25f0d;
     text-align: center;
     cursor: pointer;
     margin-top: 10px;
+    text-transform: uppercase;
   
     transition: 0.3s ease background-color;
   }

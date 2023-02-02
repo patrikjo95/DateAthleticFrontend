@@ -2,6 +2,7 @@ const form = document.getElementById("loginid")
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    window.location.href = "../html/min-profil.html";
     const loginDTO = {
       username: document.getElementById("usn").value,
       password: document.getElementById("psw").value
