@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -9,6 +9,7 @@
 <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
 <script src="../javaScript/form.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../javaScript/form_fetch.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../CSS/form.css">
 <link rel="stylesheet" href="../CSS/mobile.css">
@@ -30,16 +31,16 @@
 
     <form id="formEtt" onsubmit="validateForm(event, 1)">
         <div id="info">
-            <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
-            <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
+            <input type="text" id="förnamn" name="förnamn" placeholder="Förnamn" class="first" required>
+            <input type="text" id="efternamn" name="efternamn" placeholder="Efternamn" class="first" required>
             <br>
-            <input type="text" name="användarnamn" placeholder="Användarnamn" class="first" required>
-            <input type="email" name="email" placeholder="Email" class="first" required>
+            <input type="text" id="användarnamn" name="användarnamn" placeholder="Användarnamn" class="first" required>
+            <input type="email" id="email" name="email" placeholder="Email" class="first" required>
              <br>
             <input type="password" id="lösenord1" name="lösenord" placeholder="Lösenord" class="first" required><button onclick="toggleTextFunction()" type="button" id="visa-lösenord"><span id="första" class="material-symbols-outlined symbol">visibility</span><span style="display: none" id="andra" class="material-symbols-outlined symbol">visibility_off</span></button>
             <input type="password" id="lösenord2" name="bekräftaLösen" placeholder="Bekräfta lösenord" class="first" required>
             <br>
-            <input type="text" name="stad" placeholder="Stad" class="first" required>
+            <input type="text" id = "stad" name="stad" placeholder="Stad" class="first" required>
             <br>
         </div>
     <br>
@@ -147,7 +148,7 @@
 
     <br>
         <br>
-    <button type="submit" id="klar" class="button" onclick="hide()">KLAR</button>
+    <button type="submit" id="klar" class="button" onclick="hide() ; createUser()">KLAR</button>
     </form>
 </div>
 
