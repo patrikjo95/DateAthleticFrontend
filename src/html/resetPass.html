@@ -8,24 +8,15 @@
     <title>Har du glömt ditt lösenord</title>
 </head>
 <body>
-    <form id="emailForm">
-        <input type="email" id="emailInput">
-        <button type="submit">Submit</button>
-      </form>
-      
-      <script>
-      const form = document.querySelector('#emailForm');
-      const emailInput = document.querySelector('#emailInput');
-      
-      form.addEventListener('submit', event => {
-        event.preventDefault();
-        
-        const recipientEmail = emailInput.value;
-      
-        // send email using nodemailer with recipientEmail as the to address
-      });
-      </script>
-   
- 
+  <h1>Oj, har du glömt ditt lösenord?</h1>
+  <p>
+   Du kommer att få en länk utskickad så att du kan skapa ett nytt lösenord.
+    </p>
+  <form>
+    <label for="email">Epost:</label>
+    <input id="input" type="email" id="email" name="email" placeholder="   Fyll i din e-postadress." required>
+  
+    <button type="submit">Skicka</button>
+  </form> 
 </body>
 </html>
