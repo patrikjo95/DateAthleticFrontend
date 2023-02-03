@@ -12,7 +12,7 @@ form.addEventListener("submit", (event) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginDTO),
-      })
+    })
       .then((response) => {
         if (!response.ok) {
             alert("Felaktiga inloggningsuppgifter!")
