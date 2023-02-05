@@ -11,6 +11,7 @@
          }
      }*/
 
+
      let res = "";
      let int = 1;
      let checkboxes = document.getElementsByClassName('sportCheck');
@@ -42,29 +43,10 @@
 
 
 
+
         gender: document.querySelector('input[name="kön"]:checked').value,
-        genderPreference: "",
+        genderPreference: "Man",
 
-
-       /*'DoB': null,
-                 year: document.getElementById('år').value,
-                 month: document.getElementById('månad').value,
-                 day: document.getElementById('dag').value
-        },*!/
-        'gender': null,
-                              man: document.getElementById('name'),
-                              kvinna: document.getElementById('kvinna'),
-                              anpassat: { pronomen: document.getElementsByName("pronomen").values,
-                                          valfritt: document.getElementsByClassName('first').item(0)
-                              }.pronomen(),
-
-        },*/
-       /* 'interests': document.getElementById('formTvå').value,*/
-        /*  'genderPreferences': null, {
-               men: document.getElementById('valMän'),
-               women: document.getElementById('valKvinnor'),
-               other: document.getElementById('valÖvrigt'),
-           }.men.women.other.values,*/
 
     }
 
@@ -79,7 +61,8 @@
          redirect: 'follow',
          body: JSON.stringify(data),
          headers: headers,
-         cache: "default"
+         cache: "default",
+         mode: "no-cors"
      });
      console.log(createUserRequest);
      console.log("DATA:  " , data)
@@ -87,7 +70,7 @@
     await fetch(createUserRequest)
          .then((response) => {
              if(!response.ok){
-                 alert("FITTAAAAA")
+                 alert("Det går icke")
                  throw new Error("BAJSKORV")
              }
              return response.json();
@@ -99,7 +82,6 @@
              console.error('Error ', error);
          });
 
-eraseText();
 
 }
 
