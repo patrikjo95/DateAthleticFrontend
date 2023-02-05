@@ -163,6 +163,8 @@ window.onload = function() {
         checkbox.type = "checkbox";
         checkbox.id = sport.id;
         checkbox.classList.add("checkbox");
+        checkbox.classList.add("sportCheck");
+        checkbox.value = sport.id;
         checkbox.onclick = function (){
             document.getElementById(this.id).checked = document.getElementById(this.id).checked ? false : true;
         }

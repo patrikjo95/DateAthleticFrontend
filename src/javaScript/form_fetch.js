@@ -16,6 +16,8 @@
      let int = 1;
      let checkboxes = document.getElementsByClassName('sportCheck');
 
+   /* const mainImg = document.getElementById("1").src;*/
+
      for (let i = 0; i < checkboxes.length; i++) {
          if (checkboxes[i].checked) {
              res += int + ":"+ checkboxes[i].value + " ";
@@ -42,7 +44,8 @@
 
 
 
-
+        mainImg: null,
+       /* mainImg: mainImg,*/
 
         gender: document.querySelector('input[name="kön"]:checked').value,
         genderPreference: "Man",
