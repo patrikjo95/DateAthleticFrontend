@@ -44,7 +44,7 @@
 
 
 
-        mainImg: null,
+        mainImg: "hej",
        /* mainImg: mainImg,*/
 
         gender: document.querySelector('input[name="kön"]:checked').value,
@@ -64,8 +64,7 @@
          redirect: 'follow',
          body: JSON.stringify(data),
          headers: headers,
-         cache: "default",
-         mode: "no-cors"
+         cache: "default"
      });
      console.log(createUserRequest);
      console.log("DATA:  " , data)
