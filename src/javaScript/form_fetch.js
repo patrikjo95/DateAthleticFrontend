@@ -2,26 +2,29 @@
 
  async function createUser (){
 
-/*    let res;
-     let checkboxes = document.getElementsByClassName('checkbox');
-     for (let i = 0; i < checkboxes.length; i++) {
-         if (checkboxes[i].checked) {
-             res += checkboxes[i].value
-                 + ", ";
-         }
-     }*/
 
 
-     let res = "";
-     let int = 1;
+     let resSports = "";
+     let resPronomen = "";
      let checkboxes = document.getElementsByClassName('sportCheck');
 
-   /* const mainImg = document.getElementById("1").src;*/
+
 
      for (let i = 0; i < checkboxes.length; i++) {
          if (checkboxes[i].checked) {
-             res += int + ":"+ checkboxes[i].value + " ";
-             int += 1;
+             let idTo = checkboxes[i].id + "rangeValue";
+             idTo = idTo[0].toUpperCase() + idTo.slice(1);
+             console.log(idTo);
+             let check = document.getElementById(idTo).textContent;
+             resSports += " | "+ checkboxes[i].value + " " + check;
+         }
+     }
+
+     let pronomen = document.getElementsByClassName('pronomen');
+
+     for (let i = 0; i < pronomen.length; i++) {
+         if (pronomen[i].checked) {
+             resPronomen += " | " + pronomen[i].value;
          }
      }
 
@@ -40,15 +43,15 @@
 
         city: document.getElementById("stad").value,
         bio: document.getElementById('myTextarea').value,
-        interests: res,
+        interests: resSports,
 
 
 
-        mainImg: "hej",
-       /* mainImg: mainImg,*/
 
         gender: document.querySelector('input[name="kön"]:checked').value,
-        genderPreference: "Man",
+        genderPreference: resPronomen,
+
+        /*mainImg: document.getElementById("1").src,*/
 
 
     }
