@@ -1,16 +1,4 @@
-const dagarMånader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
-const color = getComputedStyle(document.documentElement).getPropertyValue('color');
-
-
-let liveImg;
-let int;
-let intLetter;
-let countdownInterval;
-
-
-
-
-//--------------------------Datum--------------------------------------------------
+let dagarManader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
 /**
  * Inehåller populering av år, månad, dag felt. Samt visa-lösenord knappen aktiveras här och gör att man kan sortera bilderna.
@@ -19,7 +7,7 @@ $(document).ready(function(){
     let i;
     let val = '<option selected value="dag">dag</option>';
     const väljDag = "dag";
-    for (i = 1; i <= dagarMånader[0]; i++){ //add option days
+    for (i = 1; i <= dagarManader[0]; i++){ //add option days
         val += '<option selected value="'+ i + '">' + i + '</option>';
     }
     $('#dag').append(val);
@@ -49,9 +37,6 @@ $(document).ready(function(){
 
     });
 
-    // Gör bilderna dragbara
-
-    // Gör bilderna droppbara
         $('#containerBild').sortable({
             items: '.foto',
             update: function(event, ui) {
@@ -59,7 +44,6 @@ $(document).ready(function(){
         });
 
 });
-
 
 
 /**
@@ -85,11 +69,11 @@ function change_year(vald)
 {
     if( isLeapYear( $(vald).val() ) )
     {
-        dagarMånader[1] = 29;
+        dagarManader[1] = 29;
 
     }
     else {
-        dagarMånader[1] = 28;
+        dagarManader[1] = 28;
     }
     if( $("#månad").val() == 2)
     {
@@ -97,11 +81,11 @@ function change_year(vald)
         let val = $(dag).val();
         $(dag).empty();
         let val2 = '<option selected value="dag">dag</option>';
-        for (let i=1; i <= dagarMånader[1]; i++){ //add option days
+        for (let i=1; i <= dagarManader[1]; i++){ //add option days
             val2 += '<option value="'+ i + '">' + i + '</option>';
         }
         $(dag).append(val2);
-        if( val > dagarMånader[ månad ] )
+        if( val > dagarManader[ månad ] )
         {
             val = 1;
         }
@@ -118,11 +102,11 @@ function change_month(select) {
     $(dag).empty();
     let option = '<option selected="dag value="dag">dag</option>';
     let månad = parseInt( $(select).val() ) - 1;
-    for (let i=1;i <= dagarMånader[ månad ];i++){ //add option days
+    for (let i=1;i <= dagarManader[ månad ];i++){ //add option days
         option += '<option value="'+ i + '">' + i + '</option>';
     }
     $(dag).append(option);
-    if( val > dagarMånader[ månad ] )
+    if( val > dagarManader[ månad ] )
     {
         val = 1;
     }
@@ -149,16 +133,7 @@ $(document).ready(function() {
 /**
  Modalfönster kommer upp på skärmen
  */
-function buttonHiVi(n) {
-        if (n===1){
-            document.getElementById('modal-body').style.display = 'block';
-            document.getElementById('modalBodyBackdrop').style.display = 'block';
-        }
-        else {
-           document.getElementById('modal-body').style.display = 'none';
-            document.getElementById('modalBodyBackdrop').style.display = 'none';
-        }
-}
+
 
 /**
  Gör satt man kan hoppa mellan de olika stegen i form-html filen
@@ -186,14 +161,23 @@ function nextStep(n) {
  Gör att moralfönstret försvinner när man klickar på klar knappen
  */
 function hide() {
-    let iframe = window.parent.document.getElementById("modal-body");
-    let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
-    iframe.style.display = "none";
-    iframemodel.style.display = "none";
-    location.reload();
+    let firstChild = document.querySelector("#containerBild :first-child img");
 
+    if (firstChild != null){
+        createUser()
+        let iframe = window.parent.document.getElementById("modal-body");
+        let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
+        iframe.style.display = "none";
+        iframemodel.style.display = "none";
+        location.reload();
 
-    alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
+        alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
+    }
+    else{
+        event.preventDefault()
+        alert("Du måste lägga till en Profilbild")
+    }
+
 }
 
 
@@ -266,63 +250,6 @@ function validateForm(event, n) {
 }
 
 
-    //-----------------------------------Webcam------------------------------------------
-
-
-/**
- Gör satt man kan genom webcam och sätta in en bild i griden
- */
-function displayImageFromKamera(event){
-    event.preventDefault();
-    let buttons = document.querySelectorAll("button:not(#webbContainer button)");
-    let inputs = document.querySelectorAll("input[type='file']");
-    let texta = document.querySelectorAll("textarea");
-
-    inputs.forEach(function(button) {
-        button.disabled = false;
-        button.classList.remove("disabled");
-    });
-
-    buttons.forEach(function(button) {
-        button.disabled = false;
-        button.classList.remove("disabled");
-    });
-
-    texta.forEach(function(button) {
-        button.disabled = false;
-        button.classList.remove("disabled");
-    });
-
-    let fileToUpload = "fileToUpload" + int;
-    let knappTillFoto = "knappTillFoto" + int;
-    let upload = "file-upload" + int;
-    let deleteBild = "deleteBild" + int;
-    let imagecontiner = document.getElementById(intLetter)
-    let imgTag = document.createElement('img');
-
-    imgTag.src = liveImg;
-    imgTag.id = int;
-    imgTag.style.borderRadius = '10%';
-    imgTag.className = "bild";
-    imgTag.style.objectFit = "cover";
-    imgTag.style.width = "100%";
-    imgTag.style.height = "100%";
-
-    imagecontiner.style.background = 'black';
-    imagecontiner.appendChild(imgTag);
-
-    document.getElementById(fileToUpload).style.visibility ="hidden";
-    document.getElementById(knappTillFoto).style.visibility ="hidden";
-    document.getElementById(upload).style.visibility ="hidden";
-    document.getElementById(deleteBild).style.display = "block";
-
-    let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button><button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
-    $("#webbContainer").html(content);
-
-    document.getElementById("webbContainer").style.visibility = "hidden";
-}
-
-
 //-----------------------Övrigt-----------------------------
 
 
@@ -337,6 +264,50 @@ function toggleTextFunction() {
         andra.style.display = 'block'
     }
 }
+
+
+
+/**
+ Kollar satt minst en checkbox är ifyllt
+ */
+function validateCheckBoxes(event, n){
+    event.preventDefault();
+    let boolean = checkIfCheckboxes();
+    if (boolean === true){
+        nextStep(n)
+    }
+    else{
+        return false;
+    }
+
+}
+
+
+
+/**
+ Ger alert ifall man inte valt en sport eller inte valt en preferens
+ */
+function checkIfCheckboxes(){
+    if($('#sportCheckboxes input[type="checkbox"]:checked').length === 0)
+        alert("Välj minst en sport");
+    else if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
+        alert("Du måste välja preferens på vilka du vill träffa");
+
+    else{
+        return true;
+    }
+}
+
+
+function checkIfFirstChildImg(){
+    let bild = document.getElementById("containerBild")
+        return bild.firstElementChild.tagName === "IMG";
+}
+
+
+
+
+
 
 
 

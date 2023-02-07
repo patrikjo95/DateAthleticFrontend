@@ -1,6 +1,11 @@
 const printArray = [];
 let darkModeValue = sessionStorage.getItem("darkMode");
 let labels = document.querySelectorAll('.label');
+let liveImg;
+let int;
+let intLetter;
+let countdownInterval;
+let color = getComputedStyle(document.documentElement).getPropertyValue('color');
 
 let isDark = false;
 const sports = [
@@ -355,6 +360,7 @@ function displayImage(n, har){
     image.style.borderRadius = '10%';
     image.style.position = ' relative';
     image.style.objectFit = "cover";
+    image.value = image.src;
     imagecontiner.style.background = 'black';
     imagecontiner.append(image)
 
@@ -414,34 +420,6 @@ function startWebcam(n, intLetterLive, boolean) {
 }
 
 
-/**
- Ger alert ifall man inte valt en sport eller inte valt en preferens
- */
-function checkIfCheckboxes(){
-    if($('#sportCheckboxes input[type="checkbox"]:checked').length === 0)
-        alert("Välj minst en sport");
-    else if($('#preferensCheckboxes input[type="checkbox"]:checked').length === 0)
-        alert("Du måste välja preferens på vilka du vill träffa");
-
-    else{
-        return true;
-    }
-}
-
-/**
- Kollar satt minst en checkbox är ifyllt
- */
-function validateCheckBoxes(event, n){
-    event.preventDefault();
-    let boolean = checkIfCheckboxes();
-    if (boolean === true){
-        nextStep(n)
-    }
-    else{
-        return false;
-    }
-
-}
 
 
 /**
@@ -546,4 +524,75 @@ $(document).ready(function(){
         darkMode();
     }
 })
+
+
+/**
+ Gör satt man kan genom webcam och sätta in en bild i griden
+ */
+
+function displayImageFromKamera(event,tru){
+    event.preventDefault();
+    let buttons = document.querySelectorAll("button:not(#webbContainer button)");
+    let inputs = document.querySelectorAll("input[type='file']");
+    let texta = document.querySelectorAll("textarea");
+
+    inputs.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+    buttons.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+    texta.forEach(function(button) {
+        button.disabled = false;
+        button.classList.remove("disabled");
+    });
+
+    let fileToUpload = "fileToUpload" + int;
+    let knappTillFoto = "knappTillFoto" + int;
+    let upload = "file-upload" + int;
+    let deleteBild = "deleteBild" + int;
+    let imagecontiner = document.getElementById(intLetter)
+    let imgTag = document.createElement('img');
+
+    imgTag.src = liveImg;
+    imgTag.id = int;
+    imgTag.className = "bild";
+    imgTag.style.width = '100%';
+    imgTag.style.height = '100%';
+    imgTag.style.borderRadius = '10%';
+    imgTag.style.objectFit = "cover";
+    imgTag.value = imgTag.src;
+    imagecontiner.style.background = 'black';
+    imagecontiner.appendChild(imgTag);
+
+    document.getElementById(fileToUpload).style.visibility ="hidden";
+    document.getElementById(knappTillFoto).style.visibility ="hidden";
+    document.getElementById(upload).style.visibility ="hidden";
+    document.getElementById(deleteBild).style.display = "block";
+
+
+    let content = '<video id="webcam" style="display:none;"></video><p id="countdown"></p> <button id="check" style="display:none" onclick="displayImageFromKamera(event)"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button><button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button> <button id="taOmBild" style="display:none;" onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button><button id="close" style="display:none;" onclick="retake(event, \'close\')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>'
+    $("#webbContainer").html(content);
+
+    document.getElementById("webbContainer").style.visibility = "hidden";
+
+    if (tru === 1){
+        let firstChild = document.querySelector("#containerBild :first-child");
+        if (firstChild.id === imagecontiner.id && firstChild.id != null){
+            let copyImage = new Image()
+            copyImage.src = imgTag.src;
+
+            copyImage.style.borderRadius= "50%"
+
+
+            document.getElementById("preview").style.backgroundImage = "url('" + copyImage.src + "')";
+            document.getElementById("preview").style.backgroundSize = "200px 200px"
+
+        }
+    }
+}
 
