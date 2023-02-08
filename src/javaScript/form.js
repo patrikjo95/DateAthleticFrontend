@@ -161,9 +161,8 @@ function nextStep(n) {
  Gör att moralfönstret försvinner när man klickar på klar knappen
  */
 function hide() {
-    let firstChild = document.querySelector("#containerBild :first-child img");
 
-    if (firstChild != null){
+    if (checkIfFirstChildImg()){
         createUser()
         let iframe = window.parent.document.getElementById("modal-body");
         let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
@@ -172,6 +171,7 @@ function hide() {
         location.reload();
 
         alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
+
     }
     else{
         event.preventDefault()

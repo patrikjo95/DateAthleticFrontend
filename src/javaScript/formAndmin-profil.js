@@ -559,6 +559,17 @@ function displayImageFromKamera(event,tru){
     let imgTag = document.createElement('img');
 
     imgTag.src = liveImg;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', imgTag.src, true);
+    xhr.responseType = 'blob';
+    xhr.onload = function(e) {
+        if (this.status == 200) {
+            let blob = this.response;
+            imgTag = blob;
+            // Du har nu en Blob-objekt i variabeln blob.
+        }
+    };
+    xhr.send();
     imgTag.id = int;
     imgTag.className = "bild";
     imgTag.style.width = '100%';

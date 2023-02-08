@@ -4,6 +4,12 @@
 
 
 
+
+
+
+     const container = document.getElementById("containerBild");
+     const images = container.querySelectorAll(".foto img");
+
      let resSports = "";
      let resPronomen = "";
      let checkboxes = document.getElementsByClassName('sportCheck');
@@ -50,12 +56,7 @@
         genderPreference: resPronomen,
 
         imageUrlsDto: {
-            mainImg: "https://example.com/main.jpg",
-            url1: "https://example.com/1.jpg",
-            url2: "https://example.com/2.jpg",
-            url3: "https://example.com/3.jpg",
-            url4: "https://example.com/4.jpg",
-            url5: "https://example.com/5.jpg"
+            mainImg: images[0].src
         }
 
 
@@ -91,14 +92,4 @@
              console.error('Error ', error);
          });*/
 }
-
- function eraseText() {
-     document.getElementById("förnamn").value = "";
-     document.getElementById("efternamn").value = "";
-     document.getElementById("användarnamn").value = "";
-     document.getElementById("email").value = "";
-     document.getElementById("lösenord2").value = "";
-     document.getElementById("stad").value = "";
-     document.getElementById('myTextarea').value ="";
- }
 
