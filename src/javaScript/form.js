@@ -300,8 +300,13 @@ function checkIfCheckboxes(){
 
 
 function checkIfFirstChildImg(){
-    let bild = document.getElementById("containerBild")
-        return bild.firstElementChild.tagName === "IMG";
+    let bild = document.querySelector("#containerBild :first-child img")
+
+    if (bild != null)
+        return true;
+    else{
+        return false;
+    }
 }
 
 
