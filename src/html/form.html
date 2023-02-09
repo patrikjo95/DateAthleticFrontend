@@ -5,10 +5,6 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../javaScript/form.js"></script>
 <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
-<script src="../javaScript/form.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../javaScript/form_fetch.js"></script>
 <script src="../javaScript/formAndmin-profil.js"></script>
 
@@ -101,11 +97,11 @@
             <p>Vilka vill du träna med?</p>
             <p><small>Det går givetvis bra att välja samtliga</small></p>
             <fieldset id="preferensCheckboxes">
-            <input type="checkbox" id="valMän" class="checkbox">
+            <input type="checkbox" id="valMän" class="checkbox pronomen" value="Män">
             <label for="valMän">Män</label>
-            <input type="checkbox" id="valKvinnor" class="checkbox">
+            <input type="checkbox" id="valKvinnor" class="checkbox pronomen" value="Kvinnor">
             <label for="valKvinnor">Kvinnor</label>
-            <input type="checkbox" id="valÖvrigt" class="checkbox">
+            <input type="checkbox" id="valÖvrigt" class="checkbox pronomen" value="Övrigt">
             <label for="valÖvrigt">Övrigt</label>
             </fieldset>
         </div>
@@ -149,7 +145,7 @@
 
     <br>
         <br>
-    <button type="submit" id="klar" class="button" onclick="hide() ; createUser()">KLAR</button>
+    <button type="submit" id="klar" class="button" onclick="hide()">KLAR</button>
     </form>
 </div>
 

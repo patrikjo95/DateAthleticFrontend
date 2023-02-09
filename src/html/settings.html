@@ -112,7 +112,7 @@
         <div id="webbContainer">
             <video id="webcam" style="display:none;"></video>
             <p id="countdown"></p>
-            <button id="check"  onclick="displayImageFromKamera(event)" style="display:none;"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button>
+            <button id="check"  onclick="displayImageFromKamera(event, 1)" style="display:none;"><span class="material-symbols-outlined checkIcon" style="color: green">check_circle</span></button>
             <button id="taBild" onclick="takePicture(event)" style="display:none;"><span class="material-symbols-outlined" style="color: white">add_circle</span></button>
             <button id="taOmBild" style="display:none;"  onclick="retake(event)"><span class="material-symbols-outlined" style="color: white">sync</span></button>
             <button id="close" style="display:none;" onclick="retake(event, 'close')"><span class="material-symbols-outlined" style="color: red">cancel</span></button>
@@ -173,7 +173,6 @@
     <br>
     <textarea id="myTextarea" maxlength="500" oninput="countChars(this)"></textarea>
     <div id="counter">0/500</div>
-    </div>
     <button type="submit" class="spara-btn" >Spara</button>
 </form>
 

@@ -2,24 +2,28 @@
 
  async function createUser (){
 
-/*    let res;
-     let checkboxes = document.getElementsByClassName('checkbox');
-     for (let i = 0; i < checkboxes.length; i++) {
-         if (checkboxes[i].checked) {
-             res += checkboxes[i].value
-                 + ", ";
-         }
-     }*/
 
 
-     let res = "";
-     let int = 1;
+     let resSports = "";
+     let resPronomen = "";
      let checkboxes = document.getElementsByClassName('sportCheck');
 
+
+
      for (let i = 0; i < checkboxes.length; i++) {
          if (checkboxes[i].checked) {
-             res += int + ":"+ checkboxes[i].value + " ";
-             int += 1;
+             let idTo = checkboxes[i].id + "rangeValue";
+             idTo = idTo[0].toUpperCase() + idTo.slice(1);
+             let check = document.getElementById(idTo).textContent;
+             resSports += " | "+ checkboxes[i].value + " " + check;
+         }
+     }
+
+     let pronomen = document.getElementsByClassName('pronomen');
+
+     for (let i = 0; i < pronomen.length; i++) {
+         if (pronomen[i].checked) {
+             resPronomen += " | " + pronomen[i].value;
          }
      }
 
@@ -38,14 +42,21 @@
 
         city: document.getElementById("stad").value,
         bio: document.getElementById('myTextarea').value,
-        interests: res,
-
-
+        interests: resSports,
 
 
 
         gender: document.querySelector('input[name="kön"]:checked').value,
-        genderPreference: "Man",
+        genderPreference: resPronomen,
+
+        imageUrlsDto: {
+            mainImg: "https://example.com/main.jpg",
+            url1: "https://example.com/1.jpg",
+            url2: "https://example.com/2.jpg",
+            url3: "https://example.com/3.jpg",
+            url4: "https://example.com/4.jpg",
+            url5: "https://example.com/5.jpg"
+        }
 
 
     }
@@ -62,10 +73,8 @@
          body: JSON.stringify(data),
          headers: headers,
          cache: "default",
-         mode: "no-cors"
-     });
-     console.log(createUserRequest);
-     console.log("DATA:  " , data)
+ });
+
 
     await fetch(createUserRequest)
          .then((response) => {
@@ -78,11 +87,9 @@
          .then((response) =>{
              console.log(response)
          })
-         .catch((error) => {
+  /*        .catch((error) => {
              console.error('Error ', error);
-         });
-
-
+         });*/
 }
 
  function eraseText() {
