@@ -164,11 +164,8 @@ function hide() {
 
     if (checkIfFirstChildImg()){
         createUser()
-        let iframe = window.parent.document.getElementById("modal-body");
-        let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
-        iframe.style.display = "none";
-        iframemodel.style.display = "none";
         location.reload();
+        window.parent.location.reload();
 
         alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
 
