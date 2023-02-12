@@ -58,6 +58,7 @@
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin','*');
 
     const url = "http://localhost:8080/register/";
 
@@ -67,7 +68,8 @@
          redirect: 'follow',
          body: JSON.stringify(data),
          headers: headers,
-         cache: "default"
+         cache: "default",
+         mode: "no-cors"
      });
      console.log(createUserRequest);
      console.log("DATA:  " , data)
@@ -90,13 +92,4 @@
 
 }
 
- function eraseText() {
-     document.getElementById("förnamn").value = "";
-     document.getElementById("efternamn").value = "";
-     document.getElementById("användarnamn").value = "";
-     document.getElementById("email").value = "";
-     document.getElementById("lösenord2").value = "";
-     document.getElementById("stad").value = "";
-     document.getElementById('myTextarea').value ="";
- }
-
+ 

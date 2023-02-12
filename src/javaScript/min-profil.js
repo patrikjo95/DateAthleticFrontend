@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 $(document).ready(function() {
     $('input[type="radio"]').click(function() {
         if($(this).attr('id') == 'anpassat2') {
