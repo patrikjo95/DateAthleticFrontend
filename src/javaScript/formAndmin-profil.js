@@ -226,7 +226,10 @@ window.onload = function() {
 /**
  Gör att du kan ta bort bilderna från griden i bild continern
  */
-function removeBild(n, event, lett){
+function removeBild(n, event, lett, j){
+
+
+
     event.preventDefault();
 
     let fileToUpload = "fileToUpload" + n;
@@ -242,6 +245,10 @@ function removeBild(n, event, lett){
     document.getElementById(knappTillFoto).style.visibility ="visible";
     document.getElementById(upload).style.visibility ="visible";
     document.getElementById(deleteBild).style.display = "none";
+
+    if ( j=== 1){
+        profilBild()
+    }
 }
 
 /**
@@ -328,7 +335,7 @@ function takePicture(event) {
 /**
  Gör satt man kan genom file systemet sätta in en bild i griden
  */
-function displayImage(n, har){
+function displayImage(n, har , tru){
 
     let fileToUpload = "fileToUpload" + n;
     let knappTillFoto = "knappTillFoto" + n;
@@ -369,6 +376,10 @@ function displayImage(n, har){
     document.getElementById(upload).style.visibility ="hidden";
     document.getElementById(deleteBild).style.display = "block";
 
+
+    if (tru === 1){
+        profilBild()
+    }
 }
 
 
@@ -581,18 +592,7 @@ function displayImageFromKamera(event,tru){
     document.getElementById("webbContainer").style.visibility = "hidden";
 
     if (tru === 1){
-        let firstChild = document.querySelector("#containerBild :first-child");
-        if (firstChild.id === imagecontiner.id && firstChild.id != null){
-            let copyImage = new Image()
-            copyImage.src = imgTag.src;
-
-            copyImage.style.borderRadius= "50%"
-
-
-            document.getElementById("preview").style.backgroundImage = "url('" + copyImage.src + "')";
-            document.getElementById("preview").style.backgroundSize = "200px 200px"
-
-        }
+        profilBild()
     }
 }
 
