@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Sök medlemmar</title>
+</head>
+<body>
+  <section>
+    <!---Meny-->
+<nav class="navbar">
+ 
+  <div class="logo">Date<span class="text"><span class="tecken">|</span>
+    Athletic</span></div>
+  <div class="min-profil">
+      <div class="profil-btn" onclick="toggle()">
+          <div class="profil-img"></div>
+
+          <span
+          >Förnamn
+                  <i class="fa-solid fa-angle-down"></i>
+                </span>
+      </div>
+
+      <!--Dropdown meny-->
+
+      <ul class="dropdown-ul">
+          <li class="dropdown-li">
+              <a href="../html/swipe1.html">
+                  <i class="fa-solid fa-check"></i>
+                  Matchningar
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="#">
+                  <i class="fa-regular fa-user"></i>
+                  Min profil
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="#">
+                  <i class="fa-regular fa-envelope"></i>
+                  Meddelande
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="../html/settings.html">
+                  <i class="fa-solid fa-sliders"></i>
+                  Konto- Inställningar
+              </a>
+          </li>
+          <hr>
+          <li class="dropdown-li">
+              <a onclick="logout()">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log out
+              </a>
+          </li>
+      </ul>
+  </div>
+</nav>
+</section>
+  <div class="container">
+    <header class="header">
+      <h4 class="title">SÖK MEDLEMMAR</h4>
+      <input type="text" name="filter" id="filter"  placeholder="Sök" />
+      <div class="dropdownFilter">
+        <span></span>
+        <div class="dropdownSearch">
+         
+          <select class="select-opt" id="sel-opt">
+            <option value="sort-by">Sortera efter</option>
+            <option value="name">Namn</option>
+            <option value="city">Stad</option>
+            <option value="gender">Kön</option>
+            <option value="sport">Gemensamma sporter</option>
+        </select>
+
+
+        </div>
+     </div>
+    </header>  
+    <ul id="result" class="user-list">
+    </ul>
+  </div>
+
+  
+  <script src="../javaScript/search.js"></script>
+    <script src="../javaScript/profil.js"></script>
+</body>
+</html>
