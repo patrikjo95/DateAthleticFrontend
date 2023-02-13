@@ -161,17 +161,14 @@ function nextStep(n) {
  Gör att moralfönstret försvinner när man klickar på klar knappen
  */
 function hide() {
-    let firstChild = document.querySelector("#containerBild :first-child img");
 
-    if (firstChild != null){
+    if (checkIfFirstChildImg()){
         createUser()
-        let iframe = window.parent.document.getElementById("modal-body");
-        let iframemodel = window.parent.document.getElementById("modalBodyBackdrop")
-        iframe.style.display = "none";
-        iframemodel.style.display = "none";
         location.reload();
+        window.parent.location.reload();
 
         alert("Du har registrerat dig, nu är det dax att hitta den ultimata träningspartnern!!!! ")
+
     }
     else{
         event.preventDefault()
@@ -300,8 +297,13 @@ function checkIfCheckboxes(){
 
 
 function checkIfFirstChildImg(){
-    let bild = document.getElementById("containerBild")
-        return bild.firstElementChild.tagName === "IMG";
+    let bild = document.querySelector("#containerBild :first-child img")
+
+    if (bild != null)
+        return true;
+    else{
+        return false;
+    }
 }
 
 

@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <link rel="stylesheet" href="../CSS/swipe1.css" />
+     <!-- -------font-Awesome-------- -->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+     crossorigin="anonymous"
+     referrerpolicy="no-referrer"
+   />
+  </head>
+  <body>
+    <section>
+    <!---Meny-->
+<nav class="navbar">
+ 
+
+  <div class="min-profil">
+      <div class="profil-btn" onclick="toggle()">
+          <div class="profil-img"></div>
+
+          <span
+          >Förnamn
+                  <i class="fa-solid fa-angle-down"></i>
+                </span>
+      </div>
+
+      <!--Dropdown meny-->
+
+      <ul class="dropdown-ul">
+          <li class="dropdown-li">
+              <a href="#">
+                  <i class="fa-solid fa-check"></i>
+                  Matchningar
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="../html/min-profil.html">
+                  <i class="fa-regular fa-user"></i>
+                  Min profil
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="#">
+                  <i class="fa-regular fa-envelope"></i>
+                  Meddelande
+              </a>
+          </li>
+
+          <li class="dropdown-li">
+              <a href="../html/settings.html">
+                  <i class="fa-solid fa-sliders"></i>
+                  Konto- Inställningar
+              </a>
+          </li>
+          <li class="dropdown-li">
+            <a href="../html/search.html">
+              <i class="fa-solid fa-magnifying-glass"></i>
+                Sök medlemmar
+            </a>
+        </li>
+          <hr>
+          <li class="dropdown-li">
+              <a onclick="logout()">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log out
+              </a>
+          </li>
+      </ul>
+  </div>
+</nav>
+</section>
+
+    <ion-icon id="dislike" name="heart-dislike"></ion-icon>
+    <!--- <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>-->
+
+
+    <div id="swiper">
+    
+      <!-- <div class="card" style="--i:0">
+      <img src="../img/person4.jpg" alt=""> 
+      
+    </div>
+    <div class="card" style="--i:1">
+      <img src="../img/person5.jpg" alt="">
+    </div>
+    <div class="card" style="--i:2">
+      <img src="../img/person6.jpg" alt="">
+    </div>
+    <div class="card" style="--i:3">
+      <img src="../img/person7.jpg" alt="">
+    </div>
+    <div class="card" style="--i:4">
+      <img src="../img/person8.jpg" alt="">
+    </div> -->
+
+
+  </div>
+    <ion-icon id="like" name="heart"></ion-icon>
+
+   
+
+     <!-- ===============MODAL=============== -->
+     <div class="modal_box" id="modal_box">
+      <i class="fa fa-xmark" aria-hidden="true" id="btn_cross6"></i>
+       <div class="img">
+        <img src="../img/person1.jpg" alt="" id="IMG" class="IMG">
+        <h3>Bio</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, enim.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque minima quasi sit, odit soluta dolorem expedita possimus ut eaque doloremque.</p>
+       </div>
+       <div class="all_img" id="all_imgs">
+       <img src="../img/person1.jpg" alt="" onclick="img1(this)">
+       <img src="../img/person7.jpg" alt="" onclick="img2(this)">
+       <img src="../img/person10.jpg" alt="" onclick="img3(this)">
+       </div>
+       
+    </div>
+
+ 
+ 
+    <script src="../javaScript/card.js"></script>
+    <script src="../javaScript/swipe1.js"></script>
+    <script src="../javaScript/profil.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

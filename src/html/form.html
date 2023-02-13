@@ -5,8 +5,14 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../javaScript/form.js"></script>
 <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
+<script src="../javaScript/form.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../javaScript/form_fetch.js"></script>
 <script src="../javaScript/formAndmin-profil.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="../CSS/form.css">
 <link rel="stylesheet" href="../CSS/mobile.css">
@@ -59,14 +65,14 @@
         <label for="man" class="textKön">Anpassat</label>
         <br>
         <div id="pronomen" hidden>
-            <SELECT name = "pronomen" class="first">
-                <option selected>Hen: "Vill du träna med hen?"</option>
-                <option>Hon: "Vill du träna med henne?"</option>
-                <option>Han: "Vill du träna med honom?"</option>
-                <option>Den/Det: "Vill du träna med den/det?"</option>
+            <SELECT name = "pronomen" class="first" id="selectKön">
+                <option class="dropDownKön" value="Hen" selected>Hen: "Vill du träna med hen?"</option>
+                <option class="dropDownKön" value="Hon" >Hon: "Vill du träna med henne?"</option>
+                <option class="dropDownKön" value="Han ">Han: "Vill du träna med honom?"</option>
+                <option class="dropDownKön" value="Den/Det">Den/Det: "Vill du träna med den/det?"</option>
             </SELECT>
             <br>
-        <input type="text" placeholder="Kön (Valfritt)" class="first">
+        <input type="text" placeholder="Kön (Valfritt)" class="first" id="textKön">
         </div>
     </div>
     <button type="submit" class="nextStep button">NÄSTA STEG</button>
@@ -145,7 +151,7 @@
 
     <br>
         <br>
-    <button type="submit" id="klar" class="button" onclick="hide()">KLAR</button>
+    <button type="submit" id="klar" class="button" onclick="hide()"  onsubmit="location.reload();">KLAR</button>
     </form>
 </div>
 
