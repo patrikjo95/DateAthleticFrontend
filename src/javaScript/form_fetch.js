@@ -5,12 +5,7 @@ let url4 = ""
 let url5 = ""
 
  async function createUser () {
-
-
-
      const image = document.querySelector("#containerBild > :first-child img").src;
-
-
      let container = document.getElementById("containerBild");
      let children = container.children;
      let urlCounter = 1;
@@ -129,9 +124,45 @@ let url5 = ""
              .then((response) => {
                  console.log(response)
              })
-         /*        .catch((error) => {
-                    console.error('Error ', error);
-                });*/
-
 
  }
+
+ async function checkUserAndEmail(n){
+
+    const data = {
+
+        username: document.getElementById("användarnamn").value,
+        email: document.getElementById("efternamn").value
+
+    }
+
+    const url = "http://localhost:8080/user/username/email";
+
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json")
+
+     const checkForUserRequest = new Request(url, {
+         method: "POST",
+         redirect: "follow",
+         body: JSON.stringify(data),
+         headers: headers,
+         cache: "default"
+
+     });
+
+    await fetch(checkForUserRequest)
+        .then((response) => {
+          if(!response.ok) {
+              alert(response.statusText)
+              throw new Error(response.statusText)
+          }
+          else{
+              nextStep(n)
+          }
+          return response.json()
+        })
+        .then ((response) => {
+            console.log(response)
+        })
+ }
+
