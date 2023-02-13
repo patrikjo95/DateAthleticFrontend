@@ -7,7 +7,7 @@ form.addEventListener("submit", (event) => {
       password: document.getElementById("psw").value
     };
     
-    fetch("http://localhost:8080/login/", {
+    fetch("http://127.0.0.1:8080/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginDTO),
@@ -24,8 +24,4 @@ form.addEventListener("submit", (event) => {
         localStorage.setItem("token", data)
         window.location.href = "../html/min-profil.html";
       })
-      .catch((error) => {
-        console.log(error);
-      });
-
   })

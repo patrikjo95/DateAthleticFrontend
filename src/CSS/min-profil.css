@@ -191,6 +191,8 @@ img {
 
 .profile-image img {
     border-radius: 50%;
+    max-width: 90%;
+    max-height: 100%;
 }
 
 
