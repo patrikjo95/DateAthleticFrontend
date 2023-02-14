@@ -27,6 +27,7 @@ const username = document.getElementById("username")
 const bio = document.getElementById("bio")
 const profilePic = document.getElementById("profilePic")
 
+
 fetch('http://localhost:8080/user/profile/', {
   headers:{
     'Authorization': 'Bearer ' + token,
@@ -39,8 +40,7 @@ fetch('http://localhost:8080/user/profile/', {
        console.log(info);
        name.textContent = data.firstname
        username.textContent = data.username
-       bio.textContent = data.bio
-       
+       bio.textContent = data.bio       
        
        profilePic.src = "/" + info.imagePath[0]
       })
