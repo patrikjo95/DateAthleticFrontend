@@ -1,3 +1,5 @@
+
+
 let url1 = ""
 let url2 = ""
 let url3 = ""
@@ -125,44 +127,52 @@ let url5 = ""
                  console.log(response)
              })
 
- }
+}
 
- async function checkUserAndEmail(n){
+async function checkUserAndEmail(n){
 
     const data = {
 
         username: document.getElementById("användarnamn").value,
-        email: document.getElementById("efternamn").value
+        email: document.getElementById("email").value
 
     }
 
-    const url = "http://localhost:8080/user/username/email";
 
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json")
 
-     const checkForUserRequest = new Request(url, {
-         method: "POST",
-         redirect: "follow",
-         body: JSON.stringify(data),
-         headers: headers,
-         cache: "default"
+ const url = "http://localhost:8080/check/";
 
-     });
+const headers = new Headers();
+headers.append("Content-Type", "application/json")
 
-    await fetch(checkForUserRequest)
-        .then((response) => {
-          if(!response.ok) {
-              alert(response.statusText)
-              throw new Error(response.statusText)
-          }
-          else{
-              nextStep(n)
-          }
-          return response.json()
-        })
-        .then ((response) => {
-            console.log(response)
-        })
- }
+const checkForUserRequest = new Request(url, {
+    method: "POST",
+    redirect: "follow",
+    body: JSON.stringify(data),
+    headers: headers,
+    cache: "default"
+});
 
+await fetch(checkForUserRequest)
+    .then((response) => {
+        if (response.status === 409) {
+            // Om statuskoden är 409, visa meddelandet i svaret i en alert
+            response.text().then((text) => {
+                alert(text);
+            });
+            throw new Error(response.statusText);
+        } else if (response.ok) {
+            // Om statuskoden är OK, gå vidare till nästa steg
+            nextStep(n);
+        } else {
+            // För alla andra statuskoder, visa meddelandet i svaret i en alert
+            response.text().then((text) => {
+                alert(text);
+            });
+            throw new Error(response.statusText);
+        }
+        return response.json();
+    })
+    .then((response) => {
+        console.log(response);
+    })}

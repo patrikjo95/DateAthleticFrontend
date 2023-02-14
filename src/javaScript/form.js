@@ -228,8 +228,8 @@ function validateForm(event, n) {
     let koll = kontrolleraLösenord();
 
     if (koll === true){
-        //checkUserAndEmail(n)
-        nextStep(n)
+        checkUserAndEmail(n)
+        //nextStep(n)
     }
     if (koll === 1){
         alert("Lösenordet och bekräfta lösenordet matchar inte!");
