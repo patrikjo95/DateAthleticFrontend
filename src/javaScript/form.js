@@ -221,14 +221,15 @@ function validateForm(event, n) {
     let month = document.getElementById("månad").value;
     let day = document.getElementById("dag").value;
     if(year === "år" || month === "månad" || day === "dag"){
-        alert("Please select a valid date");
+        alert("Välj ett giltigt födelsedatum");
         return false;
     }
 
     let koll = kontrolleraLösenord();
 
     if (koll === true){
-        nextStep(n)
+        checkUserAndEmail(n)
+        //nextStep(n)
     }
     if (koll === 1){
         alert("Lösenordet och bekräfta lösenordet matchar inte!");
