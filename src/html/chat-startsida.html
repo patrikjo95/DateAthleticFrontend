@@ -1,31 +1,29 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/min-profil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title>Min sida</title>
-</head>
-
-<body>
-<!---Meny-->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="../CSS/chat2.css" />  
+        <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
+		<title>Chatta med medlemmar</title>
+	</head>
+	<body>
+          <!---Meny-->
 <nav class="navbar">
     <div class="logo">Date<span class="text"><span class="tecken">|</span>
             Athletic</span></div>
-
+  
     <div class="min-profil">
         <div class="profil-btn" onclick="toggle()">
             <div class="profil-img"></div>
-
+  
             <span id="name">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
         </div>
-
+  
         <!--Dropdown meny-->
-
+  
         <ul class="dropdown-ul">
             <li class="dropdown-li">
                 <a href="../html/swipe1.html">
@@ -33,21 +31,21 @@
                     Matchningar
                 </a>
             </li>
-
+  
             <li class="dropdown-li">
                 <a href="#">
                     <i class="fa-regular fa-user"></i>
                     Min profil
                 </a>
             </li>
-
+  
             <li class="dropdown-li">
-                <a href="../html/chat-startsida.html">
+                <a href="#">
                     <i class="fa-regular fa-envelope"></i>
                     Meddelande
                 </a>
             </li>
-
+  
             <li class="dropdown-li">
                 <a href="../html/settings.html">
                     <i class="fa-solid fa-sliders"></i>
@@ -63,37 +61,28 @@
             </li>
         </ul>
     </div>
-</nav>
-
-
-
-<!--Profil-innehåll-->
-<section>
-    <div class="container">
-        <div class="profile">
-            <div class="profile-image">
-                <img src="../img/person1.jpg" alt="" id="profilePic">
-            </div>
-
-            <div class="profile-user-settings">
-                <h1 class="profile-user-name" id="username">Användarnamn</h1>
-            </div>
-
-
-
-            <div class="profile-bio">
-                <h2>Bio</h2>
-                <hr color="black">
-                <p id="bio"><span class="profile-real-name" id="name">Mitt Namn</span>
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<script src="../javaScript/profil.js"></script>
-<script src="../javaScript/logout.js"></script>
-</body>
+  </nav>
+  
+		<div class="join-container">
+			<header class="join-header">
+				<h1>Chatt<i class="fa-brands fa-rocketchat"></i></h1>
+			</header>
+			<main class="join-main">
+				<form action="../html/chat.html">
+					<div class="form-control">
+						<label for="username">Användarnamn</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Skriv ditt namn..."
+							required
+						/>
+					</div>
+					
+					<button type="submit" class="btn">Anslut</button>
+				</form>
+			</main>
+		</div>
+	</body>
 </html>
