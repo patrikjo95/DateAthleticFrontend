@@ -34,8 +34,7 @@
         <div class="profil-btn" onclick="toggle()">
             <div class="profil-img"></div>
 
-            <span
-            >Förnamn
+            <span id="name">
                     <i class="fa-solid fa-angle-down"></i>
                   </span>
         </div>
@@ -129,12 +128,12 @@
 
 <form class="settings">
 
-    <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
-    <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
+    <input id="firstname" type="text" name="förnamn" placeholder="Förnamn" class="first" required>
+    <input type="text" name="efternamn" placeholder="Efternamn" class="first" required id="lastname">
     <br>
 
-    <input type="email" name="email" placeholder="Email" class="first" required>
-    <input type="text" name="stad" placeholder="Stad" class="first" required>
+    <input type="email" name="email" placeholder="Email" class="first" required id="email">
+    <input type="text" name="stad" placeholder="Stad" class="first" required id="city">
     <br>
     <br>
 
