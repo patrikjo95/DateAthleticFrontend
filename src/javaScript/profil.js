@@ -47,10 +47,21 @@ fetch('http://localhost:8080/user/profile/', {
   
 
        //document.getElementById("firstname").value = "121212"
-      document.getElementById("lastname").value = data.lastname
-      document.getElementById("email").value = data.email
-      document.getElementById("city").value = data.city
-      document.getElementsByName('förnamn')[0].placeholder="asdfasdf"
+      if (document.getElementById("lastname") != null){
+          document.getElementById("lastname").value = data.lastname
+      }
+      
+      if (document.getElementById("email") != null){
+          document.getElementById("email").value = data.email
+      }
+
+      if (document.getElementById("city") != null){
+          document.getElementById("city").value = data.city
+      }
+
+      if (document.getElementsByName('förnamn')[0] != null){
+          document.getElementsByName('förnamn')[0].placeholder="asdfasdf"
+      }
        //document.getElementById('data').setAttribute("placeholder", "placeholder value");
 
       })
