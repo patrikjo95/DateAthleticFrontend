@@ -1,5 +1,6 @@
 let dagarManader = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // månaderna
 
+
 /**
  * Inehåller populering av år, månad, dag felt. Samt visa-lösenord knappen aktiveras här och gör att man kan sortera bilderna.
  */
@@ -306,11 +307,4 @@ function checkIfFirstChildImg(){
         return false;
     }
 }
-
-
-
-
-
-
-
 

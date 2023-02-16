@@ -118,8 +118,8 @@ let url5 = ""
          await fetch(createUserRequest)
              .then((response) => {
                  if (!response.ok) {
-                     alert("Det går icke")
-                     throw new Error("BAJSKORV")
+                     alert("Det funkar inte")
+                     throw new Error("error")
                  }
                  return response.json();
              })

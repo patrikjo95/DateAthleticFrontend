@@ -1,13 +1,12 @@
 const printArray = [];
-let darkModeValue = sessionStorage.getItem("darkMode");
-let labels = document.querySelectorAll('.label');
+
 let liveImg;
 let int;
 let intLetter;
 let countdownInterval;
 let color = getComputedStyle(document.documentElement).getPropertyValue('color');
 
-let isDark = false;
+
 const sports = [
     {
         id: "styrketräning",
@@ -198,7 +197,10 @@ window.onload = function() {
         gridItem.appendChild(label);
         gridItem.appendChild(icon);
 
-        gridContainer.appendChild(gridItem);
+        if (gridContainer != null){
+            gridContainer.appendChild(gridItem);
+        }
+        
 
         gridItem.onmouseover = function() {
             if (!this.querySelector("input").checked){
@@ -217,6 +219,8 @@ window.onload = function() {
                 this.querySelector("label").style.color = "black";
             }
         }
+
+        
 
 
     }
@@ -485,56 +489,6 @@ function countChars(target) {
     const currentLength = target.value.length;
     document.getElementById('counter').innerHTML = `${currentLength}/${maxLength}`;
 }
-
-
-/**
- Gör att man kan göra program till dark mode
- */
-function darkMode(){
-    if(isDark) {
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].classList.add("dark-mode");
-        }
-        document.body.classList.toggle('dark-mode');
-        document.documentElement.style.setProperty('color', 'white');
-        document.documentElement.style.setProperty('--background-color',  '#252323');
-        //document.querySelector('iframe').classList.toggle('dark-mode');
-        sessionStorage.setItem("darkMode", "enabled");
-    } if(!isDark) {
-        document.body.classList.remove('dark-mode');
-        document.documentElement.style.setProperty('color', 'black');
-        document.documentElement.style.setProperty('--background-color', 'whitesmoke');
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].classList.remove("dark-mode");
-        }
-        sessionStorage.setItem("darkMode", "disabled");
-    }
-    isDark = !isDark;
-
-}
-
-window.addEventListener('popstate', function(event) {
-    if (sessionStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add('dark-mode');
-        document.documentElement.style.setProperty('color', 'white');
-        document.documentElement.style.setProperty('--background-color',  '#252323');
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].classList.add("dark-mode");
-        }
-        isDark = true;
-    }
-})
-
-
-$(document).ready(function(){
-    if(darkModeValue === "enabled") {
-        isDark = true;
-        darkMode();
-    }if(darkModeValue === "disabled"){
-        isDark = false;
-        darkMode();
-    }
-})
 
 
 /**

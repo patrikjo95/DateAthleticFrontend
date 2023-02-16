@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../javaScript/min-profil.js"></script>
     <script src="../javaScript/formAndmin-profil.js"></script>
+            <script src="../javaScript/darkmode.js"></script>
 
 
     <meta charset="UTF-8">
@@ -27,9 +28,7 @@
 <body>
 <!---Meny-->
 <nav class="navbar">
-    <div class="logo">Date<span class="text"><span class="tecken">|</span>
-            Athletic</span></div>
-
+    <div class="logo" id="Date">Date<span class="text"><span class="tecken">|</span> Athletic</span></div>
     <div class="min-profil">
         <div class="profil-btn" onclick="toggle()">
             <div class="profil-img"></div>
@@ -48,42 +47,39 @@
                     Matchningar
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="../html/min-profil.html">
                     <i class="fa-regular fa-user"></i>
                     Min profil
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="#">
                     <i class="fa-regular fa-envelope"></i>
                     Meddelande
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="../html/settings.html">
                     <i class="fa-solid fa-sliders"></i>
-                    Konto- Inställningar
+                    Konto-Inställningar
                 </a>
             </li>
             <li class="dropdown-li">
                 <a href="../html/search.html">
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
                     Sök medlemmar
                 </a>
             </li>
             <li class="dropdown-li">
                 <a onclick="darkMode()">
-                    <i class="material-symbols-outlined">settings_night_sight</i>
-                    Dark Mode
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    Dark-Mode
                 </a>
             </li>
             <hr>
             <li class="dropdown-li">
-                <a href="#">
+                <a onclick="logout()">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     Log out
                 </a>
@@ -127,7 +123,7 @@
 </div>
 
 
-<form class="settings">
+<form class="settings" id="settings">
 
     <input type="text" name="förnamn" placeholder="Förnamn" class="first" required>
     <input type="text" name="efternamn" placeholder="Efternamn" class="first" required>
@@ -188,6 +184,7 @@
 
 
 <script src="../javaScript/profil.js"></script>
+<script src="../javaScript/logout.js"></script>
 
 </body>
 

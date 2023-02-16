@@ -33,48 +33,51 @@
 
       <!--Dropdown meny-->
 
-      <ul class="dropdown-ul">
+        <ul class="dropdown-ul">
           <li class="dropdown-li">
-              <a href="#">
-                  <i class="fa-solid fa-check"></i>
-                  Matchningar
-              </a>
+            <a href="#">
+              <i class="fa-solid fa-check"></i>
+              Matchningar
+            </a>
           </li>
-
           <li class="dropdown-li">
-              <a href="../html/min-profil.html">
-                  <i class="fa-regular fa-user"></i>
-                  Min profil
-              </a>
+            <a href="../html/min-profil.html">
+              <i class="fa-regular fa-user"></i>
+              Min profil
+            </a>
           </li>
-
           <li class="dropdown-li">
-              <a href="#">
-                  <i class="fa-regular fa-envelope"></i>
-                  Meddelande
-              </a>
+            <a href="#">
+              <i class="fa-regular fa-envelope"></i>
+              Meddelande
+            </a>
           </li>
-
           <li class="dropdown-li">
-              <a href="../html/settings.html">
-                  <i class="fa-solid fa-sliders"></i>
-                  Konto- Inställningar
-              </a>
+            <a href="../html/settings.html">
+              <i class="fa-solid fa-sliders"></i>
+              Konto-Inställningar
+            </a>
           </li>
           <li class="dropdown-li">
             <a href="../html/search.html">
               <i class="fa-solid fa-magnifying-glass"></i>
-                Sök medlemmar
+              Sök medlemmar
             </a>
-        </li>
+          </li>
+          <li class="dropdown-li">
+            <a onclick="darkMode()">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+              Dark-Mode
+            </a>
+          </li>
           <hr>
           <li class="dropdown-li">
-              <a onclick="logout()">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Log out
-              </a>
+            <a onclick="logout()">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Log out
+            </a>
           </li>
-      </ul>
+        </ul>
   </div>
 </nav>
 </section>
@@ -115,8 +118,8 @@
        <div class="img">
         <img src="../img/person1.jpg" alt="" id="IMG" class="IMG">
         <h3>Bio</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, enim.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque minima quasi sit, odit soluta dolorem expedita possimus ut eaque doloremque.</p>
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, enim.</p>
+        <p class="lorem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque minima quasi sit, odit soluta dolorem expedita possimus ut eaque doloremque.</p>
        </div>
        <div class="all_img" id="all_imgs">
        <img src="../img/person1.jpg" alt="" onclick="img1(this)">
@@ -139,5 +142,9 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../javaScript/darkmode.js"></script>
+    <script src="../javaScript/logout.js"></script>
   </body>
 </html>

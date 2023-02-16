@@ -1,5 +1,4 @@
 const form = document.getElementById("loginid")
-
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const loginDTO = {

@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../CSS/loginPage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src = "../javaScript/darkmode.js"></script>
     <script src="../javaScript/formAndmin-profil.js"></script>
     <script src="../javaScript/startsidan.js"></script>
 </head>
@@ -34,11 +38,11 @@
 <div id="modalBodyBackdrop" onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" style="display: none;">
     <div id="modal-body"  style="display: none;">
         <button onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" id="close-button" class="close-button">X</button>
-        <iframe src="form.html" ></iframe>
+        <iframe id="reg" src="form.html" ></iframe>
     </div>
 </div>
 
-<div class="container">
+<div id="containerlogin">
     <h2> Logga in </h2>
     <form id="loginid" class="loginForm">
         <label for="username"></label>

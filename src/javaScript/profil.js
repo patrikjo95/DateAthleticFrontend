@@ -38,9 +38,10 @@ fetch('http://localhost:8080/user/profile/', {
        var rawInfo = JSON.stringify(data)
        var info = JSON.parse(rawInfo)
        console.log(info);
-       name.textContent = data.firstname
-       username.textContent = data.username
-       bio.textContent = data.bio       
-       
-       profilePic.src = "/" + info.imagePath[0]
+       if(data.firstname){
+        name.textContent = data.firstname
+        username.textContent = data.username
+        bio.textContent = data.bio  
+        profilePic.src = "/" + info.imagePath[0]    
+       }   
       })
