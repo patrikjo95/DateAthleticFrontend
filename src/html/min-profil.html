@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="../CSS/min-profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Min sida</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="../javaScript/darkmode.js"></script>
 </head>
 
 <body>
 <!---Meny-->
 <nav class="navbar">
-    <div class="logo">Date<span class="text"><span class="tecken">|</span>
-            Athletic</span></div>
+    <div class="logo" id="Date">Date<span class="text"><span class="tecken">|</span > Athletic</span></div>
 
     <div class="min-profil">
         <div class="profil-btn" onclick="toggle()">
@@ -33,25 +36,34 @@
                     Matchningar
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="#">
                     <i class="fa-regular fa-user"></i>
                     Min profil
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="../html/chat-startsida.html">
                     <i class="fa-regular fa-envelope"></i>
                     Chattrum
                 </a>
             </li>
-
             <li class="dropdown-li">
                 <a href="../html/settings.html">
                     <i class="fa-solid fa-sliders"></i>
-                    Konto- Inställningar
+                    Konto-Inställningar
+                </a>
+            </li>
+            <li class="dropdown-li">
+                <a href="../html/search.html">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                        Sök medlemmar
+                    </a>
+            </li>
+            <li class="dropdown-li">
+                <a onclick="darkMode()">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    Dark-Mode
                 </a>
             </li>
             <hr>

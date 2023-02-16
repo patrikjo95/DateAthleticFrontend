@@ -9,8 +9,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://kit.fontawesome.com/7dff18c79c.js" crossorigin="anonymous"></script>
     <script src="../javaScript/startsidan.js"></script>
-    <!--<script src="../javaScript/form_fetch.js"></script>-->
-
+    <script src="../javaScript/darkmode.js"></script>
 
 
     <link rel="stylesheet" href="../CSS/startsida.css">
@@ -46,7 +45,7 @@
         <div id="modalBodyBackdrop" onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" style="display: none;">
     <div id="modal-body"  style="display: none">
         <button onclick="document.getElementById('modal-body').style.display= 'none' ; document.getElementById('modalBodyBackdrop').style.display= 'none'" id="close-button" class="close-button">X</button>
-        <iframe src="form.html" ></iframe>
+        <iframe id="reg" src="form.html" ></iframe>
 
     </div>
         </div>
@@ -62,7 +61,7 @@
             <li class="listItem">Startsida</li>
           <li class="listItem"><a href="../html/contact.html">Kontakta Oss</a></li>
             <li class="listItem">Om oss</li>
-          <li id="dark-mode" onclick="darkMode()" class="listItem"><i class="fa-solid fa-circle-half-stroke"></i></li>
+          <li id="dark-mode" onclick="darkMode()" class="listItem"><i class="fa-solid fa-circle-half-stroke"></i> Dark-mode</li>
           <li class="listItem"><a href="../html/loginPage.html" id="hide-loginBtn">Logga in</a></li>
         </ul>
     </div>

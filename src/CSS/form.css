@@ -10,7 +10,7 @@
 
 }
 
-.dark-mode{ !important;
+.dark-mode{ 
     color: white;
 }
 
@@ -443,7 +443,7 @@ input:focus {
     text-shadow: 0 0 10px orange;
 }
 #containerBild .foto:first-child{
- box-shadow: 0 0 10px 5px #cd6832;
+box-shadow: 0 0 10px 5px #cd6832;
 }
 
 

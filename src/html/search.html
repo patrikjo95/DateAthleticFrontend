@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../CSS/search.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Sök medlemmar</title>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="../javaScript/darkmode.js"></script>
 </head>
 <body>
   <section>
@@ -27,42 +32,51 @@
 
       <!--Dropdown meny-->
 
-      <ul class="dropdown-ul">
+        <ul class="dropdown-ul">
           <li class="dropdown-li">
-              <a href="../html/swipe1.html">
-                  <i class="fa-solid fa-check"></i>
-                  Matchningar
-              </a>
+            <a href="../html/swipe1.html">
+              <i class="fa-solid fa-check"></i>
+              Matchningar
+            </a>
           </li>
-
           <li class="dropdown-li">
-              <a href="#">
-                  <i class="fa-regular fa-user"></i>
-                  Min profil
-              </a>
+            <a href="../html/min-profil.html">
+              <i class="fa-regular fa-user"></i>
+              Min profil
+            </a>
           </li>
-
           <li class="dropdown-li">
               <a href="../html/chat-startsida.html">
                   <i class="fa-regular fa-envelope"></i>
                   Chattrum
               </a>
           </li>
-
           <li class="dropdown-li">
-              <a href="../html/settings.html">
-                  <i class="fa-solid fa-sliders"></i>
-                  Konto- Inställningar
-              </a>
+            <a href="../html/settings.html">
+              <i class="fa-solid fa-sliders"></i>
+              Konto-Inställningar
+            </a>
+          </li>
+          <li class="dropdown-li">
+            <a href="#">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              Sök medlemmar
+            </a>
+          </li>
+          <li class="dropdown-li">
+            <a onclick="darkMode()">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+              Dark-Mode
+            </a>
           </li>
           <hr>
           <li class="dropdown-li">
-              <a onclick="logout()">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Log out
-              </a>
+            <a onclick="logout()">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Log out
+            </a>
           </li>
-      </ul>
+        </ul>
   </div>
 </nav>
 </section>
@@ -93,5 +107,6 @@
   
   <script src="../javaScript/search.js"></script>
     <script src="../javaScript/profil.js"></script>
+    <script src="../javaScript/logout.js"></script>
 </body>
 </html>
