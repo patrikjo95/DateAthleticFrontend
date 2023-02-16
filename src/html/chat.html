@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/chat2.css">
+</head>
+<body>
+
+
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i>Date | Athletic</h1>
+      <a href="../html/chat-startsida.html" class="btn">Lämna chatten</a>
+    </header>
+   
+					
+    <div class="chat-form-container">
+      <div id="messages"></div>
+      <form id="chat">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Skriv ditt meddelande här"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i> Skicka</button>
+      </form>
+    </div>
+  </div>
+ 
+
+
+
+  
+    <script>
+        function showMessage(text,isMine = false) {
+          document.getElementById("messages").innerHTML += `
+            <div class="message-row ${isMine?'mine':'theirs'}">
+                <div class="bubble">${text}</div>
+            </div>
+          `;
+        }
+        const ws = new WebSocket('ws://localhost:5501');
+        ws.addEventListener('message', ev => {
+          ev.data.text().then(showMessage);
+        });
+        document.querySelector('form').onsubmit = ev => {
+          ev.preventDefault();
+          const input = document.querySelector('input');
+          ws.send(input.value);
+          showMessage(input.value, true);
+          input.value = '';
+        }
+    </script>
+   <script src="/server.js"></script>
+   <script src="../javaScript/profil.js"></script>
+</body>
+</html>
